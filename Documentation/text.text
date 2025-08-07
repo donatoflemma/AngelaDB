@@ -1,0 +1,41 @@
+
+/* 
+Redirect (Location)
+
+header("Location: pagina.html");
+exit();
+
+-Reindirizza il browser a un’altra pagina
+-exit() è consigliato per fermare lo script
+-------------------------------------------------
+Content-Type
+
+header("Content-Type: text/html");         // HTML
+header("Content-Type: application/json");  // JSON
+header("Content-Type: text/plain");        // Testo semplice
+
+-Specifica il tipo di contenuto che il browser deve aspettarsi
+-Fondamentale per API e file
+--------------------------------------------------------------
+Forzare il download di un file
+
+header("Content-Disposition: attachment; filename=\"file.txt\"");
+header("Content-Type: application/octet-stream");
+readfile("file.txt");
+exit();
+
+-Fa partire il download del file
+-Puoi usarlo per PDF, immagini, CSV, ecc.
+-------------------------------------------------------------
+!!!!!!!!!!Regole importanti!!!!!!!!!!!!
+ ----------------------------------------------------------------
+Nessun output prima di header() (neanche uno spazio!)
+
+Usa exit() dopo Location per evitare esecuzione indesiderata
+
+Puoi usare più header() nello stesso script
+
+*/ //$nome = $_POST["username"];
+//$password = $_POST["pwd"];
+//echo "username :  $nome<\b>";
+//echo "Password: $password";
