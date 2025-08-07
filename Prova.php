@@ -4,5 +4,5 @@
 header("html.html");
 echo "username :  $nome<\b>";
 echo "Password: $password";
-fdgfd
+
 ?>
