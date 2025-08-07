@@ -1,0 +1,16 @@
+body{
+    background-color: rosybrown;
+}
+#logo{
+    max-width: 60px;
+    max-height: 100px;
+}
+#Tabelle {
+    position: fixed;
+    display: flex;
+    width: 550px;
+    height: 250px;
+    background-color: aliceblue;
+    margin: 20px;
+        
+}
