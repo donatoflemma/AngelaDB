@@ -1,0 +1,38 @@
+    INSERT
+$stmt = $conn->prepare("INSERT INTO utenti (nome, email) VALUES (?, ?)");
+$stmt->bind_param("ss", $nome, $email);    ss == str,str
+$stmt->execute();    esegue la query
+--------------------------------------
+    SELECT
+$sql = "SELECT id, nome, email FROM utenti";
+$result = $conn->query($sql);       esegue la query 
+
+if ($result->num_rows > 0) {
+    while($row = $result->fetch_assoc()) {  legge ogni riga come array associativo ($row['nome'])
+        echo "ID: " . $row["id"] . " - Nome: " . $row["nome"] . " - Email: " . $row["email"] . "<br>";
+    }
+} else {
+    echo "0 risultati";
+}
+---------------------------------------------------
+    UPDATE
+$stmt = $conn->prepare("UPDATE utenti SET email = ? WHERE id = ?");
+$stmt->bind_param("si", $nuovaEmail, $id);      si == str,int
+$stmt->execute();
+---------------------------------------------------
+    DELETE
+$stmt = $conn->prepare("DELETE FROM utenti WHERE id = ?");
+$stmt->bind_param("i", $id);
+$stmt->execute();
+
+
+!!!!!!!!!!!!!!!!!! IMPORTANTE !!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+    Note importanti:
+
+    Con prepare() e bind_param() eviti SQL injection
+
+    Sempre chiudere lo statement con $stmt->close() e la connessione con $conn->close()
+
+
+    15 16 18 19 22 23 24  6 13 

@@ -39,3 +39,106 @@ Puoi usare più header() nello stesso script
 //$password = $_POST["pwd"];
 //echo "username :  $nome<\b>";
 //echo "Password: $password";
+
+
+isset()
+
+    -Serve a verificare se una variabile esiste ed è diversa da null.
+    -È molto utile per evitare errori o avvisi quando accedi a chiavi 
+     di array che potrebbero non esserci (come $_POST["username"]).
+
+<?php
+if (isset($_POST["username"]) && !empty($_POST["username"])) {
+    $username = $_POST["username"];
+    echo "Ciao, $username";
+} else {
+    echo "Inserire nome";
+}
+?>
+
+
+Partiamo dalla connessione:
+
+PHP usa estensioni come mysqli o PDO per parlare con MySQL.
+
+
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "nome_database";
+
+// Crea connessione
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Controlla connessione
+if ($conn->connect_error) {
+    die("Connessione fallita: " . $conn->connect_error);
+}
+echo "Connessione riuscita!";
+?>
+---------------------------------------------------------------------
+
+ CONNESSIONE CON SQL BASE 
+ <?php
+$host = "localhost";
+$user = "root";      // tuo utente MySQL
+$pass = "";          // tua password MySQL
+$db   = "miodatabase";
+
+$conn = new mysqli($host, $user, $pass, $db);
+
+if ($conn->connect_error) {
+    die("Connessione fallita: " . $conn->connect_error);
+    /*In PHP, die() è una funzione molto semplice:
+    Ferma immediatamente l’esecuzione dello script.
+    Può stampare un messaggio prima di fermarsi.*/
+}
+
+echo "Connessione riuscita!";
+?>
+
+----------------------------------------------
+ACCESSO alle proprietá e metodi di un Ogetto in PHP 
+In Java useresti:
+conn.connectError;
+
+mentre in PHP per gli oggetti si usa:
+$conn->connect_error;
+-----------------------------------------------
+<?php
+// 1. Connessione
+$host = "localhost";
+$user = "root";
+$pass = "";
+$db   = "miodatabase";
+
+$conn = new mysqli($host, $user, $pass, $db);
+if ($conn->connect_error) {
+    die("Connessione fallita: " . $conn->connect_error);
+}
+
+// 2. Prendere i dati dal POST
+$nome  = $_POST['nome'];
+$email = $_POST['email'];
+
+// 3. Preparare la query (uso ? per sicurezza)
+$stmt = $conn->prepare("INSERT INTO utenti (nome, email) VALUES (?, ?)");
+$stmt->bind_param("ss", $nome, $email);
+
+// 4. Eseguire
+if ($stmt->execute()) {
+    echo "Nuovo record inserito con successo!";
+} else {
+    echo "Errore: " . $stmt->error;
+}
+
+// 5. Chiudere
+$stmt->close();
+$conn->close();
+?>
+$_POST['nome'] → prende il valore dal form
+
+prepare(...) e bind_param(...) → proteggono da SQL injection
+
+"ss" → significa “due stringhe” (string, string)
