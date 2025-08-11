@@ -1,16 +1,48 @@
 body{
     background-color: rosybrown;
+     
 }
-#logo{
+.topnav{
+    position: fixed;
+}
+
+#panificio{
     max-width: 60px;
     max-height: 100px;
 }
-#Tabelle {
-    position: fixed;
-    display: flex;
-    width: 550px;
-    height: 250px;
+#conteiner{
+    display: grid;
+    grid-template-columns:1fr 1fr 1fr; ;
+    gap: 10px;
+     padding-left: 60px;
+   
+}
+.box{
+    display: flex;            /* attiva Flexbox */
+    flex-direction: column;   /* mette gli elementi in colonna */
+    align-items: center;
+    justify-content: center;
+    height: 250px; 
+    width: 120px;       /* altezza minima del contenitore */
     background-color: aliceblue;
-    margin: 20px;
-        
+    border: 2px solid black;
+    border-radius: 20px;
+    padding: 10px;
+    padding-left: 30px;
+    padding-bottom: 10px;
+
+}
+.Prezzo{
+    margin-left: 25px;
+}
+p{
+    margin-left: 6px;
+
+}
+button{
+    margin-left: 20px;
+}
+.immagine{
+    max-width: 100px;
+    max-height: 100px;
 }

@@ -139,3 +139,40 @@ $_POST['nome'] → prende il valore dal form
 prepare(...) e bind_param(...) → proteggono da SQL injection
 
 "ss" → significa “due stringhe” (string, string)
+
+Panino Bianco – €0,80
+Pane bianco morbido da tavola
+
+Panino Integrale – €0,90
+Pane integrale ricco di fibre
+
+Panino ai Semi – €1,00
+Pane con semi misti croccanti
+
+Panino di Segale – €0,95
+Pane scuro dal gusto intenso
+
+Panino alla Ciabatta – €1,10
+Pane rustico a lievitazione lenta
+
+Panino al Mais – €0,90sdcddf
+Pane dorato con farina di mais
+
+Panino Baguette – €1,20
+Pane francese lungo e croccante
+
+Panino al Latte – €0,85
+Pane soffice dal gusto delicato
+
+Panino al Malto – €1,00
+Pane dal sapore dolce e aromatico
+
+Panino Croccante – €0,80
+Pane con crosta dorata e dura
+
+Panino Senza Glutine – €1,50
+Pane speciale per celiaci certificato
+
+Panino all’Orzo – €0,95
+Pane aromatico con farina d’orzo
+ 
