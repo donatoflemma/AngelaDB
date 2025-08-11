@@ -35,10 +35,7 @@ Usa exit() dopo Location per evitare esecuzione indesiderata
 
 Puoi usare più header() nello stesso script
 
-*/ //$nome = $_POST["username"];
-//$password = $_POST["pwd"];
-//echo "username :  $nome<\b>";
-//echo "Password: $password";
+
 
 
 isset()
