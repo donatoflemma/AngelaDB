@@ -1,0 +1,20 @@
+
+# Disattiva la visualizzazione dell'indice delle cartelle
+Options -Indexes
+
+# Imposta la codifica UTF-8
+AddDefaultCharset UTF-8
+
+# Gestione degli errori personalizzati (se hai queste pagine)
+ErrorDocument 404 /404.html
+ErrorDocument 500 /500.html
+
+# Protezione base contro accessi diretti a file sensibili
+<FilesMatch "(\.htaccess|\.env|\.ini|\.log|\.sql)">
+  Require all denied
+</FilesMatch>
+
+# Abilita la compressione GZIP (se disponibile)
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/javascript
+</IfModule>
