@@ -1,3 +1,4 @@
+<?php include 'sqlValori.php'; ?> 
 <!DOCTYPE html>
 <html>
 
@@ -19,6 +20,19 @@
       <a href="#about">About</a>
     </div>
 
+    <?php
+      $sql = "SELECT Name, Prezzo FROM Prodotti";
+      $result = $conn->query($sql); // esegue la query 
+
+      if ($result->num_rows > 0) {
+          while($row = $result->fetch_assoc()) { // legge ogni riga come array associativo
+            echo "Nome: " . $row["Name"] . " - Prezzo: " . $row["Prezzo"] . "<br>";
+          }
+      } else {
+          echo "0 risultati";
+      }
+    ?>
+<!--
     <div id="conteiner">
       <div class="box">
         <form method="GET" action="">
@@ -153,7 +167,7 @@
       </div>
 
     </div> 
-    
+-->
 </body>
 
 </html>
