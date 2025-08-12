@@ -17,6 +17,7 @@ body{
      padding-left: 60px;
    
 }
+
 .box{
     display: flex;            /* attiva Flexbox */
     flex-direction: column;   /* mette gli elementi in colonna */

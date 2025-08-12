@@ -12,22 +12,64 @@
 </head>
 
 <body>
-  <div class="topnav">
+
+  <!--<div class="topnav">
     <img src="./Documentation/img/Panificio.png" id="panificio" alt="immagine non trovata ">
     <a class="active" href="#home">Home</a>
     <a href="#news">News</a>
     <a href="#contact">Contact</a>
     <a href="#about">About</a>
-  </div>
+  </div>-->
+  <form action="index.php" method="get">
+    <input type="text" name="table">
+    <input type="submit" value="surch">
+  </form>
 
   <?php
-  $sql = "SELECT Name, Prezzo FROM Prodotti";
+  $table = $_GET["table"];
+  //echo "$table";
+  $sql = "SELECT * FROM $table";
   $result = $conn->query($sql); // esegue la query 
   
   if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) { // legge ogni riga come array associativo
-      echo "Nome: " . $row["Name"] . " - Prezzo: " . $row["Prezzo"] . "<br>";
+    echo "<table border= '1'>";
+    //echo "<tr><td>Name</td><td>Prezzo</td></tr>";
+    //while ($row = $result->fetch_assoc()) { // legge ogni riga come array associativo
+    switch ($table) {
+      case "Dipendenti":
+        echo "<label> Dipendenti </label>";
+        echo "<tr><td>Cognome</td><td>Nome</td><td>Stipendio</td><td>Vacanze</td></tr>";
+        while ($row = $result->fetch_assoc()) {
+          echo "<tr><td>" . $row["Cognome"] . "</td><td>" . $row["Nome"] . "</td>
+                <td>" . $row["Stipendio"] . "</td><td>" . $row["Vacanze"] . "</td></tr>";
+        }
+        break;
+      case "Fornitori":
+        echo "<label> Fornitori </label>";
+        echo "<tr><td>Name</td><td>Telefono</td></tr>";
+        while ($row = $result->fetch_assoc()) {
+          echo "<tr><td>" . $row["Name"] . "</td><td>" . $row["Telefono"] . "</td></tr>";
+        }
+        break;
+      case "Categoria":
+        echo "<label> Categoria </label>";
+        echo "<tr><td>Name</td></tr>";
+        while ($row = $result->fetch_assoc()) {
+          echo "<tr><td>" . $row["Name"] . "</td></tr>";
+        }
+        break;
+      case "Prodotti":
+        echo "<label> Prodotti </label>";
+        echo "<tr><td>Name</td><td>Prezzo</td></tr>";
+        while ($row = $result->fetch_assoc()) {
+          echo "<tr><td>" . $row["Name"] . "</td><td>" . $row["Prezzo"] . "</td></tr>";
+        }
+        break;
     }
+    //echo "Nome: " . $row["Name"] . " - Prezzo: " . $row["Prezzo"] . "<br>";
+    //echo "<tr><td>" . $row["Name"] . "</td><td>" . $row["Prezzo"] . "</td></tr>";
+    //}
+    echo "</table>";
   } else {
     echo "0 risultati";
   }
