@@ -1,0 +1,2 @@
+File per test e debug    Script di prova, file per PHPUnit o Postman, 
+pagine di test connessione DB.

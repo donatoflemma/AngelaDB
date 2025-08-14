@@ -1,0 +1,26 @@
+/project-dbms
+│
+├── /backend              # Codice lato server
+│   ├── config.php        # Configurazione DB
+│   ├── db_connect.php    # Connessione al DB
+│   ├── login.php         # Script login
+│   ├── crud/             # Create, Read, Update, Delete
+│   │   ├── create.php
+│   │   ├── read.php
+│   │   ├── update.php
+│   │   └── delete.php
+│   └── api/              # API REST (se usi)
+│
+├── /frontend             # Codice lato client
+│   ├── index.html        # Home page
+│   ├── login.html        # Login
+│   ├── dashboard.html    # Interfaccia DB
+│   ├── css/
+│   │   └── style.css     # Stile
+│   ├── js/
+│   │   └── script.js     # Funzioni JS
+│   └── img/              # Immagini
+│
+├── /docs                 # Documentazione e diagrammi
+│
+└── /tests                # File per test e debug

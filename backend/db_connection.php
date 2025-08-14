@@ -1,0 +1,1 @@
+/*Script che apre la connessione al DB usando config.php.*/
