@@ -1,3 +1,6 @@
+  
+  http://localhost/DBMS/frontend/index.html
+  
     INSERT
 $stmt = $conn->prepare("INSERT INTO utenti (nome, email) VALUES (?, ?)");
 $stmt->bind_param("ss", $nome, $email);    ss == str,str
