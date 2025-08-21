@@ -25,12 +25,12 @@ body {
 
 #topnav .links {
     display: flex;
-    gap: 50px;   /* distanza tra link */
+    gap: 20px;   /* distanza tra link */
 }
 
 #topnav .links a {
     text-decoration: none;
-    color: #333;   /* grigio scuro che sta bene con rosa */
+    color: #afa3a3;   /* grigio scuro che sta bene con rosa */
     font-weight: 500;
     margin-left: 50px;
 }
