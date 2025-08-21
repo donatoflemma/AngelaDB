@@ -4,40 +4,6 @@ body {
 
 }
 
-#topnav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 60px;
-    width: 100%;
-    background-color: #5179a2;   /* bianco sporco */
-    display: flex;
-    justify-content:space-between; /* logo a sinistra, link a destra */
-    align-items: center;
-    padding: 0 20px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* piccola ombra */
-
-}
-
-#topnav .logo {
-    height: 45px; /* regola la dimensione */
-}
-
-#topnav .links {
-    display: flex;
-    gap: 20px;   /* distanza tra link */
-}
-
-#topnav .links a {
-    text-decoration: none;
-    color: #afa3a3;   /* grigio scuro che sta bene con rosa */
-    font-weight: 500;
-    margin-left: 50px;
-}
-
-
-
-
 #panificio {
     max-width: 60px;
     max-height: 100px;
