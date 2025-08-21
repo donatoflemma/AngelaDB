@@ -11,7 +11,7 @@ topnav('Delete'); ?>
     <input type="submit" value="surch">
 </form>
 
-<?php include '../backend/Query_SQL/delete.php' ?>
+<?php include '../backend/Query_SQL/checkbox_table.php' ?>
 
 
 
