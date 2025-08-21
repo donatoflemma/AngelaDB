@@ -1,19 +1,19 @@
 <?php include '../backend/api/db_connection.php'; ?>
 <?php include './include/header.php';
-NamePage("Home"); ?>
+NamePage("Delete"); ?>
 <?php include './include/topnav.php';
-topnav('Home'); ?>
+topnav('Delete'); ?>
 
-<div id="table">
-  <form action="Home.php" method="GET">
+
+<form action="Delete.php" method="GET">
+    <label>Wählen Sie eine Tabelle aus</label><br>
     <input type="text" name="table">
     <input type="submit" value="surch">
-  </form>
+</form>
 
-  <?php include '../backend/Query_SQL/Select_table.php';
-  //Select("table"); ?>
+<?php include '../backend/Query_SQL/delete.php' ?>
 
 
-</div>
+
 
 <?php include "./include/footer.php" ?>

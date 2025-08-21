@@ -20,4 +20,4 @@ if (isset($_POST["username"]) && isset($_POST["pwd"])) { // per vedere se esisto
     }
 }
 ?>
-//http://localhost/Log-in/Prova.php
+//http://localhost/DBMS/backend/index.html
