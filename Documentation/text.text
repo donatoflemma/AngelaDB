@@ -106,16 +106,7 @@ mentre in PHP per gli oggetti si usa:
 $conn->connect_error;
 -----------------------------------------------
 <?php
-// 1. Connessione
-$host = "localhost";
-$user = "root";
-$pass = "";
-$db   = "miodatabase";
 
-$conn = new mysqli($host, $user, $pass, $db);
-if ($conn->connect_error) {
-    die("Connessione fallita: " . $conn->connect_error);
-}
 
 // 2. Prendere i dati dal POST
 $nome  = $_POST['nome'];

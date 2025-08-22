@@ -1,18 +1,32 @@
 <?php
+include "../api/db_connection.php";
 include "../../frontend/include/header.php";
-echo "<h1>DONE!!</h1>";
-//DELETE
+NamePage("delete");
 
-//DELETE
-//$stmt = $conn->prepare("DELETE FROM utenti WHERE id = ?");
-//$stmt->bind_param("i", $id);
-//$stmt->execute();*/
 include "../../frontend/include/footer.php";
-?>
-<?php
-//$table = $_POST["nameTable"];
-//$stmt = $conn->prepare("DELETE FROM $table WHERE id = ?");// non so se lasciare l´´id perche il cliente non sa 
-// cosa mettere 
-//$stmt->bind_param("i", $id);// cambiare anche questo perche puo essere anche un STRING
-//$stmt->execute();
-?>
+
+$array = ['Dipendenti', 'Categoria', 'Fornitori', 'Prodotti', 'Ordini', 'Vendite'];
+foreach ($array as $name) {
+    if (isset($_POST[$name])) {
+        $values = $_POST[$name];
+        if (!empty($values)) {
+            $id_counter = 0;
+
+            foreach ($values as $item) {
+                $id_counter++;
+
+                echo 'valore= ' . $item . '<br>';
+
+                //$stmt = $conn->prepare("DELETE FROM utenti WHERE id IN (?, ?, ?, ?)");
+                //$stmt->bind_param("iiii", $id1, $id2, $id3, $id4);
+                // ora capire come funziona per eliminare perche devo capire anche quanti ? o quelli di sotto inserire 
+                //$stmt->execute();
+                //"i" = integer, "s" = string, "d" = double, "b" = blob.
+            }
+
+        } else {
+            echo 'Array vuoto!';
+        }
+    }
+
+} ?>
