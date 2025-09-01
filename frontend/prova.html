@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Prova Bootstramp</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- LINK PER IL PACHETTO CSS DI BOOSTRAP-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" 
+        rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" 
+        crossorigin="anonymous">
+    </head>
+    <body >
+        <div class="container" style= "background-color:red" >
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, 
+            sed diam nonumy eirmod tempor invidunt ut labore et dolore 
+            magna aliquyam erat, sed diam voluptua. At vero eos et accusam 
+            et justo duo dolores et ea rebum. Stet clita kasd gubergren, 
+            no sea takimata sanctus est Lorem ipsum dolor sit amet. 
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, 
+            sed diam nonumy eirmod tempor invidunt ut labore et dolore 
+            magna aliquyam erat, sed diam voluptua. At vero eos et accusam 
+            et justo duo dolores et ea rebum. Stet clita kasd gubergren, 
+            no sea takimata sanctus est Lorem ipsum dolor sit amet.
+        </div>
+        <!--Bootstramp per quanto riguarda le grid funziona coni flexbox di CSS-->
+        <div class="container-fluid text-center">
+            <div class="row"><!--Serve per determinare le righe come per le colonne con-->
+                <div class="col-12" style="background-color: brown;"><!--col-12 prende tutto lo spazio designato 
+                    tutte le div vengono suddivise in 12 colonne-->
+                    Column
+                </div>
+            </div>
+        </div>
+        <div class="container"><!--Vedi la differenza che lascia spazio invece di fluid-->
+            <div class="row">
+                <div class="col-12 col-lg-10 col-xl-6" style="background-color: yellow;">
+                        Column
+                </div>
+                <!--Notare questi col uno dietro l´altro sono semplicemente 
+                le formattazioni delle dimensioni in base alla dimensioni dello schermo 
+                la dimensione piu piccola avre una sotto l´altra perche le col hanno 12
+                e quindi coprono lo spazio massimo
+                ricordati di pensarlo sempre dal piu piccolo al piu grande per farlo responsive 
+                ############## TESTO PROVA scrivere Lorem######################################
+                per lo spazio ci sta la possibilitá di usare gutter o padding
+                1:31:52
+                corso Boostramp introduttivo da 3 ore-->
+                <div class="col-12 col-lg-2 col-xl-6" style="background-color:blue;">
+                        Column
+                </div>
+                
+            </div>
+        </div>
+       
+        
+        <!-- LINK PER IL PACHETTO JAVASCRIPT DI BOOSTRAP-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" 
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" 
+        crossorigin="anonymous"></script>
+  </body>
+    </body>
+</html>
