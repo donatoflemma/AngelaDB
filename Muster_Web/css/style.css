@@ -1,72 +1,16 @@
-body {
-    
-    background-color: rosybrown;
-
+body{
+background-color: antiquewhite;
+}
+nav{
+margin-bottom:20hv;
+}	
+#FirstH1{
+margin-top:20vh;
+}
+#card{
+width:100%;
+}
+.imgCard{
+height: 100%;  
 }
 
-#topnav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 60px;
-    width: 100%;
-    background-color: #171e25;   /* bianco sporco */
-    display: flex;
-    justify-content:space-between; /* logo a sinistra, link a destra */
-    align-items: center;
-    padding: 0 40px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* piccola ombra */
-
-}
-
-#topnav .logo {
-    height: 45px; /* regola la dimensione */
-}
-
-#topnav .links {
-    display: flex;
-    gap: 50px;   /* distanza tra link */
-}
-
-#topnav .links a {
-    text-decoration: none;
-    color: #333;   /* grigio scuro che sta bene con rosa */
-    font-weight: 500;
-    margin-left: 50px;
-}
-
-
-
-
-#panificio {
-    max-width: 60px;
-    max-height: 100px;
-}
-
-#conteiner {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    ;
-    gap: 10px;
-    padding-left: 60px;
-
-}
-
-.box {
-    display: flex;
-    /* attiva Flexbox */
-    flex-direction: column;
-    /* mette gli elementi in colonna */
-    align-items: center;
-    justify-content: center;
-    height: 250px;
-    width: 120px;
-    /* altezza minima del contenitore */
-    background-color: aliceblue;
-    border: 2px solid black;
-    border-radius: 20px;
-    padding: 10px;
-    padding-left: 30px;
-    padding-bottom: 10px;
-
-}
