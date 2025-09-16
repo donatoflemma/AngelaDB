@@ -1,1 +1,0 @@
-/*Parametri di configurazione DB (host, user, password, nome DB).*/
