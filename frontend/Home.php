@@ -1,59 +1,67 @@
-<?php include '../backend/api/db_connection.php'; ?>
-<?php include './include/header.php';
-NamePage("Home"); ?>
+<?php 
+include '../backend/api/db_connection.php'; 
+include '../backend/include/header.php';
+NamePage("Home");
 
-<?php include './include/topnav.php';
-topnav('Home'); ?>
-<div id="table">
-  <form action="Home.php" method="GET">
-    <input type="text" name="table">
-    <input type="submit" value="surch">
-  </form>
-
-<!--
-  DOCUMENTARSI SU BOOSTRAMP
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-        </li>
-      </ul>
-      <form class="d-flex" role="search">
-        
-        <input class="form-control me-2"  type="search" placeholder="Search" aria-label="Search"/>
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
-    </div>
-  </div>
-</nav>
--->
-<?php include '../backend/Query_SQL/Select_table.php';
-//Select("table"); ?>
+include '../backend/include/topnav.php';
+topnav('HomeAdmin');
 
 
-</div>
+echo"<div class='container bg-primary' id='table'>
+      <div class='row tetx-start'>
+        <form  action='Home.php' method='GET'>
+          <input type='text' name='table'>
+          <input type='submit' value='surch'>
+        </form>
+      </div>
+      <div class='row tetx-center '>
+        <div class = 'col-12 col-lg-6 '>";
+         include '../backend/Query_SQL/Select_table.php';
+  echo"</div>
+      <div class = 'row'>
+      
+            <AreaChart width={730} height={250} data={data}
+        margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
+        <defs>
+          <linearGradient id='colorUv' x1='0' y1='0' x2='0' y2='1'>
+            <stop offset='5%' stopColor='#8884d8' stopOpacity={0.8}/>
+            <stop offset='95%' stopColor='#8884d8' stopOpacity={0}/>
+          </linearGradient>
+          <linearGradient id='colorPv' x1='0' y1='0' x2='0' y2='1'>
+            <stop offset='5%' stopColor='#82ca9d' stopOpacity={0.8}/>
+            <stop offset='95%' stopColor='#82ca9d' stopOpacity={0}/>
+          </linearGradient>
+        </defs>
+        <XAxis dataKey='name' />
+        <YAxis />
+        <CartesianGrid strokeDasharray='3 3' />
+        <Tooltip />
+        <Area type='monotone' dataKey='uv' stroke='#8884d8' fillOpacity={1} fill='url(#colorUv)' />
+        <Area type='monotone' dataKey='pv' stroke='#82ca9d' fillOpacity={1} fill='url(#colorPv)' />
+      </AreaChart>
+      
+      
+      
+      
+      
+      </div>
 
-<?php include "./include/footer.php" ?>
+      </div>
+    </div><!-- Chiusura del div container--> 
+    
+    
+      <!--recharts script per usare la libreria direttamente dal browser-->
+    <script src='https://unpkg.com/react/umd/react.production.min.js'></script>
+    <script src='https://unpkg.com/react-dom/umd/react-dom.production.min.js'></script>
+    <script src='https://unpkg.com/prop-types/prop-types.min.js'></script>
+    <script src='https://unpkg.com/recharts/umd/Recharts.js'></script>";
+
+
+
+include './../backend/include/footer.php';
+footerType('1');
+?>
+
+
+
+

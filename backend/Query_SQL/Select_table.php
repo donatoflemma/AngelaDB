@@ -1,11 +1,7 @@
 <?php
-//function Select($table)
-//{
+
 if (isset($_GET['table'])) {
     $table = $_GET['table'];
-
-    //if (isset($_GET[$table])) {
-    //  $table = $_GET["$table"];
 
     if (empty(!$table)) {
         $sql = "SELECT * FROM $table";
@@ -15,67 +11,102 @@ if (isset($_GET['table'])) {
           La chiave nell’array è il nome della variabile senza il $.*/
 
         if ($result->num_rows > 0) {
-            echo "<table border= '1'>";
+            //echo "<table border= '1'>";
 
             switch ($table) {
 
-                case "Dipendenti":
-                    echo "<label> Mitarbeiter </label>";
-                    echo "<tr>
-                            <td>Nachname</td>
-                            <td>Name</td>
-                            <td>Gehalt</td>
-                            <td>Urlaub</td>
-                          </tr>";
+            case "Dipendenti":
+                echo"<h1 class='display-6'><strong>Mitarbeiter</strong></h1> 
+                    <div class='table-responsive' style='max-height:400px; overflow-y:auto;'>
+                          <table class='table  table-light table-striped-columns  table-hover '>
+                            <thead >
+                                <tr>
+                                    <th scope='col'>Mitarbeiter_ID</th>
+                                    <th scope='col'>Nachname</th>
+                                    <th scope='col'>Name</th>
+                                    <th scope='col'>Gehalt</th>
+                                    <th scope='col'>Urlaub</th>
+                                </tr>
+                            </thead>
+                            <tbody class=' table-group-divider'>";
 
                     while ($row = $result->fetch_assoc()) { // legge ogni riga come array associativo
-                        echo "<tr>
+                      
+                            echo"<tr>
+                                <th scope='row'>" . $row["Dipendenti_ID"] . "</th>
                                 <td>" . $row["Cognome"] . "</td>
                                 <td>" . $row["Nome"] . "</td>
                                 <td>" . $row["Stipendio"] . "</td>
                                 <td>" . $row["Vacanze"] . "</td>
-                              </tr>";
+                            </tr>";
                     }
                     break;
 
                 case "Fornitori":
-                    echo "<label> Lieferanten </label>";
-                    echo "<tr>
-                            <td>Name</td>
-                            <td>Telefon</td>
-                          </tr>";
+                    echo"
+                        <h1 class='display-6'><strong>Lieferanten</strong></h1>
+                        <div class='table-responsive' style='max-height:400px; overflow-y:auto;'>
+                          <table class='table table-light table-striped-columns  table-hover'>
+                            <thead >
+                                <tr>
+                                    <th scope='col'>Lieferanten_ID</th>
+                                    <th scope='col'>Name</th>
+                                    <th scope='col'>Telefon</th>
+                                </tr>
+                            </thead>
+                            <tbody class=' table-group-divider'>";
 
                     while ($row = $result->fetch_assoc()) {
+
                         echo "<tr>
+                                <th scope='row'>" . $row["Fornitori_ID"] . "</th>
                                 <td>" . $row["Name"] . "</td>
                                 <td>" . $row["Telefono"] . "</td>
                               </tr>";
-                    }
+                        }
                     break;
 
                 case "Categoria":
-                    echo "<label> Kategorie </label>";
-                    echo "<tr>
-                            <td>Name</td>
-                          </tr>";
+         
+                    echo"
+                        <h1 class='display-6'><strong>Kategorie</strong></h1>
+                        <div class='table-responsive' style='max-height:400px; overflow-y:auto;'>
+                          <table class='table table-light table-striped-columns  table-hover'>
+                            <thead >
+                                    <tr>
+                                        <th scope='col'>Kategorie_ID</th>
+                                        <th scope='col'>Name</th>
+                                    </tr>
+                            </thead>
+                            <tbody class='table-group-divider'>";
 
                     while ($row = $result->fetch_assoc()) {
                         echo "<tr>
+                                <th scope='row'>" . $row["Categoria_ID"] . "</th>
                                 <td>" . $row["Name"] . "</td>
                               </tr>";
                     }
                     break;
 
                 case "Prodotti":
-                    echo "<label> Produkte </label>";
-                    echo "<tr>
-                            <td>Name</td>
-                            <td>Preis</td>
-                            <td>Gewicht</td>
-                          </tr>";
+  
+                    echo" 
+                        <h1 class='display-6'><strong>Produkte</strong></h1>
+                        <div class='table-responsive' style='max-height:400px; overflow-y:auto;'>
+                          <table class='table table-light table-striped-columns  table-hover'>
+                            <thead >
+                                <tr>
+                                <th scope='col'>Produkte_ID</th>
+                                <th scope='col'>Name</th>
+                                <th scope='col'>Preis</th>
+                                <th scope='col'>Gewicht</th>
+                                </tr>
+                            </thead>
+                            <tbody class=' table-group-divider'>";
 
                     while ($row = $result->fetch_assoc()) {
                         echo "<tr>
+                                <th scope='row'>" . $row["Prodotti_ID"] . "</th>
                                 <td>" . $row["Name"] . "</td>
                                 <td>" . $row["Prezzo"] . "€" . "</td>
                                 <td>" . $row["Peso"] . "g" . "</td>
@@ -84,16 +115,25 @@ if (isset($_GET['table'])) {
                     break;
 
                 case "Ordini":
-                        echo "<label> Bestellungen </label>";
-                        echo "<tr>
-                                <td>Datum</td>
-                                <td>Name</td>
-                                <td>Menge</td>
-                                <td>Kosten</td>
-                            </tr>";
+          
+                    echo "  
+                        <h1 class='display-6'><strong>Bestellungen</strong></h1>
+                        <div class='table-responsive' style='max-height:400px; overflow-y:auto;'>
+                            <table class='table table-light table-striped-columns  table-hover'>
+                            <thead >
+                                <tr>
+                                <th scope='col'>Bestellung_ID</th>
+                                <th scope='col'>Datum</th>
+                                <th scope='col'>Name</th>
+                                <th scope='col'>Menge</th>
+                                <th scope='col'>Kosten</th>
+                                </tr>
+                            </thead>
+                            <tbody class=' table-group-divider'>";
 
                     while ($row = $result->fetch_assoc()) {
                         echo "<tr>
+                                <th scope='row'>" . $row["Ordini_ID"] . "</th>
                                 <td>" . $row["Data"] . "</td>
                                 <td>" . $row["Name"]  . "</td>
                                 <td>" . $row["Quantita"] . "</td>
@@ -103,16 +143,26 @@ if (isset($_GET['table'])) {
                     break;
 
                 case "Vendite":
-                        echo "<label> Verkäufe </label>";
-                        echo "<tr>
-                                <td>Name</td>
-                                <td>Datum</td>
-                                <td>Menge</td>
-                                <td>Preis</td>
-                            </tr>";
+
+
+                    echo"   
+                        <h1 class='display-6'><strong>Verkäufe</strong></h1>
+                        <div class='table-responsive' style='max-height:400px; overflow-y:auto;'>
+                            <table class='table table-light table-striped-columns  table-hover'>
+                            <thead >
+                                <tr>
+                                <th scope='col'>Verkauf_ID</th>
+                                <th scope='col'>Name</th>
+                                <th scope='col'>Datum</th>
+                                <th scope='col'>Menge</th>
+                                <th scope='col'>Preis</th>
+                                </tr>
+                            </thead>
+                            <tbody class='table-group-divider'>";
 
                     while ($row = $result->fetch_assoc()) {
                         echo "<tr>
+                                <th scope='row'>" . $row["Vendite_ID"] . "</th>
                                 <td>" . $row["Name"] . "</td>
                                 <td>" . $row["Data"] . "</td>
                                 <td>" . $row["Quantita"]  . "</td>
@@ -121,17 +171,16 @@ if (isset($_GET['table'])) {
                     }
                     break;
                 }
-            echo "</table>";
+            echo      "</tbody>
+                    </table>
+                </div>";
         } else {
-            echo "0 results";
+            echo "<h1 class='display-6'><strong>0 results</strong></h1>";
         }
 
     } else {
-        echo "No table selected ";
+        echo "<h1 class='display-6'><strong>No table selected</strong></h1>";
     }
 }
-
-//}
-
 
 ?>
