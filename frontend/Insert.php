@@ -1,11 +1,11 @@
 <?php include '../backend/api/db_connection.php'; ?>
-<?php include './include/header.php';
+<?php include './../backend/include/header.php';
 NamePage("Insert"); ?>
-<?php include './include/topnav.php';
+<?php include './../backend/include/topnav.php';
 topnav('Insert'); ?>
 
 
 
 
 
-<?php include "./include/footer.php" ?>
+<?php include "./../backend/include/footer.php" ?>

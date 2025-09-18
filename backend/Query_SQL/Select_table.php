@@ -1,9 +1,10 @@
 <?php
 
 if (isset($_GET['table'])) {
-    $table = $_GET['table'];
+    $_SESSION['table'] = $_GET['table'];
+    $table = $_SESSION['table'];
 
-    if (empty(!$table)) {
+    if (!empty($table)) {
         $sql = "SELECT * FROM $table";
         $result = $GLOBALS['conn']->query($sql);
         /*Come funziona $GLOBALS
@@ -15,9 +16,10 @@ if (isset($_GET['table'])) {
 
             switch ($table) {
 
-            case "Dipendenti":
-                echo"<h1 class='display-6'><strong>Mitarbeiter</strong></h1> 
-                    <div class='table-responsive' style='max-height:400px; overflow-y:auto;'>
+                case "Dipendenti":
+                    echo "<h1 class='display-6 mt-1'><strong>Mitarbeiter</strong></h1>";
+                            include "../backend/include/dropdown_form.php";
+                        echo"<div class='table-responsive' style='max-height:300px; overflow-y:auto;'>
                           <table class='table  table-light table-striped-columns  table-hover '>
                             <thead >
                                 <tr>
@@ -31,8 +33,8 @@ if (isset($_GET['table'])) {
                             <tbody class=' table-group-divider'>";
 
                     while ($row = $result->fetch_assoc()) { // legge ogni riga come array associativo
-                      
-                            echo"<tr>
+
+                        echo "<tr>
                                 <th scope='row'>" . $row["Dipendenti_ID"] . "</th>
                                 <td>" . $row["Cognome"] . "</td>
                                 <td>" . $row["Nome"] . "</td>
@@ -43,9 +45,10 @@ if (isset($_GET['table'])) {
                     break;
 
                 case "Fornitori":
-                    echo"
-                        <h1 class='display-6'><strong>Lieferanten</strong></h1>
-                        <div class='table-responsive' style='max-height:400px; overflow-y:auto;'>
+                    echo "
+                        <h1 class='display-6 mt-3'><strong>Lieferanten</strong></h1>";
+                            include "../backend/include/dropdown_form.php";
+                    echo"<div class='table-responsive' style='max-height:300px; overflow-y:auto;'>
                           <table class='table table-light table-striped-columns  table-hover'>
                             <thead >
                                 <tr>
@@ -63,14 +66,15 @@ if (isset($_GET['table'])) {
                                 <td>" . $row["Name"] . "</td>
                                 <td>" . $row["Telefono"] . "</td>
                               </tr>";
-                        }
+                    }
                     break;
 
                 case "Categoria":
-         
-                    echo"
-                        <h1 class='display-6'><strong>Kategorie</strong></h1>
-                        <div class='table-responsive' style='max-height:400px; overflow-y:auto;'>
+
+                    echo "
+                        <h1 class='display-6 mt-3'><strong>Kategorie</strong></h1>";
+                                include "../backend/include/dropdown_form.php";
+                    echo"<div class='table-responsive' style='max-height:300px; overflow-y:auto;'>
                           <table class='table table-light table-striped-columns  table-hover'>
                             <thead >
                                     <tr>
@@ -89,10 +93,11 @@ if (isset($_GET['table'])) {
                     break;
 
                 case "Prodotti":
-  
-                    echo" 
-                        <h1 class='display-6'><strong>Produkte</strong></h1>
-                        <div class='table-responsive' style='max-height:400px; overflow-y:auto;'>
+
+                    echo " 
+                        <h1 class='display-6 mt-3'><strong>Produkte</strong></h1>";
+                            include "../backend/include/dropdown_form.php";
+                    echo"<div class='table-responsive' style='max-height:300px; overflow-y:auto;'>
                           <table class='table table-light table-striped-columns  table-hover'>
                             <thead >
                                 <tr>
@@ -115,10 +120,11 @@ if (isset($_GET['table'])) {
                     break;
 
                 case "Ordini":
-          
+
                     echo "  
-                        <h1 class='display-6'><strong>Bestellungen</strong></h1>
-                        <div class='table-responsive' style='max-height:400px; overflow-y:auto;'>
+                         <h1 class='display-6 mt-3'><strong>Bestellungen</strong></h1>";
+                                include "../backend/include/dropdown_form.php";
+                    echo"<div class='table-responsive' style='max-height:300px; overflow-y:auto;'>
                             <table class='table table-light table-striped-columns  table-hover'>
                             <thead >
                                 <tr>
@@ -135,7 +141,7 @@ if (isset($_GET['table'])) {
                         echo "<tr>
                                 <th scope='row'>" . $row["Ordini_ID"] . "</th>
                                 <td>" . $row["Data"] . "</td>
-                                <td>" . $row["Name"]  . "</td>
+                                <td>" . $row["Name"] . "</td>
                                 <td>" . $row["Quantita"] . "</td>
                                 <td>" . $row["Costo"] . "€" . "</td>
                               </tr>";
@@ -145,9 +151,12 @@ if (isset($_GET['table'])) {
                 case "Vendite":
 
 
-                    echo"   
-                        <h1 class='display-6'><strong>Verkäufe</strong></h1>
-                        <div class='table-responsive' style='max-height:400px; overflow-y:auto;'>
+                    echo "   
+                        <h1 class='display-6 mt-3'><strong>Verkäufe</strong></h1>";
+                        
+                            include "../backend/include/dropdown_form.php";
+                    
+                echo"    <div class='table-responsive' style='max-height:300px; overflow-y:auto;'>
                             <table class='table table-light table-striped-columns  table-hover'>
                             <thead >
                                 <tr>
@@ -165,21 +174,21 @@ if (isset($_GET['table'])) {
                                 <th scope='row'>" . $row["Vendite_ID"] . "</th>
                                 <td>" . $row["Name"] . "</td>
                                 <td>" . $row["Data"] . "</td>
-                                <td>" . $row["Quantita"]  . "</td>
+                                <td>" . $row["Quantita"] . "</td>
                                 <td>" . $row["Prezzo"] . "€" . "</td>
                               </tr>";
                     }
                     break;
-                }
-            echo      "</tbody>
+            }
+            echo "</tbody>
                     </table>
                 </div>";
         } else {
-            echo "<h1 class='display-6'><strong>0 results</strong></h1>";
+            echo "<h1 class='display-6 mt-3'><strong>0 results</strong></h1>";
         }
 
     } else {
-        echo "<h1 class='display-6'><strong>No table selected</strong></h1>";
+        echo "<h1 class='display-6 mt-3'><strong>No table selected</strong></h1>";
     }
 }
 

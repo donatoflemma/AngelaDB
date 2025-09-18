@@ -15,152 +15,196 @@ if (isset($_GET['table'])) {
           La chiave nell’array è il nome della variabile senza il $.*/
 
         if ($result->num_rows > 0) {
-            echo "<table border= '1'>";
+            
             //<input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
             //<label for="vehicle1"> I have a bike</label><br>
 
             switch ($table) {
 
                 case "Dipendenti":
-                    echo "<form action='../backend/Query_SQL/delete.php' method = 'POST'>";
-                    echo "<label> Mitarbeiter </label>";
-                    echo "<tr>
-                            <td></td>
-                            <td>Nachname</td>
-                            <td>Name</td>
-                            <td>Gehalt</td>
-                            <td>Urlaub</td>
-                          </tr>";
+                    
+                    echo "<form action='../backend/Query_SQL/delete.php' method = 'POST'>// da qua prendo il post per eliminare
+                            <h1 class='display-6 mt-1'><strong>Mitarbeiter</strong></h1>
+                            <div class='table-responsive' style='max-height:300px; overflow-y:auto;'>
+                                <table class='table  table-light table-striped-columns  table-hover '>
+                                    <thead >
+                                        <tr>
+                                            <th scope='col'></th>
+                                            <th scope='col'>Mitarbeiter_ID</th>
+                                            <th scope='col'>Nachname</th>
+                                            <th scope='col'>Name</th>
+                                            <th scope='col'>Gehalt</th>
+                                            <th scope='col'>Urlaub</th>
+                                        </tr>
+                                    </thead>
+                                <tbody class=' table-group-divider'>";
 
                     while ($row = $result->fetch_assoc()) { // legge ogni riga come array associativo
                         // TEORIA checkbox  FINE SCRIPT
-                        echo "<tr>
-                        
-                                    <td><input type='checkbox' name= 'Dipendenti[]' value='" . $row['Dipendenti_ID'] . "'></td>
+                        echo "  <tr>
+                                    <td ><input class='form-check-input me-1' type='checkbox' value='" . $row['Dipendenti_ID'] . "' name= 'Dipendenti[]'></td>
+                                    <td>" . $row["Dipendenti_ID"] . "</td>
                                     <td>" . $row["Cognome"] . "</td>
                                     <td>" . $row["Nome"] . "</td>
                                     <td>" . $row["Stipendio"] . "</td>
                                     <td>" . $row["Vacanze"] . "</td>
-                               </tr><br>";
+                                </tr>";
 
                     }
-                    echo "</table>";
-                    echo "<input type='submit' value='delete'>";
-                    echo "</form>";
+
                     break;
 
+
+
+
+
+
+
+
+
+
                 case "Fornitori":
-                    echo "<form action='../backend/Query_SQL/delete.php' method = 'POST'>";
-                    echo "<label> Lieferanten </label>";
-                    echo "<tr>
-                            <td></td>
-                            <td>Name</td>
-                            <td>Telefon</td>
-                          </tr>";
+                    echo"<h1 class='display-6 mt-3'><strong>Lieferanten</strong></h1>
+                         <div class='table-responsive' style='max-height:300px; overflow-y:auto;'>
+                          <table class='table table-light table-striped-columns  table-hover'>
+                            <thead >
+                                    <tr>
+                                        <th scope='col'></th>
+                                        <th scope='col'>Lieferanten_ID</th>
+                                        <th scope='col'>Name</th>
+                                        <th scope='col'>Telefon</th>
+                                    </tr>
+                            </thead>
+                            <tbody class='table-group-divider'>";
 
                     while ($row = $result->fetch_assoc()) {
                         echo "<tr>
-                                <td><input type='checkbox' name= 'Fornitori[]' value='" . $row['Fornitori_ID'] . "'></td>
+                                <td><input class='form-check-input me-1' type='checkbox' name= 'Fornitori[]' value='" . $row["Fornitori_ID"] . "'> </td>
+                                <td>" . $row["Fornitori_ID"] . "</td>
                                 <td>" . $row["Name"] . "</td>
                                 <td>" . $row["Telefono"] . "</td>
                               </tr>";
                     }
-                    echo "</table>";
-                    echo "<input type='submit' value='delete'>";
-                    echo "</form>";
+
                     break;
 
                 case "Categoria":
-                    echo "<form action='../backend/Query_SQL/delete.php' method = 'POST'>";
-                    echo "<label> Kategorie </label>";
-                    echo "<tr>
-                            <td></td>
-                            <td>Name</td>
-                          </tr>";
+                  echo "// da aggiustare la grafica
+                    <h1 class='display-6 mt-3'><strong>Kategorie</strong></h1>
+                    <div class='table-responsive' style='max-height:300px; overflow-y:auto;'>
+                          <table class='table table-light table-striped-columns  table-hover'>
+                            <thead >
+                                    <tr>
+                                        <th scope='col'></th>
+                                        <th scope='col'>Kategorie_ID</th>
+                                        <th scope='col'>Name</th>
+                                    </tr>
+                            </thead>
+                            <tbody class='table-group-divider'>";
 
                     while ($row = $result->fetch_assoc()) {
                         echo "<tr>
-                                <td><input type='checkbox' name ='Categoria[]' value='" . $row['Categoria_ID'] . "'></td>
+                                <td ><input class='form-check-input me-1' type='checkbox' name= 'Categoria[]' value='" . $row["Categoria_ID"] . "'></td>
+                                <td>" . $row["Categoria_ID"] . "</td>
                                 <td>" . $row["Name"] . "</td>
                               </tr>";
                     }
-                    echo "</table>";
-                    echo "<input type='submit' value='delete'>";
-                    echo "</form>";
+
                     break;
 
                 case "Prodotti":
-                    echo "<form action='../backend/Query_SQL/delete.php' method = 'POST'>";
-                    echo "<label> Produkte </label>";
-                    echo "<tr>
-                            <td></td>
-                            <td>Name</td>
-                            <td>Preis</td>
-                            <td>Gewicht</td>
-                          </tr>";
+                     echo"   
+                     <h1 class='display-6 mt-3'><strong>Produkte</strong></h1>
+                    <div class='table-responsive' style='max-height:300px; overflow-y:auto;'>
+                          <table class='table table-light table-striped-columns  table-hover'>
+                            <thead >
+                                <tr>
+                                <th scope='col'></th>
+                                <th scope='col'>Produkte_ID</th>
+                                <th scope='col'>Name</th>
+                                <th scope='col'>Preis</th>
+                                <th scope='col'>Gewicht</th>
+                                </tr>
+                            </thead>
+                            <tbody class=' table-group-divider'>";
 
                     while ($row = $result->fetch_assoc()) {
                         echo "<tr>
-                                <td><input type='checkbox' name ='Prodotti[]' value='" . $row['Prodotti_ID'] . "'></td>
+                                <td ><input class='form-check-input me-1' type='checkbox' name= 'Prodotti[]' value='" . $row['Prodotti_ID'] . "' ></td>
+                                <td>" . $row["Prodotti_ID"] . "</td>
                                 <td>" . $row["Name"] . "</td>
                                 <td>" . $row["Prezzo"] . "€" . "</td>
-                                <td>" . $row["Peso"] . "g</tr>";
+                                <td>" . $row["Peso"] . "g" . "</td>
+                              </tr>";
                     }
-                    echo "</table>";
-                    echo "<input type='submit' value='delete'>";
-                    echo "</form>";
+
                     break;
 
                 case "Ordini":
-                    echo "<form action='../backend/Query_SQL/delete.php' method = 'POST'>";
-                    echo "<label> Bestellungen </label>";
-                    echo "<tr>
-                                <td></td>
-                                <td>Datum</td>
-                                <td>Name</td>
-                                <td>Menge</td>
-                                <td>Kosten</td>
-                            </tr>";
+                  echo"<h1 class='display-6 mt-3'><strong>Bestellungen</strong></h1>
+                       <div class='table-responsive' style='max-height:300px; overflow-y:auto;'>
+                            <table class='table table-light table-striped-columns  table-hover'>
+                            <thead >
+                                <tr>
+                                <th scope='col'></th>
+                                <th scope='col'>Bestellung_ID</th>
+                                <th scope='col'>Datum</th>
+                                <th scope='col'>Name</th>
+                                <th scope='col'>Menge</th>
+                                <th scope='col'>Kosten</th>
+                                </tr>
+                            </thead>
+                            <tbody class=' table-group-divider'>";
 
                     while ($row = $result->fetch_assoc()) {
                         echo "<tr>
-                                <td><input type='checkbox' name = 'Ordini[]' value='" . $row['Ordini_ID'] . "'></td>
+                                <td ><input class='form-check-input me-1' type='checkbox' name= 'Ordini[]' value='" . $row['Ordini_ID'] . "' ></td>
+                                <td>" . $row["Ordini_ID"] . "</td>
                                 <td>" . $row["Data"] . "</td>
                                 <td>" . $row["Name"] . "</td>
                                 <td>" . $row["Quantita"] . "</td>
                                 <td>" . $row["Costo"] . "€" . "</td>
                               </tr>";
                     }
-                    echo "</table>";
-                    echo "<input type='submit' value='delete'>";
-                    echo "</form>";
+
                     break;
 
                 case "Vendite":
-                    echo "<form action='../backend/Query_SQL/delete.php' method = 'POST'>";
-                    echo "<label> Verkäufe </label>";
-                    echo "<tr>
-                                <td></td>
-                                <td>Name</td>
-                                <td>Datum</td>
-                                <td>Menge</td>
-                                <td>Preis</td>
-                            </tr>";
+                    echo"<h1 class='display-6 mt-3'><strong>Verkäufe</strong></h1>
+                         <div class='table-responsive' style='max-height:300px; overflow-y:auto;'>
+                            <table class='table table-light table-striped-columns  table-hover'>
+                            <thead >
+                                <tr>
+                                <th scope='col'></th>
+                                <th scope='col'>Verkauf_ID</th>
+                                <th scope='col'>Name</th>
+                                <th scope='col'>Datum</th>
+                                <th scope='col'>Menge</th>
+                                <th scope='col'>Preis</th>
+                                </tr>
+                            </thead>
+                            <tbody class='table-group-divider'>";
 
                     while ($row = $result->fetch_assoc()) {
                         echo "<tr>
-                                <td><input type='checkbox' name= 'Vendite[]' value='" . $row['Vendite_ID'] . "'></td>
+                                <td ><input class='form-check-input me-1' type='checkbox' name= 'Vendite[]' value='" . $row['Vendite_ID'] . "'> </td>
+                                <td>" . $row["Vendite_ID"] . "</td>
                                 <td>" . $row["Name"] . "</td>
                                 <td>" . $row["Data"] . "</td>
                                 <td>" . $row["Quantita"] . "</td>
                                 <td>" . $row["Prezzo"] . "€" . "</td>
                               </tr>";
                     }
-                    echo "</table>";
-                    echo "<input type='submit' value='delete'>";
-                    echo "</form>";
+
                     break;
-            }
+
+
+    }
+                echo "</tbody>
+                </table>
+            </div>
+            <input type='submit'  value='Delete'>
+        </form>";
 
         } else {
             echo "0 results";
