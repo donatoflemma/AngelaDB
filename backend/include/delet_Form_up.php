@@ -1,1 +1,0 @@
-<?php echo "<form action='./delete.php' method = 'POST'>"; ?>

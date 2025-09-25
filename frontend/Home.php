@@ -6,9 +6,12 @@ NamePage("Home");
 
 include '../backend/include/topnav.php';
 topnav('HomeAdmin');
+include '../backend/include/Main_Search.php';
+$ciccio = new Main_Search();
+$ciccio->Search(true);
 
 
-echo"<div class='container bg-primary' id='table'>
+/*echo"<div class='container bg-primary' id='table'>
       <div class='row tetx-start'>
         
         <form  action='Home.php' method='SESSION'> 
@@ -18,7 +21,7 @@ echo"<div class='container bg-primary' id='table'>
         </form>
       </div>
       <div class='row tetx-center '>
-        <div class = 'col-12 col-lg-6 '>";
+        <div class = 'col-12 col-lg-6 '>";*/
       include "../backend/include/connectionOption.php";
       include '../backend/Query_SQL/Select_table.php';
   

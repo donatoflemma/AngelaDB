@@ -1,19 +1,19 @@
 <?php
+include 'Main_Search.php';
 if(isset($_GET['Chose'])){
     if(!empty($_GET['Chose'])){
 
         $type = $_GET['Chose'];
         $table = $_SESSION['table'];
+        Search(false);
         switch ($type):
             case 1:
                 // Delete
-                echo"<h1> Risultato é 1 </h1>";
-                echo"$table";
+                include '../backend/Query_SQL/checkbox_table_delet.php';
                 break;
             case 2:
                 //Insert
-                echo"<h1> Risultato é 2 </h1>";
-                echo"$table";
+                include '../backend/include/insert_input.php';
                 break;
             case 3:
                 //Update

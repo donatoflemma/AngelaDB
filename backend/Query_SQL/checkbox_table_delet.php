@@ -1,8 +1,8 @@
 <?php
 // for the checkbox_selection  for each table !!!! 
 
-if (isset($_GET['table'])) {
-    $table = $_GET['table'];
+if (isset($_SESSION['table'])) {
+    $table = $_SESSION['table'];
 
     //if (isset($_GET[$table])) {
     //  $table = $_GET["$table"];
@@ -54,15 +54,6 @@ if (isset($_GET['table'])) {
 
                     break;
 
-
-
-
-
-
-
-
-
-
                 case "Fornitori":
                     echo"<h1 class='display-6 mt-3'><strong>Lieferanten</strong></h1>
                          <div class='table-responsive' style='max-height:300px; overflow-y:auto;'>
@@ -89,7 +80,7 @@ if (isset($_GET['table'])) {
                     break;
 
                 case "Categoria":
-                  echo "// da aggiustare la grafica
+                  echo "
                     <h1 class='display-6 mt-3'><strong>Kategorie</strong></h1>
                     <div class='table-responsive' style='max-height:300px; overflow-y:auto;'>
                           <table class='table table-light table-striped-columns  table-hover'>
