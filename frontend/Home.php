@@ -2,7 +2,7 @@
 session_start();// Si apre sempre all´inizio del file, serve per salvare una variabile globale per piu file $_SESSION[] 
 include '../backend/api/db_connection.php'; 
 include '../backend/include/header.php';
-NamePage("Home");
+$title = 'Home';
 
 include '../backend/include/topnav.php';
 topnav('HomeAdmin');
