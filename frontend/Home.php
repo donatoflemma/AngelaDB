@@ -1,14 +1,14 @@
 <?php 
+$title = 'Home';
 session_start();// Si apre sempre all´inizio del file, serve per salvare una variabile globale per piu file $_SESSION[] 
 include '../backend/api/db_connection.php'; 
 include '../backend/include/header.php';
-$title = 'Home';
+
 
 include '../backend/include/topnav.php';
-topnav('HomeAdmin');
-include '../backend/include/Main_Search.php';
-$ciccio = new Main_Search();
-$ciccio->Search(true);
+topnav('HomeDBMS');
+
+
 
 
 /*echo"<div class='container bg-primary' id='table'>

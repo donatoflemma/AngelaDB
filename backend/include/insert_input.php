@@ -1,149 +1,142 @@
+                <form class='pl-2 d-flex mb-3 mt-3 ' >
 <?php
 if(isset($_SESSION['table'])){
     $table = $_SESSION['table'];
     switch ($table):
         case 'Dipendenti':
             //Cognome (VAR),Nome (VAR),Stipendio (dec),Vacanze (int)
-            echo"
-                <form class='pl-2 d-flex mb-3 mt-3 ' > 
-                    <div class='form-floating  mb-3' > 
-                        <input type='text' class='form-control' id='Nachname' placeholder='Stefan'> 
-                        <label for='Nachname'>Nachname</label> 
-                    </div> 
+            $label = array('Nachname','Name','Gehalt','UrlaubsTage');
+            $placeholder = array('Stefan','Müller','1.200','31');
+            $counter = 0;
+            foreach($label as $items){
+                    // mi serve per avere un margin adeguato , il primo non lo ha !!
+                    if($items === 'Nachname'){
+                        echo"<div class='form-floating  mb-3' >";
+                    }else{
+                        echo"<div class='form-floating  mb-3' style='margin-left:2%;'>";
+                    }
+                    echo"    
+                                <input type='";  if($items ==='Nachname' || $items ==='Name'){echo"txt";}
+                                                else{ echo"number";}        
+                                                echo"' class='form-control' id='$items' placeholder='$placeholder[$counter]'> 
+                                <label for='$items'>$items</label> 
+                             </div>";
+                    $counter ++;
 
-                    <div class='form-floating  mb-3' style='margin-left:2%;'> 
-                        <input type='text' class='form-control' id='Name' placeholder='Müller'> 
-                        <label for='Name'>Name</label> 
-                    </div>
-
-                    <div class='form-floating  mb-3' style='margin-left:2%;'> 
-                        <input type='number' class='form-control' id='Gehalt' placeholder='1.200'> 
-                        <label for='Gehalt'>Gehalt</label> 
-                    </div>
-
-                    <div class='form-floating  mb-3' style='margin-left:2%;'> 
-                        <input type='number' class='form-control' id='UrlaubsTage' placeholder='31'> 
-                        <label for='UrlaubsTage'>UrlaubsTage</label> 
-                    </div>
-
-                    <input  type='button' class='btn btn-light' value='Insert' style='width:10%; height:20% ; margin-left:2%;margin-top:1%'> 
-                </form>";
-            break;
+            }
+        break;
 
 
         case 'Fornitori':
             //Name (VAR),Telefono (VAR)
-            echo"
-                <form class='pl-2 d-flex mt-3 ' > 
-                    <div class='form-floating  mb-3' > 
-                        <input type='text' class='form-control' id='Name' placeholder='Unternehmen Name'> 
-                        <label for='Name'>Company name</label> 
-                    </div> 
+            $label = array('Name','Telefon');
+            $placeholder = array('Unternehmen Name','+4900000000');
+            $counter = 0;
+            foreach($label as $items){
+                    // mi serve per avere un margin adeguato , il primo non lo ha !!
+                    if($items === 'Name'){
+                        echo"<div class='form-floating  mb-3' >";
+                    }else{
+                        echo"<div class='form-floating  mb-3' style='margin-left:2%;'>";
+                    }
+                    echo"    
+                                <input type='txt' class='form-control' id='$items' placeholder='$placeholder[$counter]'> 
+                                <label for='$items'>$items</label> 
+                             </div>";
+                    $counter ++;
 
-                    <div class='form-floating  mb-3' style='margin-left:2%;'> 
-                        <input type='text' class='form-control' id='Telefon' placeholder='+4900000000'> 
-                        <label for='Telefon'>Telefon</label> 
-                    </div>
-
-                    <input  type='button' class='btn btn-light' value='Insert' style='width:10%; height:20% ; margin-left:2%;margin-top:1%'> 
-                </form>";
-            break;
+            }
+        break;
 
         case 'Categoria':
             //Name (VAR)
             echo"
-                <form class='pl-2 d-flex mt-3 ' > 
+ 
                     <div class='form-floating  mb-3'> 
                         <input type='text' class='form-control' id='type' placeholder='type'> 
                         <label for='type'>Type</label> 
-                    </div> 
-
-                    <input  type='button' class='btn btn-light' value='Insert' style='width:10%; height:20% ; margin-left:2%;margin-top:1%'> 
-                </form>";
-            break;
+                    </div>"; 
+        break;
 
         case 'Prodotti':
             //Name (VAR),Prezzo (dec),Peso (dec)
-            echo"
-                <form class='pl-2 d-flex mt-3 '> 
-                    <div class='form-floating  mb-3' > 
-                        <input type='text' class='form-control' id='Name' placeholder='White bread'> 
-                        <label for='Name'>Name</label> 
-                    </div> 
-
-                    <div class='form-floating  mb-3' style='margin-left:2%;'> 
-                        <input type='number' class='form-control' id='Preis' placeholder='0,00'> 
-                        <label for='Preis'>Preis</label> 
-                    </div>
-
-                    <div class='form-floating  mb-3' style='margin-left:2%;'> 
-                        <input type='number' class='form-control' id='weight' placeholder='0,00 kg'> 
-                        <label for='weight'>weight</label> 
-                    </div>
-
-                    <input  type='button' class='btn btn-light' value='Insert' style='width:10%; height:20% ; margin-left:2%;margin-top:1%'> 
-                </form>";
-            break;
+            $label = array('Name','Preis','weight kg');
+            $placeholder = array('White bread','0,00','0,00 kg');
+            $counter = 0;
+            foreach($label as $items){
+                    // mi serve per avere un margin adeguato , il primo non lo ha !!
+                    if($items === 'Name'){
+                        echo"<div class='form-floating  mb-3' >";
+                    }else{
+                        echo"<div class='form-floating  mb-3' style='margin-left:2%;'>";
+                    }
+                    echo"    
+                                <input ";  if( $items ==='Name'){echo"type= 'txt'";}
+                                            else{ echo"type= 'number' step = 0.01";}     
+                                            echo" class='form-control' id='$items' placeholder='$placeholder[$counter]'> 
+                                <label for='$items'>$items</label> 
+                             </div>";
+                    $counter ++;
+            }
+        break;
 
         case 'Ordini':
             //Data (date),Name (VAR),Quantitá (INT),Costi (dec)
-            echo"
-                <form class='pl-2 d-flex mt-3 ' > 
-                    <div class='form-floating  mb-3' > 
-                        <input type='date' class='form-control' id='date' placeholder='DD,MM,YYYY'> 
-                        <label for='date'>Date</label> 
-                    </div> 
+            $label = array('Date','Name','Quantity','Costs');
+            $placeholder = array('DD,MM,YYYY','Stefan','0000', '00.00');
+            $counter = 0;
+            foreach($label as $items){
+                    // mi serve per avere un margin adeguato , il primo non lo ha !!
+                    if($items === 'Date'){
+                        echo"<div class='form-floating  mb-3' >";
+                    }else{
+                        echo"<div class='form-floating  mb-3' style='margin-left:2%;'>";
+                    }
+                    echo"    
+                                <input ";  if( $items ==='Date'){echo"type= 'date'";}
+                                           elseif($items ==='Name'){ echo"type= 'txt'";}
+                                           elseif($items ==='Quantity'){ echo"type= 'number'";}
+                                           else{ echo"type= 'number' step = 0.01";}     
+                                echo" class='form-control' id='$items' placeholder='$placeholder[$counter]'> 
 
-                    <div class='form-floating  mb-3' style='margin-left:2%;'> 
-                        <input type='text' class='form-control' id='Name' placeholder='Stefan'> 
-                        <label for='Name'>Name</label> 
-                    </div>
-
-                    <div class='form-floating  mb-3' style='margin-left:2%;'> 
-                        <input type='number' class='form-control' id='Quantity' placeholder='0000'> 
-                        <label for='Quantity'>Quantity</label> 
-                    </div>
-
-                    <div class='form-floating  mb-3' style='margin-left:2%;'> 
-                        <input type='number' class='form-control' id='Costs ' placeholder='00.00'> 
-                        <label for='Costs '>Costs </label> 
-                    </div>
-
-                    <input  type='button' class='btn btn-light' value='Insert' style='width:10%; height:20% ; margin-left:2%;margin-top:1%'> 
-                </form>";
-            break;
+                                <label for='$items'>$items</label> 
+                             </div>";
+                    $counter ++;
+                }
+         break;
 
 
         case 'Vendite':
             //Name (VAR),Datum (Date),Quantitá (INT),Prezzo (dec)
-            echo"
-                <form class='pl-2 d-flex mt-3 ' > 
-                    <div class='form-floating  mb-3'> 
-                        <input type='text' class='form-control' id='Name' placeholder='Name product'> 
-                        <label for='Name'>Name product</label> 
-                    </div> 
+            $label = array('Name','Date','Quantity','Costs');
+            $placeholder = array('Stefan','DD,MM,YYYY','0000', '00.00');
+            $counter = 0;
+            foreach($label as $items){
+                    // mi serve per avere un margin adeguato , il primo non lo ha !!
+                    if($items === 'Name'){
+                        echo"<div class='form-floating  mb-3' >";
+                    }else{
+                        echo"<div class='form-floating  mb-3' style='margin-left:2%;'>";
+                    }
+                    echo"    
+                                <input ";  if( $items ==='Date'){echo"type= 'date'";}
+                                           elseif($items ==='Name'){ echo"type= 'txt'";}
+                                           elseif($items ==='Quantity'){ echo"type= 'number'";}
+                                           else{ echo"type= 'number' step = 0.01";}     
+                                echo" class='form-control' id='$items' placeholder='$placeholder[$counter]'> 
 
-                    <div class='form-floating  mb-3' style='margin-left:2%;'> 
-                        <input type='date' class='form-control' id='Date' placeholder='DD MM YYYY'> 
-                        <label for='Date'>DD MM YYYY</label> 
-                    </div>
+                                <label for='$items'>$items</label> 
+                             </div>";
+                    $counter ++;
 
-                    <div class='form-floating  mb-3' style='margin-left:2%;'> 
-                        <input type='number' class='form-control' id='Number' placeholder='000'> 
-                        <label for='Number'>Quantity</label> 
-                    </div>
-
-                    <div class='form-floating  mb-3' style='margin-left:2%;'> 
-                        <input type='number' class='form-control' id='Preis' placeholder='00.00'> 
-                        <label for='Preis'>Preis</label> 
-                    </div>
-
-                    <input  type='button' class='btn btn-light' value='Insert' style='width:10%; height:20% ; margin-left:2%;margin-top:1%'> 
-                </form>";
+            }
             break;
+            
         endswitch;
-
+        $counter = 0;
 
 
 }
 ?>
+                    <input  type='button' class='btn btn-light' value='Insert' style='width:10%; height:20% ; margin-left:2%;margin-top:1%'> 
+                </form>";

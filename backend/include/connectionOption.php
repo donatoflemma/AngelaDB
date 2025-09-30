@@ -5,7 +5,7 @@ if(isset($_GET['Chose'])){
 
         $type = $_GET['Chose'];
         $table = $_SESSION['table'];
-        Search(false);
+        
         switch ($type):
             case 1:
                 // Delete

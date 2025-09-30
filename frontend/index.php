@@ -1,6 +1,7 @@
-<?php              // HEADER//
- include './../backend/include/header.php';
-        NamePage('log-in') ; ?>
+<?php   
+$title = 'Log-in';
+include './../backend/include/header.php';
+?>
 
 
 

@@ -6,10 +6,8 @@ function topnav($page)
         <div class='container-fluid'>";
 
         switch ($page):                  // SOLO PER CAMBIARE L`URL DEL IMG
-            case 'HomeAdmin':
-            case 'Delete':
-            case  'Insert':
-            case  'Update':
+            case 'HomeDBMS':
+
 
                    echo"                      <!-- Logo -->
                                     <a class='navbar-brand' href='#'>
@@ -30,57 +28,21 @@ function topnav($page)
         endswitch;
 
 
-                                            // Bottone hamburger 
+                                            
 
-            echo"
-            <button class='navbar-toggler' type='button' data-bs-toggle='collapse' data-bs-target='#mainNav'
-                aria-controls='mainNav' aria-expanded='false' aria-label='Toggle navigation'>
-                <span class='navbar-toggler-icon'></span>
-            </button>";
+            
                                 
                                 // Menu cambia i link e la posizione di essi nel primo div che é il padre 
 
                 
                     switch ($page) :
-                        case 'HomeAdmin':
-                           echo"             
-                            <div class='collapse navbar-collapse  justify-content-end' id='mainNav'>
-                                <ul class='navbar-nav  gap-4 '>
-                                  <li class='nav-item'><a class='nav-link' href='./Delete.php'>Delete</a></li>
-                                  <li class='nav-item'><a class='nav-link' href='./Insert.php'>Insert</a></li>
-                                  <li class='nav-item'><a class='nav-link' href='./Update.php'>Update</a></li>";
-                            break;
-
-                        case 'Delete':
-                            echo"            
-                             <div class='collapse navbar-collapse justify-content-end' id='mainNav'>
-                                <ul class='navbar-nav  gap-4 '>
-                                  <li class='nav-item'><a class='nav-link' href='./Home.php'>Home</a></li>
-                                  <li class='nav-item'><a class='nav-link' href='./Insert.php'>Insert</a></li>
-                                  <li class='nav-item'><a class='nav-link' href='./Update.php'>Update</a></li>";
-                            break;
-
-                        case 'Insert':
-                            echo"
-                             <div class='collapse navbar-collapse  justify-content-end' id='mainNav'>
-                                <ul class='navbar-nav  gap-4 '>
-                                  <li class='nav-item'><a class='nav-link' href='./Home.php'>Home</a></li>
-                                  <li class='nav-item'><a class='nav-link' href='./Delete.php'>Delete</a></li>
-                                  <li class='nav-item'><a class='nav-link' href='./Update.php'>Update</a></li>";
-                            break;
-
-                        case 'Update':
-                            echo"
-                             <div class='collapse navbar-collapse  justify-content-end' id='mainNav'>
-                                <ul class='navbar-nav  gap-4 '>
-                                  <li class='nav-item'><a class='nav-link' href='./Home.php'>Home</a></li>
-                                  <li class='nav-item'><a class='nav-link' href='./Delete.php'>Delete</a></li>
-                                  <li class='nav-item'><a class='nav-link' href='./Insert.php'>Insert</a></li>";
-                            break;
-
+                        
                         case 'Home':
-                            echo"          
-                             <div class='collapse navbar-collapse  ' id='mainNav'>
+                                // Bottone hamburger 
+                            include 'btn_hamburger.php';
+
+                            echo"
+                            <div class='collapse navbar-collapse  ' id='mainNav'>
                                 <ul class='navbar-nav mx-auto gap-4 '>
                                   <li class='nav-item'><a class='nav-link' href='./Products.php'>Products</a></li>
                                   <li class='nav-item'><a class='nav-link' href='./About us.php'>About us</a></li>
@@ -88,8 +50,10 @@ function topnav($page)
                             break;
 
                         case 'Products':
+                            // Bottone hamburger 
+                            include 'btn_hamburger.php';
                             echo"
-                             <div class='collapse navbar-collapse  ' id='mainNav'>
+                            <div class='collapse navbar-collapse  ' id='mainNav'>
                                 <ul class='navbar-nav mx-auto gap-4 '>
                                   <li class='nav-item'><a class='nav-link' href='./index.php'>Home</a></li>
                                   <li class='nav-item'><a class='nav-link' href='./About us.php'>About us</a></li>
@@ -97,7 +61,13 @@ function topnav($page)
                             break;
                         
                         case 'About us':
+                            // Bottone hamburger 
+                            include 'btn_hamburger.php';
                             echo"
+                            <button class='navbar-toggler' type='button' data-bs-toggle='collapse' data-bs-target='#mainNav'
+                                aria-controls='mainNav' aria-expanded='false' aria-label='Toggle navigation'>
+                                <span class='navbar-toggler-icon'></span>
+                            </button>
                              <div class='collapse navbar-collapse ' id='mainNav'>
                                 <ul class='navbar-nav mx-auto  gap-4 '>
                                   <li class='nav-item'><a class='nav-link' href='./index.php'>Home</a></li>
@@ -106,6 +76,8 @@ function topnav($page)
                             break;
 
                         case 'Contact':
+                            // Bottone hamburger 
+                            include 'btn_hamburger.php';
                             echo"
                              <div class='collapse navbar-collapse ' id='mainNav'>
                                 <ul class='navbar-nav mx-auto gap-4 '>
@@ -117,10 +89,8 @@ function topnav($page)
                     
 
                     switch ($page):                  // PER NON AVERE BTN LOGIN E SING-UP
-                        case 'HomeAdmin':
-                        case 'Delete':
-                        case  'Insert':
-                        case  'Update':
+                        case 'HomeDBMS':
+
                                  echo "
                                         </ul>
                                     </div>
