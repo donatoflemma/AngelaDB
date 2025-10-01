@@ -1,14 +1,13 @@
-<?php
- echo"<div class='text-center'>
+      <div class='text-center'>
         <img src='./img/LogoPanificio 1.png' alt='image not found'>
       </div>
       <div class='container mt-5 d-flex flex-column gap-2'  style='background-color: rgb(240, 226, 169); height: 600px;width: 400px; border-radius: 3%;border:solid 1px;'>
         <h1 class='display-6'><strong>Create account</strong></h1>
         <p><em>All fields are required </em></p>
 
-        <div class='mb'>";
+        <div class='mb'>
               
-            //DA completare action del form per quanto riguarda prendere dati e inserirli nella tabella 
+            <!--//DA completare action del form per quanto riguarda prendere dati e inserirli nella tabella 
             //capire se fare un PHP solo o quanlcosa anche con JS
 
             //############ TEORIA FORM ############
@@ -21,9 +20,9 @@
                 // - Usato da for="fname" nel label e da CSS/JS.
                 // - collegamento e selezione dell’elemento.
               //name ----- > Nome del campo inviato al server
-                // - coppia chiave=valore nei dati inviati.
+                // - coppia chiave=valore nei dati inviati.-->
               
-         echo"<form action='' method ='post' id='NewAccount'>    //Da finire la connessione !!!!
+            <form action='' method ='post' id='NewAccount'>    //Da finire la connessione !!!!
                 <label for='Fi/LaName' class='form-label'><strong>Yuor name</strong></label>
                 <input type='email' class='form-control' id='Fi/LaName' placeholder='First and Last name' name='Fi/LaName'>
 
@@ -59,6 +58,5 @@
             </div>
             
 
-          </div>";
+          </div>
 
-?>

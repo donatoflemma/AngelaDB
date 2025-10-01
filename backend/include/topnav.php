@@ -1,9 +1,10 @@
+    
+    <nav class='navbar navbar-expand-lg bg-dark border-bottom border-body' data-bs-theme='dark' style='margin-bottom: 20vh;'>
+        <div class='container-fluid'>";
 <?php
 function topnav($page)
 {
-    echo "
-    <nav class='navbar navbar-expand-lg bg-dark border-bottom border-body' data-bs-theme='dark' style='margin-bottom: 20vh;'>
-        <div class='container-fluid'>";
+
 
         switch ($page):                  // SOLO PER CAMBIARE L`URL DEL IMG
             case 'HomeDBMS':

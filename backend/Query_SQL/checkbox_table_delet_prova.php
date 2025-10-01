@@ -1,4 +1,11 @@
-<form action='../backend/Query_SQL/delete.php' method = 'POST'><!-- da qua prendo il post per eliminare-->
+                    <form action='../backend/Query_SQL/delete.php' method = 'POST'>// da qua prendo il post per eliminare
+                        <h1 class='display-6 mt-1'><strong><?php $title?></strong></h1>
+                        <div class='table-responsive' style='max-height:300px; overflow-y:auto;'>
+                            <table class='table  table-light table-striped-columns  table-hover '>
+                                <thead >
+                                    <tr>
+                                        <th scope='col'></th>
+
 <?php
 // for the checkbox_selection  for each table !!!! 
 
@@ -17,13 +24,10 @@ if (isset($_SESSION['table'])) {
             switch ($table) {
 
                 case "Dipendenti":
+                    $title = 'Mitarbeiter';
+                    $col = ['Mitarbeiter_ID','Nachname','Name','Gehalt','Urlaub'];
+                    
                     echo "
-                            <h1 class='display-6 mt-1'><strong>Mitarbeiter</strong></h1>
-                            <div class='table-responsive' style='max-height:300px; overflow-y:auto;'>
-                                <table class='table  table-light table-striped-columns  table-hover '>
-                                    <thead >
-                                        <tr>
-                                            <th scope='col'></th>
                                             <th scope='col'>Mitarbeiter_ID</th>
                                             <th scope='col'>Nachname</th>
                                             <th scope='col'>Name</th>
@@ -199,14 +203,5 @@ if (isset($_SESSION['table'])) {
         echo "No table selected ";
     }
 }
-/*piccola spiegazione :
-- type="checkbox" Serve per creare una casella di selezione (checkbox).
-- id="dipendenti.$dipendenti_counter" È usato per collegare il checkbox al suo label (etichetta descrittiva).
-- name="dipendenti.$dipendenti_counter" Nome del campo che verrà inviato al server se il form viene inviato.
-- value='$row['Nome']' Valore che verrà inviato al server se il checkbox è selezionato.
-- for="dipendenti.$dipendenti_counter" Etichetta associata al checkbox.*/
+
 ?>
-
-
-
-
