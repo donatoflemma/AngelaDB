@@ -1,6 +1,6 @@
 <?php              // HEADER//
 include '../backend/include/header.php';
-NamePage('e-commerce'); ?>
+ ?>
 
 <?php            // TOP NAV //
 include '../backend/include/topnav.php';

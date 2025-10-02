@@ -11,11 +11,11 @@ foreach ($array as $name) {// passa ogni items della lista
                 $counter++;
                 echo 'valore= ' . $item . '<br>';
             }
-            echo $counter;
+            
             $name_ID = $name . "_id";
             $placeholders = implode(',', array_fill(0, count($values), '?'));
             echo "DELETE FROM $name WHERE $name_ID IN ($placeholders)";
-            //$stmt = $conn->prepare("DELETE FROM $name WHERE $name.id IN (?, ?, ?, ?)");
+            //$stmt = $conn->prepare("DELETE FROM $name WHERE name_ID IN (placeholders)");
             //$stmt->bind_param("iiii", $id1, $id2, $id3, $id4);
             //ora capire come funziona per eliminare perche devo capire anche quanti ? o quelli di sotto inserire 
             //$stmt->execute();
@@ -27,7 +27,7 @@ foreach ($array as $name) {// passa ogni items della lista
         }
     }
 
-} ?>
+} 
 /*
 $placeholders TEORIA
 count($values) → conta quanti ID hai ricevuto dal POST.
@@ -38,4 +38,4 @@ Esempio: [?, ?, ?].
 
 implode(',', [...]) → trasforma l’array in una stringa separata da virgole.
 Esempio: ?, ?, ?.
-*/
+*/?>

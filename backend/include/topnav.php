@@ -37,7 +37,8 @@ function topnav($page)
 
                 
                     switch ($page) :
-                        
+                       
+
                         case 'Home':
                                 // Bottone hamburger 
                             include 'btn_hamburger.php';
@@ -92,8 +93,11 @@ function topnav($page)
                     switch ($page):                  // PER NON AVERE BTN LOGIN E SING-UP
                         case 'HomeDBMS':
 
-                                 echo "
-                                        </ul>
+                                 echo "                                        <!-- Bottoni a destra -->
+                                        <div class='d-flex ms-auto'>
+                                           <a href='../Muster_Web/index.php'> <button type='button' class='btn btn-outline-primary'>  Muster Website </button></a>
+                                        </div>
+                                       
                                     </div>
                                 </div>
                             </nav>";
