@@ -2,7 +2,7 @@ una best practice sarebbe chiamare i fil econtenuti in include con
 'Esempio.inc.php' per determinare che il file non ha codice da far partire da
 solo
 
-Ho visto molto spesso fare ``<h1><?php   echo 'Ciao'; ?>`</h1>` quando io ho
+Ho visto molto spesso fare ```<h1><?php   echo 'Ciao'; ?>``</h1>` quando io ho
 sempre fatto `<?php echo' <h1> Cioa <h1>'; ?>` Non ho ancora capito la
 differenza ma funzionano uguale
 
@@ -23,6 +23,11 @@ linguaggio mi darebbe errore perche " I'm " ha comunque un single Quot per non
 avere problemi si puo usareil back slash '\' che fa capire al linguaggio che il
 single Quot perde di valore sintattico ed é solo Str . QUINDI :
 `<?php echo ' I\'m a string'; ?>` --> FORMATTAZIONE GIUSTA !!!
+
+
+    Relativo: "DBMS.php" → cerca nella stessa cartella.
+
+    Assoluto: "http://localhost/mio_progetto/DBMS.php" → sicuro se vuoi evitare confusione.
 
 ##############################################################################
 **STRING**
@@ -77,13 +82,13 @@ Questo crea una selezione randomica di numeri !!!!!
 - Mostra **tipo** ( _Typ_ ) e **valore** ( _Wert_ ) di una variabile.
 
 | **echo** | Mostra solo il contenuto come stringa | `Array`(non mostra i valori) |
-| -------- | ------------------------------------- | ---------------------------- |
+| -------------- | ------------------------------------- | ------------------------------ |
 
 | **print_r()** | Mostra valore in modo leggibile (anche array/oggetti) | `Array ( [0] => 1 [1] => 2 [2] => 3 )` |
-| ------------- | ----------------------------------------------------- | -------------------------------------- |
+| ------------------- | ----------------------------------------------------- | ---------------------------------------- |
 
 | **var_dump()** | Mostra tipo + lunghezza + valore (dettagliato) | `array(3) { [0]=> int(1) [1]=> int(2) [2]=> int(3) }` |
-| -------------- | ---------------------------------------------- | ----------------------------------------------------- |
+| -------------------- | ---------------------------------------------- | ------------------------------------------------------- |
 
 ###################### **Isset Empty and Unset Function Validate and delete
 Variable** #############################
@@ -181,6 +186,7 @@ string (n.) "fragola"
 - Modo piu veloce per fare un´array : **$frutta = [ 'banane' , 'lamponi'
   ,'ciliegie' , 'mango', 'ananas' ];**
 - altro importante é **count( nome array );**
+- **...$nome_array** !!!! MOLTO IMPORTANTE !!!! per spachettare un array dentro una funzione o un´altro array per duplicare il contenuto in essa , non si puo stampare mi raccomando
 
 ![1759215721058](image/Teoria_PHP/1759215721058.png)
 
