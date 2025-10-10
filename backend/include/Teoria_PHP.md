@@ -2,9 +2,9 @@ una best practice sarebbe chiamare i fil econtenuti in include con
 'Esempio.inc.php' per determinare che il file non ha codice da far partire da
 solo
 
-Ho visto molto spesso fare ```<h1><?php   echo 'Ciao'; ?>``</h1>` quando io ho
-sempre fatto `<?php echo' <h1> Cioa <h1>'; ?>` Non ho ancora capito la
-differenza ma funzionano uguale
+Ho visto molto spesso fare
+``<h1><?php   echo 'Ciao'; ?>```</h1>`quando io ho sempre fatto``<?php echo' <h1> Cioa <h1>'; ?>``
+Non ho ancora capito la differenza ma funzionano uguale
 
 Quando fa include non mette i tag Html nell´eco , capire anche questo !!!!
 
@@ -23,7 +23,6 @@ linguaggio mi darebbe errore perche " I'm " ha comunque un single Quot per non
 avere problemi si puo usareil back slash '\' che fa capire al linguaggio che il
 single Quot perde di valore sintattico ed é solo Str . QUINDI :
 `<?php echo ' I\'m a string'; ?>` --> FORMATTAZIONE GIUSTA !!!
-
 
     Relativo: "DBMS.php" → cerca nella stessa cartella.
 
@@ -82,13 +81,13 @@ Questo crea una selezione randomica di numeri !!!!!
 - Mostra **tipo** ( _Typ_ ) e **valore** ( _Wert_ ) di una variabile.
 
 | **echo** | Mostra solo il contenuto come stringa | `Array`(non mostra i valori) |
-| -------------- | ------------------------------------- | ------------------------------ |
+| -------- | ------------------------------------- | ---------------------------- |
 
 | **print_r()** | Mostra valore in modo leggibile (anche array/oggetti) | `Array ( [0] => 1 [1] => 2 [2] => 3 )` |
-| ------------------- | ----------------------------------------------------- | ---------------------------------------- |
+| ------------- | ----------------------------------------------------- | -------------------------------------- |
 
 | **var_dump()** | Mostra tipo + lunghezza + valore (dettagliato) | `array(3) { [0]=> int(1) [1]=> int(2) [2]=> int(3) }` |
-| -------------------- | ---------------------------------------------- | ------------------------------------------------------- |
+| -------------- | ---------------------------------------------- | ----------------------------------------------------- |
 
 ###################### **Isset Empty and Unset Function Validate and delete
 Variable** #############################
@@ -186,7 +185,9 @@ string (n.) "fragola"
 - Modo piu veloce per fare un´array : **$frutta = [ 'banane' , 'lamponi'
   ,'ciliegie' , 'mango', 'ananas' ];**
 - altro importante é **count( nome array );**
-- **...$nome_array** !!!! MOLTO IMPORTANTE !!!! per spachettare un array dentro una funzione o un´altro array per duplicare il contenuto in essa , non si puo stampare mi raccomando
+- **...$nome_array** !!!! MOLTO IMPORTANTE !!!! per spachettare un array dentro
+  una funzione o un´altro array per duplicare il contenuto in essa , non si puo
+  stampare mi raccomando
 
 ![1759215721058](image/Teoria_PHP/1759215721058.png)
 
@@ -215,3 +216,117 @@ string (n.) "fragola"
 - sort( nome array) ; SORTISCE L´ARRAY
 
 ![1759222980397](image/Teoria_PHP/1759222980397.png)
+
+- **min($nome_array);** Trova il valore minimo
+- **max($nome_array);** Trova il valore massimo
+- **$value = array_merge ( nome_array , nome_array)** Mi serve per conbinare due
+  array insieme
+- **$[... nome_array , ... nome_array, 'item nuovo']$;** come merge ma piu
+  moderno perche mi pemette d´inserire anche altre items insieme
+- ... nome array serve per apreire e inserrire tutti i valori dell´array ,
+  quindi si usa il contenuto e non l´array in se
+
+######################### ARRAY_SLICE TEORIA
+#############################################
+
+- **array_search(contenuto da trovare, $nome_array) ;** Metodo per trovare
+  l´index o la key dell´items in questione
+- array_slice($nome_array , inizio index , fine index);
+
+Serve per **estrarre una porzione (sottosezione)** di un array **senza
+modificarlo** .
+
+FORMA COMPLETA :
+
+**array_slice(array $array, int $offset, ?int $length = null, bool
+$preserve_keys = false): array**
+
+La parte `: array` alla fine della funzione serve a **specificare il tipo di
+valore che la funzione restituisce** → si chiama **“type hinting di ritorno”**
+(in tedesco: _Rückgabetyp_ ).
+
+| Parametro        | Descrizione 🇮🇹                          | Beschreibung 🇩🇪                           |
+| ---------------- | --------------------------------------- | ----------------------------------------- |
+| `$array`         | L’array di partenza                     | Ausgangsarray                             |
+| `$offset`        | Da dove iniziare (indice)               | Startposition                             |
+| `$length`        | Quanti elementi prendere                | Anzahl der Elemente                       |
+| `$preserve_keys` | Se `true`, mantiene le chiavi originali | Beibehaltung der ursprünglichen Schlüssel |
+
+$numeri = [10, 20, 30, 40, 50];
+
+$parte = array_slice($numeri, 1, 3); print_r($parte);
+
+**RISULTATO**
+
+Array ( [0] => 20 [1] => 30 [2] => 40 )
+
+**Se vuoi mantenere le chiavi:**
+
+$parte = array_slice($numeri, 1, 3, true);
+
+**RISULTATO**
+
+Array ( [1] => 20 [2] => 30 [3] => 40 )
+
+######################################### **Type Hinting di ritorno** — PHP
+(Return Types) ####################################
+
+Serve a **specificare il tipo di dato che la funzione deve restituire** .
+
+(non obbligatorio, ma **molto consigliato** per codice pulito e sicuro)
+
+**function somma(int $a, int $b): int { return $a + $b; }**
+
+👉 ritorna sempre un intero (integer) Wenn kein Integer zurückkommt →
+PHP-Fehler.
+
+STRING
+
+**function saluta(string $nome): string { return "Ciao, " . $nome; }**
+
+FLOAT
+
+**function divisione(float $a, float $b): float { return $a / $b; }**
+
+BOOL
+
+**function maggioreDiZero(int $n): bool { return $n > 0; }**
+
+ARRAY
+
+**function getNumeri(): array { return [1, 2, 3]; }**
+
+MIXED
+
+**function randomValue(): mixed { return rand(0, 1) ? "ciao" : 123; }**
+
+### **È necessario?**
+
+- ❌ **Non obbligatorio** , ma
+- ✅ **Fortemente consigliato** perché:Aiuta a evitare errori di tipo (
+  _TypeError_ )
+
+  Rende il codice più leggibile e professionale
+
+  Molti framework moderni (Laravel, Symfony, ecc.) lo richiedono
+
+###################### Associative Arrays ##########################
+
+I valori non piu associato a **index** ma ha **key**
+
+![1760097958305](image/Teoria_PHP/1760097958305.png)
+
+INTERESSANTE VEDERE COME SI USA **FOREACH ()** per stampare sia la key che il
+valore !!!
+
+comunque devo stamparli entrambi e vanno uno sotto l´altro , non li stampa come
+un´array
+
+![1760097592430](image/Teoria_PHP/1760097592430.png)
+
+**array_keys( nome_array);** mi crea un´altro array dove inserisco solo le keys
+dell´array in questione
+
+array_values( nome_array); stessa cosa ma con le value
+
+OVVIAMENTE ENTRAMBE NON CAMBIANO L`ORIGINALE

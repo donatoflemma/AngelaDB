@@ -19,15 +19,15 @@ session_start();
     $label = array('Nachname','Name','Gehalt','UrlaubsTage');
     ECCO COME PRINTA       Array ( [Nachname] => fgh [Name] => dfgh [Gehalt] => 5 [UrlaubsTage] => 5 [btn] => Insert ) 
 
-*/ 
-if(isset($_POST['btn']) ){
-    if(!empty($_POST['btn'] )){
+*/
+if (isset($_POST['btn'])) {
+    if (!empty($_POST['btn'])) {
         $table = $_SESSION['table'];
         $POST_key = array_keys($_POST);
         array_pop($POST_key); // elimina l´ultimo items perche é la chiave del submit--> bottone quindi non devi sovrascivere l´array
 
-        $placeholder_items = implode(',',$POST_key);
-        $placeholder = implode(',',array_fill(0,(count($_POST) - 1) ,'?'));
+        $placeholder_items = implode(',', $POST_key);
+        $placeholder = implode(',', array_fill(0, (count($_POST) - 1), '?'));
         //$stmt = $conn->prepare("INSERT INTO $table ($placeholder_items) VALUES ($placeholder)");
         $stmt_prova = "INSERT INTO $table ($placeholder_items) VALUES ($placeholder)";
         echo $stmt_prova;
@@ -47,7 +47,7 @@ if(isset($_POST['btn']) ){
                 break;
             case "Categoria":
                 $Name = $_GET["nameTable"];
- 
+
                 break;
             case "Prodotti":
                 $Name = $_GET["Name"];
@@ -55,12 +55,14 @@ if(isset($_POST['btn']) ){
 
                 break;}
 
-                
+
                 $stmt->bind_param("ss", $Name, $Prezzo);// da finire perche non so come si dice decimal
                 echo "<strong> Isert done !<strong/>";*/
 
-//$stmt->execute(); //esegue la query*/
+        //$stmt->execute(); //esegue la query*/
     }
 }
 exit;
+
+
 ?>
