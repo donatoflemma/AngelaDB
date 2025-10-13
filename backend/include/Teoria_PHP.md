@@ -3,7 +3,7 @@ una best practice sarebbe chiamare i fil econtenuti in include con
 solo
 
 Ho visto molto spesso fare
-``<h1><?php   echo 'Ciao'; ?>```</h1>`quando io ho sempre fatto``<?php echo' <h1> Cioa <h1>'; ?>``
+``<h1><?php   echo 'Ciao'; ?>``</h1>`quando io ho sempre fatto``<?php echo' <h1> Cioa <h1>'; ?>```
 Non ho ancora capito la differenza ma funzionano uguale
 
 Quando fa include non mette i tag Html nell´eco , capire anche questo !!!!
@@ -117,9 +117,9 @@ Una sintassi alternativa per eliminare i **{}** si potrebbe fare per esempio :
 
 **endif; 		case ......:**
 
-** break;**
+    **break;**
 
-** endswitch;**
+    endswitch;
 
 NOTA BENE !!!!!
 
@@ -129,6 +129,19 @@ $isRed = true;
 PHP is amazing!`</h1>`**
 
 ALTRO MODO DA ANALIZZARE PERCHE NON L´HO MAI VISTO !!!!
+
+![1760358876534](image/Teoria_PHP/1760358876534.png)
+
+Questa é la forma abbreviata di una **if** dove viene controllato la variabile
+**$name**
+
+**IL punto interrogativo sta a segnalare solo la domada che stiamo ponendo nella
+if qundi é solo sintassi**
+
+Si chiama Short_if_statmant e ed é una specie di Lambda che si puo usare in
+svariati modi e magari inserirlo in una value o come
+
+value di una array , ancora non ho capito come al 100% ma sta da capirlo
 
 ############################################################################################################
 
@@ -327,6 +340,147 @@ un´array
 **array_keys( nome_array);** mi crea un´altro array dove inserisco solo le keys
 dell´array in questione
 
-array_values( nome_array); stessa cosa ma con le value
+**array_values( nome_array);** stessa cosa ma con le value
 
 OVVIAMENTE ENTRAMBE NON CAMBIANO L`ORIGINALE
+
+**NOTA IMPORTANTE !!!!!**
+
+Negli array associativi se inseriamo un value che non ha una key , viene
+assegnato un idex partendo da 0
+
+quindi si puo mischiare tutto , ma il best Practice impone di suddividere gli
+array in **Associativi** e con **idex**
+
+################################### URL
+#########################################
+
+## Cos’è un URL
+
+**URL = Uniform Resource Locator**
+
+- È l’indirizzo che identifica una **risorsa su Internet** (pagina web,
+  immagine, file, ecc.)
+- Serve ai browser per sapere **dove andare** e **come richiedere la risorsa** .
+  https://www.example.com:443/path/to/page.php?name=Luca&age=25#section1
+
+| Parte                 | Esempio             | Funzione                                                           |
+| --------------------- | ------------------- | ------------------------------------------------------------------ |
+| **Schema/Protocollo** | `https://`          | Indica il protocollo da usare (HTTP, HTTPS, FTP...)                |
+| **Host/Dominio**      | `www.example.com`   | Indirizzo del server web                                           |
+| **Porta**             | `:443`              | Numero di porta sul server (opzionale, default 80 HTTP, 443 HTTPS) |
+| **Path/Percorso**     | `/path/to/page.php` | Percorso della risorsa sul server                                  |
+| **Query string**      | `?name=Luca&age=25` | Parametri passati al server (`$_GET`in PHP)                        |
+| **Fragment/Ancora**   | `#section1`         | Posizione interna alla pagina (non inviata al server)              |
+
+### Come funziona quando digiti un URL
+
+1. **Risoluzione DNS:**
+   - Il browser converte `www.example.com` in un **indirizzo IP** del server.
+2. **Connessione al server:**
+   - Il browser apre una connessione TCP sulla porta 80 (HTTP) o 443 (HTTPS).
+3. **Invio della richiesta HTTP:**
+   - Il browser invia una richiesta al server per la risorsa richiesta, incluso
+     il **path** e i **parametri** (query string).
+4. **Elaborazione lato server:**
+   - Il server riceve la richiesta, esegue eventualmente uno script PHP,
+     utilizza i parametri (`$_GET`), e genera una risposta.
+5. **Risposta al browser:**
+   - Il server invia HTML, JSON, immagine, ecc.
+   - Il browser riceve la risposta e la mostra all’utente.
+
+############################ **$_GET array superglobale**
+################################
+
+![1760359717611](image/Teoria_PHP/1760359717611.png)
+
+`$_GET` è un **array superglobale** (superglobal array) fornito da PHP, che
+contiene **tutti i parametri passati tramite URL** (cioè dopo il `?`).
+
+**ATTENZIONE nel tutorial ha scritto direttamente nell´URL il parametro da
+inserire !!!!**
+
+ES.
+
+https://tuosito.com/pagina.php?nome=Luca&eta=25
+
+$_GET = [ 'nome' => 'Luca', 'eta' => '25' ];
+
+#### “Ogni file PHP genera un array diverso?”
+
+Sì ✅
+
+→ Ogni **richiesta HTTP** (cioè ogni volta che il browser apre o ricarica un
+file `.php`) genera **una nuova copia** di `$_GET`.
+
+→ Non è condiviso tra file o richieste
+
+#### “Quanto tempo mantiene i valori?”
+
+Solo **per la durata dello script** , cioè **mentre la pagina PHP viene
+eseguita** .
+
+Appena la risposta viene inviata al browser → la variabile sparisce.
+
+Ogni nuova richiesta (anche allo stesso file) rigenera `$_GET` da zero.
+
+#### Se vuoi mantenere i dati tra più pagine:
+
+Devi usare uno di questi:
+
+- **`$_SESSION`** → mantiene i dati finché la sessione dell’utente è attiva
+- **`$_COOKIE`** → salva dati nel browser
+- **URL query string** → passare i parametri da pagina a pagina con `?param=...`
+
+![1760360592490](image/Teoria_PHP/1760360592490.png)
+
+Sapendo che **href** serve per inserire qualcosa nell´**URL** e che quindi
+potenzialmente ti porta in una pagina diversa
+
+nel tutorial lo usa per inserire dei valori con con chiave in un´**array
+associativo** , siccome ha avuto problemi con **'Beauty & the Beast'** in quanto
+**PHP**
+
+lo traduce come due value diverse , ha usato quest´altra **function** in cui si
+specifica la **value** e la **key** in modo da poter usare **'&'**
+
+![1760361604052](image/Teoria_PHP/1760361604052.png)
+
+Ora ogni volta in cui seleziono un `<a>` viene riempito il **$_GET** ( quindi si
+svuota ogni volta ) e posso inserire piu di un parametro in questo array anche
+con **http_bild_query();**
+
+############################################# **FORM**
+###############################################################
+
+![1760362775415](image/Teoria_PHP/1760362775415.png)
+
+Classico **Form** con un input per **text** e uno per il **submit** che invia il
+value da inserire nel **GET array** , notare il **Short_if** inserito come value
+(**ossia il Lable che compare nella casella dove inseriamo il testo** ), in
+questa maniera é dinamico e viene riempito ogni volta dalla richiesta dell´User
+salvata nel GET
+
+############################################################ **POST**
+#######################################################
+
+![1760364008718](image/Teoria_PHP/1760364008718.png)
+
+**ATTENZIONE !!!!! notare come se creo un Form con $_POST le value dell´array in
+questione non compaiono nell´URL !!!**
+
+> `<form action= "form.php" mehotd = "POST">  action -> dove viene inviata   method ->  in quale modo`
+>
+> `<input type = "text" name = "username" />  type -> inserimento testo   name -> la chiave dell´array associativo`
+>
+> `<input type = "password" name = "password"/> type -> inserimento password  name -> la chiave dell´array associativo`
+>
+> `<input type = "submit" value = "Login!"/>  type -> inviare le value e le sue chiavi all´array   value -> label del bottone`
+>
+> `</form>`
+
+**ATTENZIONE !!!** anche se nell´**URL** col metodo **POST** non si vede le
+value che noi inseriamo nell´**array** , comunque possono essere vissibili se
+noi andiamo a stampare il **POST** , per questo per una maggiore sicurezza si
+usa **HTTPS** che é piu sicuro in quanto vengono **criptati** i dati che noi
+andiamo ad inserire !!!!
