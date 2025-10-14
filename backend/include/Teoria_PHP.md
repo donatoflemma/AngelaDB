@@ -2,9 +2,9 @@ una best practice sarebbe chiamare i fil econtenuti in include con
 'Esempio.inc.php' per determinare che il file non ha codice da far partire da
 solo
 
-Ho visto molto spesso fare
-``<h1><?php   echo 'Ciao'; ?>``</h1>`quando io ho sempre fatto``<?php echo' <h1> Cioa <h1>'; ?>```
-Non ho ancora capito la differenza ma funzionano uguale
+Ho visto molto spesso fare ``<h1><?php   echo 'Ciao'; ?>```</h1>``quando io ho
+sempre fatto```<?php echo' <h1> Cioa <h1>'; ?>```` Non ho ancora capito la
+differenza ma funzionano uguale
 
 Quando fa include non mette i tag Html nell´eco , capire anche questo !!!!
 
@@ -154,6 +154,23 @@ Vero se **almeno uno** è vero. Vero se **solo uno** è vero, ma non entrambi.
     	0 1 |   1             													0 1 |    1
     	1 0 |   1															1 0 |    1
     	1 1 |   1															1 1 |    0
+
+###################################### INCLUDE
+###############################################
+
+![1760443939869](image/Teoria_PHP/1760443939869.png)
+
+### `include`
+
+- **Cosa fa** : **inserisce ed esegue** un file PHP all’interno di un altro
+- **Usi tipici** : riutilizzare codice (es. header, footer, funzioni)
+- **Esegue il codice PHP** contenuto nel file incluso
+
+### `file_get_contents()`
+
+- **Cosa fa** : legge il contenuto di un file e lo restituisce come **stringa**
+- **Usi tipici** : leggere file di testo, HTML, JSON, XML, ecc.
+- **Non esegue codice PHP** contenuto nel file
 
 ############################################ **ARRAY**
 #############################################################
@@ -484,3 +501,206 @@ value che noi inseriamo nell´**array** , comunque possono essere vissibili se
 noi andiamo a stampare il **POST** , per questo per una maggiore sicurezza si
 usa **HTTPS** che é piu sicuro in quanto vengono **criptati** i dati che noi
 andiamo ad inserire !!!!
+
+**Differenza base tra GET e POST**
+
+| Metodo   | Dati visibili          | Dove si inviano i dati                  | Effetto tipico                   | Quando usarlo                                    |
+| -------- | ---------------------- | --------------------------------------- | -------------------------------- | ------------------------------------------------ |
+| **GET**  | ✅ Visibili nell’URL   | Nella “query string” (`?chiave=valore`) | Legge o richiede informazioni    | Quando vuoi**leggere o cercare**dati             |
+| **POST** | ❌ Invisibili nell’URL | Nel corpo (body) della richiesta        | Invia o modifica dati sul server | Quando vuoi**salvare, inviare o modificare**dati |
+
+**Usi GET per:**
+
+- ricerche su Google
+- filtri di prodotti (`?categoria=scarpe&colore=nero`)
+- pagine pubbliche con link condivisibili
+
+**Usi POST per:**
+
+- form di login o registrazione
+- invio di dati personali o sensibili
+- upload di file
+- invio di ordini o commenti
+
+  ########################################### CROSS - SITE SCRIPTING (XSS)
+  #############################
+
+![1760435500224](image/Teoria_PHP/1760435500224.png)
+
+L’XSS è una tecnica di attacco in cui un hacker riesce a **iniettare codice
+JavaScript malevolo** in una pagina web visualizzata da altri utenti. Questo
+codice viene eseguito nel browser della vittima come se fosse parte legittima
+del sito.
+
+### 🎯 Obiettivi dell’attacco XSS
+
+- **Rubare cookie di sessione** per impersonare l’utente
+- **Reindirizzare** l’utente verso siti malevoli
+- **Modificare il contenuto della pagina** per ingannare o truffare
+- **Registrare input dell’utente** come password o dati sensibili
+
+| Tipo          | Descrizione                                                                  |
+| ------------- | ---------------------------------------------------------------------------- |
+| **Reflected** | Il codice malevolo è incluso in un link e riflesso nella risposta del server |
+| **Stored**    | Il codice viene salvato nel database e mostrato a tutti gli utenti           |
+| **DOM-based** | L’attacco sfrutta il codice JavaScript lato client per manipolare il DOM     |
+
+### Come difendersi
+
+- **Sanitizzazione dell’input** : come nel tuo esempio, usare
+  `htmlspecialchars()` in PHP
+- **Validazione lato server** : controllare che l’input sia conforme a quanto
+  previsto
+- **Content Security Policy (CSP)** : limitare le fonti da cui può essere
+  eseguito JavaScript
+- **Escape dell’output** : evitare che l’input utente venga interpretato come
+  codice
+- ##################### **htmlspacialchars(); SPIEGAZIONE**
+  ####################################
+
+**htmlspecialchars(string $string, int $flags = ENT_QUOTES, string $encoding =
+'UTF-8', bool $double_encode = true)**
+
+- `$string`: la stringa da convertire (di solito input dell’utente)
+- `$flags`: opzioni su quali caratteri convertire (es. `ENT_QUOTES` converte sia
+  `'` che `"`)
+- `$encoding`: la codifica dei caratteri (es. `'UTF-8'`)
+- `$double_encode`: se `true`, converte anche entità HTML già codificate
+
+  in questo modo ache se viene ignettato del codice Javascript non viene
+  interpretato ma visto come una semplice stringa
+
+  MOLTO PRATICO È RACCHIUDERLA IN UNA FUNZIONE IN MODO DA USARLA PIU VOLTE E MI
+  RACCOMANDO SI USA SEMPRE !!!!!!!
+
+  **BEST PRACTICE !!!!**
+
+![1760444497453](image/Teoria_PHP/1760444497453.png)
+
+Questa é uno screen in cui usiamo un´**array** dove compariamo l´input
+dell´**User** , in questo modo siamo sicuri che non ci sia **Injection** !!! in
+quanto **prendiamo la risposta dell´user confrontandola con gli Items che
+abbiamo nell´array in modo da far passare solo quelli e caricare la pagina
+giusta** . Ricordiamoci che persone estranee **possono caricare nel path dei
+file estranei** , in questo modo anche se lo fanno non é un problema . Anche il
+metodo **POST** per quanto sicuro non riesce a darci una mano in questo campo
+
+`htmlspecialchars()` e `rawurlencode()` sono due funzioni PHP che **sembrano
+simili** perché entrambe "proteggono" stringhe, ma in realtà servono a **scopi
+completamente diversi** .
+
+### `htmlspecialchars()`
+
+Serve per **proteggere l’HTML** da input utente potenzialmente pericoloso (come
+script o tag).
+
+#### Quando usarla:
+
+- Quando **mostri dati utente** in una pagina HTML
+- Per **prevenire XSS**
+- In form, commenti, profili, ecc
+
+### `rawurlencode()`
+
+Serve per **preparare una stringa da inserire in un URL** , codificando i
+caratteri speciali.
+
+ATTENZIONE !!! una cosa molto importante quando usiamo questa function é che
+dobbiamo inserire solo il nome del file , **non tutto il percorso del path**
+
+ES:
+
+**$file_name** = ' IMG522682.png '
+
+**rawurlencode(' ../course/modern/altro/ ' . $file_name ) ; Come si puo vedere
+la parte del percorso viene racchiusa in apici diversi e poi uniti al nome
+!!!!**
+
+#### Quando usarla:
+
+- Quando **costruisci URL dinamici**
+- Per **passare parametri via GET**
+- Per evitare problemi con spazi, &, =, ecc.
+
+![1760447059216](image/Teoria_PHP/1760447059216.png)##################################################
+**http_build_query();** ###################################################
+
+È una funzione che **trasforma un array associativo** in una stringa di
+parametri **URL** (**query string**), pronta per essere usata in un **link** o
+in una richiesta **HTTP**.
+
+ES:
+
+**$params = [ 'piatto' => 'Pizza', 'bevanda' => 'Birra', 'quantità' => 2 ];**
+
+**query = http_build_query(params); echo $query;**
+
+Output:
+
+**piatto=Pizza&bevanda=Birra&quantit%C3%A0=2**
+
+✅ I caratteri speciali (come à) vengono **codificati automaticamente** ✅ Puoi
+usarla per costruire **URL** dinamici:
+
+ES:
+
+**url = " ordine.php? " . http_build_query ( params );** Come si vede questa é
+una richiesta dinamica per URL
+
+### **Quando usarla**
+
+- Per costruire **URL** con parametri **GET**
+- Per inviare dati via **API** o **cURL** ---> **cURL (Client URL)** è una
+  libreria e set di funzioni che ti permette di comunicare con altri **server**
+- Per **redirect** dinamici **(Ti posta in un´altra pagina)**
+- Per evitare errori di codifica manuale
+  ########################################### APPUNTO SU HREF
+  ##############################################
+
+## Quando usi `href` come **percorso statico**
+
+Di solito scrivi:
+
+`<a href="./images/foto1.jpg">`Apri immagine `</a>`
+
+## Quando usi `href` con **query string (GET parameters)**
+
+`<a href="image.php?image=foto1.jpg">`
+
+Qui `href` non punta più a un file immagine, ma a uno **script PHP**
+(`image.php`),
+
+che riceve un **parametro GET** (`image=foto1.jpg`) e poi decide **cosa
+mostrare**
+
+Usare una query (`?image=foto1.jpg`) è utile quando:
+
+- vuoi **gestire dinamicamente** le immagini da PHP
+- vuoi **filtrare o modificare** le immagini (es. `?image=foto1.jpg&size=small`)
+- vuoi **proteggere o validare** i file prima di mostrarli
+
+| Caso                         | Esempio                                                      | Spiegazione IT                      | Erklärung DE                               |
+| ---------------------------- | ------------------------------------------------------------ | ----------------------------------- | ------------------------------------------ |
+| **Path diretto**             | `href="./images/foto.jpg"`                                   | apre direttamente il file           | öffnet direkt die Datei                    |
+| **Con query (GET)**          | `href="image.php?image=foto.jpg"`                            | passa un parametro a uno script PHP | übergibt einen Parameter an ein PHP-Skript |
+| **Con `http_build_query()`** | `href="image.php?image=foto.jpg"`ma generato automaticamente | costruisce l’URL in modo sicuro     | erstellt die URL sicher automatisch        |
+
+############################################ **TYPE AND CASTING**
+#######################################################
+
+![1760450940851](image/Teoria_PHP/1760450940851.png)
+
+**Function** per avere una risposta **booleana in base al tipo di value** , nel
+Corso si vede come gli usa con un **IF** statement per dare la giusta istruzione
+**in base al tipo** , in quanto un array non si comporta alla stessa maniera di
+un stringa o di un´altro tipo .
+
+#### **
+
+    CASTING**
+
+**price = (int) $_GET[ ' parametro ' ];** Questo é il modo di castare il tipo di
+dato ad una variabile !!!!!!!!!!
+
+Qual´ora volessimo castare **INTEGER** ad una **Str** il risultato sarebbe '
+**0** ' quindi **non da errore ma lo converte**
