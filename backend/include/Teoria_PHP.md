@@ -3,7 +3,7 @@ una best practice sarebbe chiamare i fil econtenuti in include con
 solo
 
 Ho visto molto spesso fare ``<h1><?php   echo 'Ciao'; ?>```</h1>``quando io ho
-sempre fatto```<?php echo' <h1> Cioa <h1>'; ?>```` Non ho ancora capito la
+sempre fatto``````<?php echo' <h1> Cioa <h1>'; ?>``````` Non ho ancora capito la
 differenza ma funzionano uguale
 
 Quando fa include non mette i tag Html nell´eco , capire anche questo !!!!
@@ -27,6 +27,17 @@ single Quot perde di valore sintattico ed é solo Str . QUINDI :
     Relativo: "DBMS.php" → cerca nella stessa cartella.
 
     Assoluto: "http://localhost/mio_progetto/DBMS.php" → sicuro se vuoi evitare confusione.
+
+    @ A COSA SERVE ??
+
+ES:
+
+$name = @(string) $_GET['name'];
+
+**Funzione del `@`:**
+
+* Se qualcosa genera un  **errore o warning** , PHP **non lo mostra** a schermo.
+* Esempio: se `$_GET['name']` non esiste o ha un tipo non convertibile, PHP non mostrerà alcun avviso.
 
 ##############################################################################
 **STRING**
@@ -81,13 +92,13 @@ Questo crea una selezione randomica di numeri !!!!!
 - Mostra **tipo** ( _Typ_ ) e **valore** ( _Wert_ ) di una variabile.
 
 | **echo** | Mostra solo il contenuto come stringa | `Array`(non mostra i valori) |
-| -------- | ------------------------------------- | ---------------------------- |
+| -------------- | ------------------------------------- | ------------------------------ |
 
 | **print_r()** | Mostra valore in modo leggibile (anche array/oggetti) | `Array ( [0] => 1 [1] => 2 [2] => 3 )` |
-| ------------- | ----------------------------------------------------- | -------------------------------------- |
+| ------------------- | ----------------------------------------------------- | ---------------------------------------- |
 
 | **var_dump()** | Mostra tipo + lunghezza + valore (dettagliato) | `array(3) { [0]=> int(1) [1]=> int(2) [2]=> int(3) }` |
-| -------------- | ---------------------------------------------- | ----------------------------------------------------- |
+| -------------------- | ---------------------------------------------- | ------------------------------------------------------- |
 
 ###################### **Isset Empty and Unset Function Validate and delete
 Variable** #############################
@@ -275,11 +286,11 @@ La parte `: array` alla fine della funzione serve a **specificare il tipo di
 valore che la funzione restituisce** → si chiama **“type hinting di ritorno”**
 (in tedesco: _Rückgabetyp_ ).
 
-| Parametro        | Descrizione 🇮🇹                          | Beschreibung 🇩🇪                           |
-| ---------------- | --------------------------------------- | ----------------------------------------- |
-| `$array`         | L’array di partenza                     | Ausgangsarray                             |
-| `$offset`        | Da dove iniziare (indice)               | Startposition                             |
-| `$length`        | Quanti elementi prendere                | Anzahl der Elemente                       |
+| Parametro          | Descrizione 🇮🇹                          | Beschreibung 🇩🇪                           |
+| ------------------ | ----------------------------------------- | ------------------------------------------- |
+| `$array`         | L’array di partenza                      | Ausgangsarray                               |
+| `$offset`        | Da dove iniziare (indice)                 | Startposition                               |
+| `$length`        | Quanti elementi prendere                  | Anzahl der Elemente                         |
 | `$preserve_keys` | Se `true`, mantiene le chiavi originali | Beibehaltung der ursprünglichen Schlüssel |
 
 $numeri = [10, 20, 30, 40, 50];
@@ -381,13 +392,13 @@ array in **Associativi** e con **idex**
 - Serve ai browser per sapere **dove andare** e **come richiedere la risorsa** .
   https://www.example.com:443/path/to/page.php?name=Luca&age=25#section1
 
-| Parte                 | Esempio             | Funzione                                                           |
-| --------------------- | ------------------- | ------------------------------------------------------------------ |
+| Parte                       | Esempio               | Funzione                                                           |
+| --------------------------- | --------------------- | ------------------------------------------------------------------ |
 | **Schema/Protocollo** | `https://`          | Indica il protocollo da usare (HTTP, HTTPS, FTP...)                |
 | **Host/Dominio**      | `www.example.com`   | Indirizzo del server web                                           |
 | **Porta**             | `:443`              | Numero di porta sul server (opzionale, default 80 HTTP, 443 HTTPS) |
 | **Path/Percorso**     | `/path/to/page.php` | Percorso della risorsa sul server                                  |
-| **Query string**      | `?name=Luca&age=25` | Parametri passati al server (`$_GET`in PHP)                        |
+| **Query string**      | `?name=Luca&age=25` | Parametri passati al server (`$_GET`in PHP)                      |
 | **Fragment/Ancora**   | `#section1`         | Posizione interna alla pagina (non inviata al server)              |
 
 ### Come funziona quando digiti un URL
@@ -504,10 +515,10 @@ andiamo ad inserire !!!!
 
 **Differenza base tra GET e POST**
 
-| Metodo   | Dati visibili          | Dove si inviano i dati                  | Effetto tipico                   | Quando usarlo                                    |
-| -------- | ---------------------- | --------------------------------------- | -------------------------------- | ------------------------------------------------ |
-| **GET**  | ✅ Visibili nell’URL   | Nella “query string” (`?chiave=valore`) | Legge o richiede informazioni    | Quando vuoi**leggere o cercare**dati             |
-| **POST** | ❌ Invisibili nell’URL | Nel corpo (body) della richiesta        | Invia o modifica dati sul server | Quando vuoi**salvare, inviare o modificare**dati |
+| Metodo         | Dati visibili           | Dove si inviano i dati                      | Effetto tipico                   | Quando usarlo                                    |
+| -------------- | ----------------------- | ------------------------------------------- | -------------------------------- | ------------------------------------------------ |
+| **GET**  | ✅ Visibili nell’URL   | Nella “query string” (`?chiave=valore`) | Legge o richiede informazioni    | Quando vuoi leggere o cercare  dati           |
+| **POST** | ❌ Invisibili nell’URL | Nel corpo (body) della richiesta            | Invia o modifica dati sul server | Quando vuoi salvare, inviare o modificare dati |
 
 **Usi GET per:**
 
@@ -539,15 +550,15 @@ del sito.
 - **Modificare il contenuto della pagina** per ingannare o truffare
 - **Registrare input dell’utente** come password o dati sensibili
 
-| Tipo          | Descrizione                                                                  |
-| ------------- | ---------------------------------------------------------------------------- |
+| Tipo                | Descrizione                                                                   |
+| ------------------- | ----------------------------------------------------------------------------- |
 | **Reflected** | Il codice malevolo è incluso in un link e riflesso nella risposta del server |
-| **Stored**    | Il codice viene salvato nel database e mostrato a tutti gli utenti           |
+| **Stored**    | Il codice viene salvato nel database e mostrato a tutti gli utenti            |
 | **DOM-based** | L’attacco sfrutta il codice JavaScript lato client per manipolare il DOM     |
 
 ### Come difendersi
 
-- **Sanitizzazione dell’input** : come nel tuo esempio, usare
+- **Sanificazione dell’input** : come nel tuo esempio, usare
   `htmlspecialchars()` in PHP
 - **Validazione lato server** : controllare che l’input sia conforme a quanto
   previsto
@@ -679,28 +690,274 @@ Usare una query (`?image=foto1.jpg`) è utile quando:
 - vuoi **filtrare o modificare** le immagini (es. `?image=foto1.jpg&size=small`)
 - vuoi **proteggere o validare** i file prima di mostrarli
 
-| Caso                         | Esempio                                                      | Spiegazione IT                      | Erklärung DE                               |
-| ---------------------------- | ------------------------------------------------------------ | ----------------------------------- | ------------------------------------------ |
-| **Path diretto**             | `href="./images/foto.jpg"`                                   | apre direttamente il file           | öffnet direkt die Datei                    |
-| **Con query (GET)**          | `href="image.php?image=foto.jpg"`                            | passa un parametro a uno script PHP | übergibt einen Parameter an ein PHP-Skript |
-| **Con `http_build_query()`** | `href="image.php?image=foto.jpg"`ma generato automaticamente | costruisce l’URL in modo sicuro     | erstellt die URL sicher automatisch        |
+| Caso                                 | Esempio                                                        | Spiegazione IT                      | Erklärung DE                               |
+| ------------------------------------ | -------------------------------------------------------------- | ----------------------------------- | ------------------------------------------- |
+| **Path diretto**               | `href="./images/foto.jpg"`                                   | apre direttamente il file           | öffnet direkt die Datei                    |
+| **Con query (GET)**            | `href="image.php?image=foto.jpg"`                            | passa un parametro a uno script PHP | übergibt einen Parameter an ein PHP-Skript |
+| **Con `http_build_query()`** | `href="image.php?image=foto.jpg"`ma generato automaticamente | costruisce l’URL in modo sicuro    | erstellt die URL sicher automatisch         |
 
 ############################################ **TYPE AND CASTING**
 #######################################################
 
-![1760450940851](image/Teoria_PHP/1760450940851.png)
+$numero = (int) "42";        // diventa intero
+$float  = (float) "3.14";    // diventa numero decimale
+$testo  = (string) 123;      // diventa stringa "123"
+$vero   = (bool) 1;          // diventa true
+$array  = (array) $valore;   // diventa array
 
 **Function** per avere una risposta **booleana in base al tipo di value** , nel
 Corso si vede come gli usa con un **IF** statement per dare la giusta istruzione
 **in base al tipo** , in quanto un array non si comporta alla stessa maniera di
 un stringa o di un´altro tipo .
 
-#### **
-
-    CASTING**
+##### 
+    CASTING
 
 **price = (int) $_GET[ ' parametro ' ];** Questo é il modo di castare il tipo di
 dato ad una variabile !!!!!!!!!!
 
 Qual´ora volessimo castare **INTEGER** ad una **Str** il risultato sarebbe '
 **0** ' quindi **non da errore ma lo converte**
+
+### **2️⃣ Casting implicito (implicit / automatische Umwandlung)**
+
+PHP cambia tipo **automaticamente** quando serve:
+
+**$somma = "10" + 5;  // "10" viene convertito in 10 → risultato 15**              converte da solo se il contesto lo richiede.
+
+##### 
+    Conversioni più comuni in PHP
+
+
+| Da → A           | Risultato                            | Spiegazione (IT)                       |
+| :---------------- | :----------------------------------- | :------------------------------------- |
+| `(int)"42"`     | `42`                               | Converte stringa numerica in intero    |
+| `(int)"42abc"`  | `42`                               | Prende solo la parte numerica iniziale |
+| `(int)"abc"`    | `0`                                | Nessun numero → diventa 0             |
+| `(float)"3.14"` | `3.14`                             | Stringa numerica decimale → float     |
+| `(float)"3,14"` | `3`                                | Virgola non valida → tronca a 3       |
+| `(string)123`   | `"123"`                            | Numero → stringa                      |
+| `(string)true`  | `"1"`                              | true → "1"                            |
+| `(string)false` | `""`                               | false → stringa vuota                 |
+| `(bool)0`       | `false`                            | 0 è falso                             |
+| `(bool)1`       | `true`                             | 1 è vero                              |
+| `(bool)"0"`     | `false`                            | Stringa “0” = false                  |
+| `(bool)""`      | `false`                            | Stringa vuota = false                  |
+| `(bool)"ciao"`  | `true`                             | Qualsiasi stringa non vuota = true     |
+| `(array)123`    | `[0 => 123]`                       | Trasforma in array con indice 0        |
+| `(object)123`   | `stdClass Object([scalar] => 123)` | Converte in oggetto                    |
+
+ ##############################################  NULL COALESCING OPERATOR   ?? ############################################
+
+**Definizione:**
+
+In PHP, l’operatore `??` serve per  **verificare se una variabile è definita e non è `null`** .
+
+Se **non esiste** o è  **null** , restituisce un  **valore di default** .
+
+**$variabile = $  $_GET['name'] ?? 'Anonimo';**
+
+**Significa:**
+
+> Se `$_GET['name']` esiste ed è diverso da `null`, assegna il suo valore.
+>
+> Altrimenti, assegna `'Anonimo'`.
+
+##### **Confronto con `isset()`**
+
+name = isset(_GET['name']) ? $_GET['name'] : 'Ospite';
+
+##### è **equivalente** a:
+
+$name = $_GET['name'] ?? 'Ospite';
+
+**Più corto, più leggibile.**
+
+##################################   **ternary operator (operatore ternario)**  ?  #########################################
+
+**condizione ? valore_se_vero : valore_se_falso**
+
+📖 Traduzione:
+
+> “Se la condizione è vera → usa il primo valore,
+>
+> altrimenti → usa il secondo.”
+
+**$name = isset($_GET['name']) ? $_GET['name'] : 'Ospite';**
+
+* `isset($_GET['name'])` → controlla se esiste `$_GET['name']`.
+* Se  **vero** , prende `$_GET['name']`.
+* Se  **falso** , prende `'Ospite'`.
+
+##### È come scrivere:
+
+if (isset($_GET['name'])) {
+    $name = $_GET['name'];
+} else {
+    $name = 'Ospite';
+}
+
+| Scopo                                                            | Miglior scelta             | Esempio                                 |
+| ---------------------------------------------------------------- | -------------------------- | --------------------------------------- |
+| Controllare se una variabile esiste o è null → dare un default | ✅`??`                   | `$x = $_GET['id'] ?? 0;`              |
+| Semplice condizione logica                                       | ✅`?:`                   | `$msg = $ok ? 'Successo' : 'Errore';` |
+| Controlli complessi o validazione dei dati                       | ✅`isset()`o `empty()` | `if (empty($_POST['user'])) { ... }`  |
+
+#######################################   ' ICLUDE '  PICCALA TEORIA  SU   __DIR __  ##############################################
+
+Piccola annotazione per capire il ragionamento di PHP quando usa ' ICLUDE '
+
+![1760518555617](image/Teoria_PHP/1760518555617.png)  
+
+Per esempio ho questa situazione tra file diversi di cui due di questi file hanno lo stesso nome , nel  ' **a.php** ' ho una stringa che stampo come anche nei due file ' **b.php** '
+
+nel file ' **a.php** ' ho incluso con **include ();** il file ' **b.php** ' inserito nella cartella **/inc** . 
+
+Sfortunatamente viene incluso il file ' **b.php** ' esterno perché **PHP** controlla prima la cartella esterna e poi va in profonditá per cercare nella cartella **/inc** , quindi attenzione !!! **se avessi chiamato i due file con nomi diversi tutto questo non sarebbe successo !!!**
+
+**Un´altra possibile soluzione del problema potrebbe essere inserire il Path assoluto del File , ma questo potrebbe generare un errore se un´altro User utilizza il mio programma da Computer di marca differenti con smistamento diverso di file rispetto al mio o se usano Software di Host diverso !!!!!!**
+
+##### 
+    BEST PRACTICE
+
+
+Il modo migliore sarebbe di usare  **__ DIR __**  dentro l´include ,  quindi **include __ DIR __ . '/b.php' ;** ora sappiamo che il **path** giusto é stato assegnato e che quindi non ci saranno errori . **MI RACCOMANDO !!** se il File da includere **non si trova nella stessa cartella aggiungere ' ../nome File '** in modo da indirizzarlo bene .
+
+**ES:**
+
+Ricapitolando se volgio aggiungere ' b.php ' che sta **nella stessa cartella** di ' a.php '   --->    **include __ DIR __ . ' /b.php '**
+
+Se volgio aggiungere ' b.php ' che sta **nella cartella esterna**  di ' a.php '   --->    **include __ DIR __ . ' /../b.php '**
+
+![1760519943856](image/Teoria_PHP/1760519943856.png)
+
+###### funziona così:
+
+* `__FILE__` è il percorso completo del file corrente.
+* `dirname(__FILE__)` prende solo la cartella in cui si trova quel file.
+* `include` serve per inserire ed eseguire il contenuto di un altro file **PHP**.
+* Quindi, il file `a.php` che si trova nella sottocartella `inc` viene incluso  **in modo sicuro** , indipendentemente da dove viene eseguito lo script.
+
+  ##################################     **ALTRE FUNZIONI PER INCLUDERE FILE O FUNZIONI**     ###############################
+
+### 📌 `include`
+
+* Inserisce un file PHP esterno.
+* Se il file non esiste, **mostra un warning** ma il codice continua a funzionare.
+
+### 📌 `require`
+
+* Come `include`, ma più severo.
+* Se il file non esiste, **genera un errore fatale** e **interrompe l'esecuzione** del codice.
+
+### 📌 `include_once`
+
+* Include il file  **una sola volta** , anche se viene chiamato più volte.
+* Evita problemi di  **duplicazione di funzioni o variabili** .
+
+### 📌 `require_once`
+
+* Stessa logica di `include_once`, ma con la severità di `require`.
+* Se il file è già stato incluso, lo  **ignora** .
+* Se il file non esiste,  **interrompe l'esecuzione** .
+
+💡 **Quando usarli?**
+
+* Usa `require_once` per file essenziali (es. configurazioni, classi).
+* Usa `include` o `include_once` per file opzionali (es. template, moduli extra).
+
+################################ **USARE IL CONENUTO DI UN FILE CON FILE_GET_CONTENTS() E READFILE()** ##################################
+
+### `readfile()`
+
+* **Cosa fa:** Legge un file e **lo stampa direttamente** sullo schermo.
+* **Tipo di output:** Output immediato (non lo puoi manipolare).
+* **Ritorno:** Restituisce il numero di byte letti, oppure `false` in caso di errore.
+* **Uso tipico:** Serve per mostrare file statici (es. HTML, immagini, PDF) direttamente al browser.
+
+
+### `file_get_contents()`
+
+* **Cosa fa:** Legge tutto il contenuto di un file e lo  **restituisce come stringa** .
+* **Tipo di output:** Puoi salvarlo in una variabile e manipolarlo.
+* **Ritorno:** Una stringa con il contenuto del file, oppure `false` in caso di errore.
+* **Uso tipico:** Perfetto per leggere file di testo, JSON, XML, ecc., e poi elaborarli.
+
+![1760522931406](image/Teoria_PHP/1760522931406.png)
+
+ES:
+
+**usando un file chiamato `dati.txt` che contiene:**
+
+Benvenuto nel mondo PHP!
+
+##### Esempio con `readfile()`
+
+**readfile('dati.txt');**
+
+Questo  **stampa direttamente** :
+
+Benvenuto nel mondo PHP!      --->  quidi non posso cambiare i suoi parametri 
+
+##### Esempio con `file_get_contents()`
+
+**$testo = file_get_contents('dati.txt');
+echo strtoupper($testo); // Lo trasforma in maiuscolo**
+
+Questo  **stampa**:
+
+BENVENUTO NEL MONDO PHP!      ---> lo manipolato per stamparlo in Uppercase !!!
+
+##### 
+    NOTARE COME USA     __ DIR __   ANCHE PER QUESTE FUNZIONI !!!!!!!
+
+![1760523131088](image/Teoria_PHP/1760523131088.png)
+
+####################################################  **IMPLODE AND EXPLODE**    #########################################################
+
+![1760524609268](image/Teoria_PHP/1760524609268.png)
+
+### `explode(delimitatore, stringa)`
+
+* **Divide** una stringa in un array, usando il **delimitatore** come punto di separazione.
+* Utile per spezzare **frasi, CSV, righe di testo, ecc.**
+
+**ES:**
+
+**$frase = "uno,due,tre";
+$array = explode(",", $frase);
+// Risultato: ["uno", "due", "tre"]**
+
+
+### `implode(delimitatore, array)`
+
+* **Unisce** gli elementi di un array in una  **stringa** , separandoli con il delimitatore.
+* Utile per creare stringhe da array **(es. per HTML, CSV, ecc.)**
+
+**ES**:
+
+**$array = ["uno", "due", "tre"];
+$frase = implode("-", $array);
+// Risultato: "uno-due-tre"**
+
+#### 
+    Parte finale della foto creazione della lista tramite implode
+
+`<ul>`
+
+`<li>`
+
+<?php
+echo implode ("</li><li>" , explode("\n", e($text)));            e();   --> funzione per controllare e filtrare User 
+
+?>
+
+`</li>`
+
+`</ul>`
+
+🔍 Cosa succede qui:
+
+1. `explode("\n", e($text))` divide il testo in righe.
+2. `implode("</li><li>", ...)` unisce le righe, separandole con tag HTML `<li>`.
+3. Il risultato è una **lista HTML** con ogni riga del testo come  **voce della lista** .
