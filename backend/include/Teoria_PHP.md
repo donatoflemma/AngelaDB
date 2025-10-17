@@ -3,7 +3,7 @@ una best practice sarebbe chiamare i fil econtenuti in include con
 solo
 
 Ho visto molto spesso fare ``<h1><?php   echo 'Ciao'; ?>```</h1>``quando io ho
-sempre fatto``````<?php echo' <h1> Cioa <h1>'; ?>``````` Non ho ancora capito la
+sempre fatto```````<?php echo' <h1> Cioa <h1>'; ?>```````` Non ho ancora capito la
 differenza ma funzionano uguale
 
 Quando fa include non mette i tag Html nell´eco , capire anche questo !!!!
@@ -710,7 +710,6 @@ Corso si vede come gli usa con un **IF** statement per dare la giusta istruzione
 **in base al tipo** , in quanto un array non si comporta alla stessa maniera di
 un stringa o di un´altro tipo .
 
-##### 
     CASTING
 
 **price = (int) $_GET[ ' parametro ' ];** Questo é il modo di castare il tipo di
@@ -725,9 +724,7 @@ PHP cambia tipo **automaticamente** quando serve:
 
 **$somma = "10" + 5;  // "10" viene convertito in 10 → risultato 15**              converte da solo se il contesto lo richiede.
 
-##### 
     Conversioni più comuni in PHP
-
 
 | Da → A           | Risultato                            | Spiegazione (IT)                       |
 | :---------------- | :----------------------------------- | :------------------------------------- |
@@ -807,19 +804,17 @@ if (isset($_GET['name'])) {
 
 Piccola annotazione per capire il ragionamento di PHP quando usa ' ICLUDE '
 
-![1760518555617](image/Teoria_PHP/1760518555617.png)  
+![1760518555617](image/Teoria_PHP/1760518555617.png)
 
 Per esempio ho questa situazione tra file diversi di cui due di questi file hanno lo stesso nome , nel  ' **a.php** ' ho una stringa che stampo come anche nei due file ' **b.php** '
 
-nel file ' **a.php** ' ho incluso con **include ();** il file ' **b.php** ' inserito nella cartella **/inc** . 
+nel file ' **a.php** ' ho incluso con **include ();** il file ' **b.php** ' inserito nella cartella **/inc** .
 
 Sfortunatamente viene incluso il file ' **b.php** ' esterno perché **PHP** controlla prima la cartella esterna e poi va in profonditá per cercare nella cartella **/inc** , quindi attenzione !!! **se avessi chiamato i due file con nomi diversi tutto questo non sarebbe successo !!!**
 
 **Un´altra possibile soluzione del problema potrebbe essere inserire il Path assoluto del File , ma questo potrebbe generare un errore se un´altro User utilizza il mio programma da Computer di marca differenti con smistamento diverso di file rispetto al mio o se usano Software di Host diverso !!!!!!**
 
-##### 
     BEST PRACTICE
-
 
 Il modo migliore sarebbe di usare  **__ DIR __**  dentro l´include ,  quindi **include __ DIR __ . '/b.php' ;** ora sappiamo che il **path** giusto é stato assegnato e che quindi non ci saranno errori . **MI RACCOMANDO !!** se il File da includere **non si trova nella stessa cartella aggiungere ' ../nome File '** in modo da indirizzarlo bene .
 
@@ -875,7 +870,6 @@ Se volgio aggiungere ' b.php ' che sta **nella cartella esterna**  di ' a.php ' 
 * **Ritorno:** Restituisce il numero di byte letti, oppure `false` in caso di errore.
 * **Uso tipico:** Serve per mostrare file statici (es. HTML, immagini, PDF) direttamente al browser.
 
-
 ### `file_get_contents()`
 
 * **Cosa fa:** Legge tutto il contenuto di un file e lo  **restituisce come stringa** .
@@ -897,7 +891,7 @@ Benvenuto nel mondo PHP!
 
 Questo  **stampa direttamente** :
 
-Benvenuto nel mondo PHP!      --->  quidi non posso cambiare i suoi parametri 
+Benvenuto nel mondo PHP!      --->  quidi non posso cambiare i suoi parametri
 
 ##### Esempio con `file_get_contents()`
 
@@ -908,7 +902,6 @@ Questo  **stampa**:
 
 BENVENUTO NEL MONDO PHP!      ---> lo manipolato per stamparlo in Uppercase !!!
 
-##### 
     NOTARE COME USA     __ DIR __   ANCHE PER QUESTE FUNZIONI !!!!!!!
 
 ![1760523131088](image/Teoria_PHP/1760523131088.png)
@@ -928,7 +921,6 @@ BENVENUTO NEL MONDO PHP!      ---> lo manipolato per stamparlo in Uppercase !!!
 $array = explode(",", $frase);
 // Risultato: ["uno", "due", "tre"]**
 
-
 ### `implode(delimitatore, array)`
 
 * **Unisce** gli elementi di un array in una  **stringa** , separandoli con il delimitatore.
@@ -940,7 +932,6 @@ $array = explode(",", $frase);
 $frase = implode("-", $array);
 // Risultato: "uno-due-tre"**
 
-#### 
     Parte finale della foto creazione della lista tramite implode
 
 `<ul>`
@@ -961,3 +952,82 @@ echo implode ("</li><li>" , explode("\n", e($text)));            e();   --> funz
 1. `explode("\n", e($text))` divide il testo in righe.
 2. `implode("</li><li>", ...)` unisce le righe, separandole con tag HTML `<li>`.
 3. Il risultato è una **lista HTML** con ogni riga del testo come  **voce della lista** .
+
+   ############################################ ALTRE FUNZIONI PER MANIPOLARE STRING E ARRAY ######################################
+
+   #### 
+       substr(string$string, int $start, ?int $length = null);
+
+* `$string` → la stringa originale
+* `$start` → da dove iniziare (indice parte da 0)
+* `$length` *(opzionale)* → quanti caratteri prendere
+* ES:
+
+**$text = "Programmazione";**
+
+###### // **Prende da posizione 0 i primi 4 caratteri**
+echo substr($text, 0, 4);
+ "Prog"
+
+###### // **Prende da posizione 5 fino alla fine**
+echo substr($text, 5);
+ "ammazione"
+
+###### // **Prende 3 caratteri partendo da posizione 2**
+echo substr($text, 2, 3);
+ "ogr"
+
+#### 
+    strlen();
+
+**Serve per contare i caratteri presenti nella string in questione** 
+
+###### text = 'Parole';
+
+**strlen(text);**
+
+**var_dump(text);** 
+
+**int(6)** 
+
+**ATTENZIONE !!!! calcola i byte per cui se inserisci immagini emoticon o altro che occupa piu spazio di una lettere il risultato non combaciera con il conteggio esatto delle lettere** 
+
+##### 
+    str_starts_with(nome value , ' content da trovare ') & str_ends_with(nome value , ' content da trovare ')
+
+ES:
+
+text = " PHP , short for \\"Hypertext Processor \\" , is a server-side scripting language first introduced in 1994;
+
+**var_dump(str_starts_with(text , ' PHP '));**    ----->   Risultato **TRUE** perche incomincia con PHP
+
+**var_dump(str_ends_with(text , ' PHP '));**     ----->   Risultato **FALSE** perche non incomincia con PHP 
+
+**ATTENZIONE !!!   Sono entrambe LOWER and UPPER CASE senitiv !!!**
+
+##### 
+    strtolower(nome value) ;    -    strtoupper(nome value);   -   ucfirst(nome value);
+
+**strtolower(nome value) ;**    ---->  Converte tutto in Lower-case
+
+**strtoupper(nome value);**    ----->  Converte tutto in Upper-case
+
+**ucfirst(nome value);**           ---->  la prima lettera a il primo termine in Upper-case
+
+#### 
+    trim (nome value , "simboli da eliminare");
+
+Serve per eliminare all´inizio e alla fine di una stringa **simboli o spazi vuoti** , viene molto utilizzato per la parte **User** in modo da eliminare parte scomode. Se si vuole eliminare solo spazi vuoti , basta solo inserire il nome della string , oppure per eliminare altri simboli se devono specificare tra virgolette dopo il nome della string in questiione 
+
+**ATTENZIONE !!!!!**
+
+Esistono anche delle varianti di **trim ();**
+
+**ltrim();**    ----> per eliminare solo la parte sinistra 
+
+**rtrim();**    -----> per eliminare solo la parte destra 
+
+##### 
+    strpos(nome value , " parola da cercare ", numero addizionale per indicare la posizione di partenza da dove si cerca );
+
+**Serve per cercare in una stringa una parola e ci restituisce l´index di dove si trova** , ci sta anche la possibilitá d´inserire l´index di partenza !!! **Se la parola in questione non esiste nella stringa ci ritorna un booleano FALSE**
