@@ -3,7 +3,7 @@ una best practice sarebbe chiamare i fil econtenuti in include con
 solo
 
 Ho visto molto spesso fare ``<h1><?php   echo 'Ciao'; ?>```</h1>``quando io ho
-sempre fatto```````<?php echo' <h1> Cioa <h1>'; ?>```````` Non ho ancora capito la
+sempre fatto`````````<?php echo' <h1> Cioa <h1>'; ?>`````````` Non ho ancora capito la
 differenza ma funzionano uguale
 
 Quando fa include non mette i tag Html nell´eco , capire anche questo !!!!
@@ -951,12 +951,13 @@ echo implode ("</li><li>" , explode("\n", e($text)));            e();   --> funz
 
 1. `explode("\n", e($text))` divide il testo in righe.
 2. `implode("</li><li>", ...)` unisce le righe, separandole con tag HTML `<li>`.
-3. Il risultato è una **lista HTML** con ogni riga del testo come  **voce della lista** .
 
-   ############################################ ALTRE FUNZIONI PER MANIPOLARE STRING E ARRAY ######################################
+   1. Il risultato è una **lista HTML** con ogni riga del testo come  **voce della lista** .
 
-   #### 
-       substr(string$string, int $start, ?int $length = null);
+      ############################################ **ALTRE FUNZIONI PER MANIPOLARE STRING E ARRAY** ######################################
+
+      ##### 
+          substr(string$string, int $start, ?int $length = null);
 
 * `$string` → la stringa originale
 * `$start` → da dove iniziare (indice parte da 0)
@@ -966,34 +967,38 @@ echo implode ("</li><li>" , explode("\n", e($text)));            e();   --> funz
 **$text = "Programmazione";**
 
 ###### // **Prende da posizione 0 i primi 4 caratteri**
+
 echo substr($text, 0, 4);
  "Prog"
 
 ###### // **Prende da posizione 5 fino alla fine**
+
 echo substr($text, 5);
  "ammazione"
 
 ###### // **Prende 3 caratteri partendo da posizione 2**
+
 echo substr($text, 2, 3);
  "ogr"
 
-#### 
+
+##### 
     strlen();
 
-**Serve per contare i caratteri presenti nella string in questione** 
+**Serve per contare i caratteri presenti nella string in questione**
 
 ###### text = 'Parole';
 
 **strlen(text);**
 
-**var_dump(text);** 
+**var_dump(text);**
 
-**int(6)** 
+**int(6)**
 
-**ATTENZIONE !!!! calcola i byte per cui se inserisci immagini emoticon o altro che occupa piu spazio di una lettere il risultato non combaciera con il conteggio esatto delle lettere** 
+**ATTENZIONE !!!! calcola i byte per cui se inserisci immagini emoticon o altro che occupa piu spazio di una lettere il risultato non combaciera con il conteggio esatto delle lettere**
 
-##### 
-    str_starts_with(nome value , ' content da trovare ') & str_ends_with(nome value , ' content da trovare ')
+
+     **str_starts_with(nome value , ' content da trovare ') & str_ends_with(nome value , ' content da trovare ')**
 
 ES:
 
@@ -1001,12 +1006,12 @@ text = " PHP , short for \\"Hypertext Processor \\" , is a server-side scripting
 
 **var_dump(str_starts_with(text , ' PHP '));**    ----->   Risultato **TRUE** perche incomincia con PHP
 
-**var_dump(str_ends_with(text , ' PHP '));**     ----->   Risultato **FALSE** perche non incomincia con PHP 
+**var_dump(str_ends_with(text , ' PHP '));**     ----->   Risultato **FALSE** perche non incomincia con PHP
 
 **ATTENZIONE !!!   Sono entrambe LOWER and UPPER CASE senitiv !!!**
 
-##### 
-    strtolower(nome value) ;    -    strtoupper(nome value);   -   ucfirst(nome value);
+
+    **strtolower(nome value) ;    -    strtoupper(nome value);   -   ucfirst(nome value);**
 
 **strtolower(nome value) ;**    ---->  Converte tutto in Lower-case
 
@@ -1014,20 +1019,97 @@ text = " PHP , short for \\"Hypertext Processor \\" , is a server-side scripting
 
 **ucfirst(nome value);**           ---->  la prima lettera a il primo termine in Upper-case
 
-#### 
-    trim (nome value , "simboli da eliminare");
 
-Serve per eliminare all´inizio e alla fine di una stringa **simboli o spazi vuoti** , viene molto utilizzato per la parte **User** in modo da eliminare parte scomode. Se si vuole eliminare solo spazi vuoti , basta solo inserire il nome della string , oppure per eliminare altri simboli se devono specificare tra virgolette dopo il nome della string in questiione 
+    **trim (nome value , "simboli da eliminare");**
+
+Serve per eliminare all´inizio e alla fine di una stringa **simboli o spazi vuoti** , viene molto utilizzato per la parte **User** in modo da eliminare parte scomode. Se si vuole eliminare solo spazi vuoti , basta solo inserire il nome della string , oppure per eliminare altri simboli se devono specificare tra virgolette dopo il nome della string in questiione
 
 **ATTENZIONE !!!!!**
 
 Esistono anche delle varianti di **trim ();**
 
-**ltrim();**    ----> per eliminare solo la parte sinistra 
+**ltrim();**    ----> per eliminare solo la parte sinistra
 
-**rtrim();**    -----> per eliminare solo la parte destra 
+**rtrim();**    -----> per eliminare solo la parte destra
 
-##### 
-    strpos(nome value , " parola da cercare ", numero addizionale per indicare la posizione di partenza da dove si cerca );
+
+    **strpos(nome value , " parola da cercare ", numero addizionale per indicare la posizione di partenza da dove si cerca );**
 
 **Serve per cercare in una stringa una parola e ci restituisce l´index di dove si trova** , ci sta anche la possibilitá d´inserire l´index di partenza !!! **Se la parola in questione non esiste nella stringa ci ritorna un booleano FALSE**
+
+##### 
+    nl2br('PHP\n is amazing!');
+
+Principalmente serve per formattare una stringa contenente **'\n'**, quindi per ogni **'line-breack '** sostituisce con il **Tag HTML** `<br>`  in modo da poter stampare in libertá con echo o altre funzioni PHP 
+
+**ATTENZIONE !!!** ricordiamoci della function **ESCAPE** che abbiamo fatto nel tutorial per convertire input o in genere ogni cosa in string , per agnientare ogni possibile Javascript Injection . **Nel tutorial lo ha usato per fare la conversione a stringa e quindi specifica di farlo prima di passare la stringa a nl2br();** 
+
+**QUINDI :** 
+
+**nl2br(e(Stringa da passare )); --> Se lo avessimo fatto cosi : e(nl2br(Stringa da passare ))   sarebbe stato un errore !!!!**
+
+
+##### 
+    str_replace(parola o simbolo da cercare , parola o simbolo da sostituire , testo);
+
+
+**Parametri:**
+
+* `cerca` → la parola o carattere da trovare ( *zu suchender String* )
+* `sostituisci` → il nuovo valore ( *Ersatzstring* )
+* `testo` → la stringa originale dove cercare ( *ursprünglicher Text* )
+
+  ES:
+
+  $testo = "Ciao mondo!";
+  $nuovo = str_replace("mondo", "PHP", $testo);
+  echo $nuovo;
+
+  OUTPUT:
+* `Ciao PHP!`
+
+![1761039661901](image/Teoria_PHP/1761039661901.png)
+
+**In questo caso lo ha usato come un array , in modo da cambiare piu parametri    OUTPUT  :  Hello Mars !!**
+
+![1761039823832](image/Teoria_PHP/1761039823832.png)
+
+**Interessante é questo modo di usare questa function per splittare il testo in piu string sostituendo \n con <\\p>**`b`
+
+############################################################   **index**   ######################################################
+
+**Riassunto (Kurz gesagt):**
+
+* È il **file predefinito** che il server mostra.
+* “Index” = punto di partenza logico e tecnico.
+* In PHP, è anche il **motore** che avvia l’applicazione web.
+
+###########################################  **NESTED ARRAYS** ##################################################################
+
+**AVEVA DICHIARATO UNA ARRAY DI ARRAY IN CUI CI STAVANO DELLE INFORMAZIONI RIGUARDO DEI CORSI DI LINGUA** 
+
+![1761045363798](image/Teoria_PHP/1761045363798.png)
+
+Interessante vedere questi Tag HTML e la loro funzione  che viene mostrata in basso :
+
+![1761045417122](image/Teoria_PHP/1761045417122.png)
+
+**CREA UNA SPECIE DI DROPDOWN IN CUI CI STA UN PICCOLO RIASSUNTO E LA SUA DIDASCALIA PRINCIPALE , SENZA L´USO DI JAVASCRIPT !!!**
+
+cosi si presenta l´array di array :
+
+![1761045519687](image/Teoria_PHP/1761045519687.png)
+
+**per chiamare gli array all´interno che sono associativi , basta chiamare l´index principale e la chiave del secondo array che mi serve**
+
+**Spanish_course = course [2]['Title'] ;**      ---> in questo caso salvo nella variabile il nome del corso 
+
+**Prova anche un Forech loop dove passa come dati chiave e valore di ogni blocco** 
+
+![1761045747424](image/Teoria_PHP/1761045747424.png)
+
+come si vede fa prima un foreach normale , senza chiave , per chiamare ogni blocco e poi ad ogni blocco chiamato passa in var_dump(); ogni chiave 
+
+![1761045879140](image/Teoria_PHP/1761045879140.png)
+
+Questo é un foreach (); solo per il terzo blocco !!!!
