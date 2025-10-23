@@ -1,15 +1,11 @@
-
-
 < li class="navigation--entry-big entry --search-big" role="menuitem" data-search="true" aria-haspopup="true">Heir NIX SUCHE `</li>`
-
-
 
 una best practice sarebbe chiamare i fil econtenuti in include con
 'Esempio.inc.php' per determinare che il file non ha codice da far partire da
 solo
 
 Ho visto molto spesso fare ``<h1><?php   echo 'Ciao'; ?>```</h1>``quando io ho
-sempre fatto````````````<?php echo' <h1> Cioa <h1>'; ?>````````````` Non ho ancora capito la
+sempre fatto`````````````<?php echo' <h1> Cioa <h1>'; ?>`````````````` Non ho ancora capito la
 differenza ma funzionano uguale
 
 Quando fa include non mette i tag Html nell´eco , capire anche questo !!!!
@@ -1170,3 +1166,7 @@ Se ricevi un errore tipo
 ######################################################################################################################################
 
 ![1761134788974](image/Teoria_PHP/1761134788974.png)
+
+![1761212971887](image/Teoria_PHP/1761212971887.png)
+
+Interessante vedere come usa questo blocco per decodificare solo una parte del file Json !!! in quanto $ data é gia un array , quindi é come se chiamo la chiave associativa da dove parte il tutto

@@ -6,7 +6,10 @@ function topnav($page)
 {
 
 
-        switch ($page):                  // SOLO PER CAMBIARE L`URL DEL IMG
+        switch ($page): 
+            case 'statistiche':
+                            echo    "<a href='Udemy.php' class='btn btn-primary btn-lg'>back</a>";  
+                            break;                         // SOLO PER CAMBIARE L`URL DEL IMG
             case 'HomeDBMS':
 
 
