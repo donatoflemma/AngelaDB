@@ -1,6 +1,7 @@
 
 <?php
 include './/../../include/header.php';
+
 $prova= json_decode(file_get_contents(  'Flag.json'),true);
 ?>
 

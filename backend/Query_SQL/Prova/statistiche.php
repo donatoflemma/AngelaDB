@@ -1,55 +1,60 @@
 <?php
 include './/../../include/header.php';
-$counter_row_table = 1;
+include 'da eliminare .php';
 $city = null;
-if(!empty($_GET['city'])){
-    $city = $_GET['city'];
+if (!empty($_GET['city'])) {
+    $city = e($_GET['city']);
 }
 
-if (!empty($city)){
-    $cities= json_decode(file_get_contents(  'Flag.json'),true);
+if (!empty($city)) {
+    $cities = json_decode(file_get_contents('Flag.json'), true);
 }
 
 $file = null;
-foreach($cities AS $currentcity){
-    if($currentcity['city']=== $city){
-        $file= $currentcity['filename'];
-        break;}}
-        
-if(!empty($file)){
-    $results = json_decode(file_get_contents('compress.bzip2://'.$file),true)['results'];
-}// seleziono solo i sati che m´ineressano richiamando la key results   
-/*
-foreach($results AS $result){
-    if($result['parameter'] !== 'pm25')continue;
-    var_dump($result);
-    //break;
+foreach ($cities as $currentcity) {
+    if ($currentcity['city'] === $city) {
+        $file = $currentcity['filename'];
+        break;
+    }
 }
-*/
+
+if (!empty($file)) {
+    $results = json_decode(file_get_contents('compress.bzip2://' . $file), true)['results'];
+}// seleziono solo i sati che m´ineressano richiamando la key results   
+$counter = 0;
+$data_month_value = [];
+foreach ($results as $result) {
+    if ($result['parameter'] !== 'pm25')
+        continue;
+    $month = substr($result['date']['local'], 0, 7);
+    if (!isset($data_month_value[$month])) {
+        $data_month_value[$month] = [];
+        $counter = 0;
+    }
+    $data_month_value[$month][$counter] = $result['value'];
+    $counter++;
+}
+//var_dump($data_month_value);
 ?>
 <a href='Udemy.php' class='btn btn-primary btn-lg'>back</a>
 
 <div class="container  text-center ">
-    <table class="table">
+    <table class="table" style="width: 200px ; height: 100px;">
         <thead>
             <tr>
-                <th scope="col">#</th>
+                <th scope="col">Date</th>
                 <th scope="col">pm25</th>
-                <th scope="col">Data</th>
             </tr>
         </thead>
         <tbody>
-        <?php foreach($results AS $result){
-                if($result['parameter'] !== 'pm25') continue;?>
+            <?php foreach ($data_month_value as $month => $measurements): ?>
                 <tr>
-                    <th scope="row"><?php echo $counter_row_table?></th>       
-                    <td><?php echo $result["value"]; ?></td>
-                    <td><?php  echo substr($result["date"]['local'],0,10);?></td>
+                    <th><?php echo e($month) ?></th>
+                    <td><?php echo e(round(array_sum($measurements) / count($measurements), 2)); ?></td>
                 </tr>
-                <?php $counter_row_table++;}?>
+            <?php endforeach; ?>
         </tbody>
     </table>
-
 </div>
 
 
@@ -58,5 +63,6 @@ foreach($results AS $result){
 
 
 <?php
+
 include './/../../include/footer.php';
 ?>
