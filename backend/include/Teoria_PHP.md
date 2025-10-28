@@ -5,7 +5,7 @@ una best practice sarebbe chiamare i fil econtenuti in include con
 solo
 
 Ho visto molto spesso fare ``<h1><?php   echo 'Ciao'; ?>```</h1>``quando io ho
-sempre fatto`````````````<?php echo' <h1> Cioa <h1>'; ?>`````````````` Non ho ancora capito la
+sempre fatto```````````````<?php echo' <h1> Cioa <h1>'; ?>```````````````` Non ho ancora capito la
 differenza ma funzionano uguale
 
 Quando fa include non mette i tag Html nell´eco , capire anche questo !!!!
@@ -1112,6 +1112,8 @@ Nel totorial fa vedere come prendere dei documenti json e stamparli o usarli con
 **$json = file_get_contents("data.json"); // legge il file
 data = json_decode($json, true);       // decodifica il contenuto**
 
+##### data = json_encode($json);       // lo trasforma in Json datai
+
 Quinid come vedi prima convertila in stringa e poi usa **json_decode($json);**
 
 IMPORTANTE !!! Se non metti il true dopo la value nelle parentesi comunque la stampa ma non come array associativo , quindi ha una funzione diversa per esere utilizzata
@@ -1170,3 +1172,73 @@ Se ricevi un errore tipo
 ![1761212971887](image/Teoria_PHP/1761212971887.png)
 
 Interessante vedere come usa questo blocco per decodificare solo una parte del file Json !!! in quanto $ data é gia un array , quindi é come se chiamo la chiave associativa da dove parte il tutto
+
+####################################################### **OPENDIR   REDDIR     CLOSEDIR** #############################################
+
+OPENDIR 
+
+Come prima cosa di dichiara una value in modo da chiamare la funzione e salvare gli elementi racchiusi nella value (la aggior parte delle volte lo chiamano Handle) :
+
+**value = opendir(__ DIR __  .  path  relativo del file);** ---> ora questa value contiene i file
+
+per leggere i contenuti si fa **readdir(value); ATTENZINE !!! si deve arrivare ai file , perch ei primi sono '. '   e '..'  che sono le dir esterne , ogni volta che facciamo readdir(); cambiamo lo stato e il valore della value in questione , passa da una all´altro file e quindi si deve chiamarla tante volte quante lo desideriamo e poi fare . Ci sta da dire che se la dir é finita e la funzione non ha altri file da passare ci restituisce false !!!!**
+
+Per questo motivo entrano in gioco i for e while in modo da scorrere tutti i file in maniera veloce 
+
+**opendir( __ DIR __ . path relatiovo del file);**
+
+ES:
+
+![1761656589852](image/Teoria_PHP/1761656589852.png)
+
+IN questa maniera la parte commentata viene ridotta e migliorata nella seconda in quanto passa derettamente in While la value di una value 
+
+![1761656755375](image/Teoria_PHP/1761656755375.png)
+
+![1761656925907](image/Teoria_PHP/1761656925907.png)
+
+################################################################### PATHINFO()  ################################################
+
+**$info = pathinfo("/var/www/html/file.txt");**
+
+**print_r($info);**
+
+**Array (
+  [dirname] => /var/www/html
+  [basename] => file.txt
+  [extension] => txt
+  [filename] => file
+)**
+
+![1761657156839](image/Teoria_PHP/1761657156839.png)   maniera veloce per chiamare i valori dell´array
+
+![1761657813573](image/Teoria_PHP/1761657813573.png)
+
+![1761657834760](image/Teoria_PHP/1761657834760.png)
+
+![1761657850040](image/Teoria_PHP/1761657850040.png)
+
+![1761657865741](image/Teoria_PHP/1761657865741.png)
+
+![1761657880095](image/Teoria_PHP/1761657880095.png)
+
+##########################################  DATABASE  ################################################################################
+
+![1761660726974](image/Teoria_PHP/1761660726974.png)
+
+**Creazione di un file zip che i questo caso viene usato come  Archivio , é un ogetto perche fa parte di una classe quindi ha le sue Proprietá e funzioni** 
+
+![1761661013064](image/Teoria_PHP/1761661013064.png)
+
+Come si puo vedere sta cercando di aprire l´archivio  e leggere i fil el suo interno
+
+##################################### Database connection PDO();  ################################################################
+
+Anche questo é un´´ogetto che si chiama per fare il collegamento , Il best Practise la value che chiama PDO() di regola si chiama anche cosi 
+
+![1761661528064](image/Teoria_PHP/1761661528064.png)
+
+* `new PDO(...)`: crea una connessione al database
+* `mysql:host=localhost;dbname=note_app`: indica il server e il nome del database
+* `'root', ''`: sono username e password (vuota in questo caso)
+* `PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION`: imposta la modalità di errore per lanciare eccezioni (utile per il debug)
