@@ -1,15 +1,23 @@
     
     <nav class='navbar navbar-expand-lg bg-dark border-bottom border-body' data-bs-theme='dark' style='margin-bottom: 20vh;'>
-        <div class='container-fluid'>";
+        <div class='container-fluid'>
 <?php
 function topnav($page)
 {
 
 
         switch ($page): 
+            case 'Diary':   
+                    echo"                <i class='fa-solid fa-book' style='font-size:30px;color: #C1440E;'></i>
+                                <a href='Udemy.php' class='btn btn-outline-primary'>back</a>";
+                    break; 
+                        
+
             case 'statistiche':
                             echo    "<a href='Udemy.php' class='btn btn-primary btn-lg'>back</a>";  
-                            break;                         // SOLO PER CAMBIARE L`URL DEL IMG
+                            break;                        
+                            
+                                                // SOLO PER CAMBIARE L`URL DEL IMG
             case 'HomeDBMS':
 
 
@@ -119,6 +127,11 @@ function topnav($page)
                                             <a class='btn btn-primary' href='./Sing up.php'>Sign-up</a>
                                         </div>
                                     </div>
+                                </div>
+                            </nav>";
+                        break;
+                        case 'Diary':
+                            echo"  </div>
                                 </div>
                             </nav>";
                         break;

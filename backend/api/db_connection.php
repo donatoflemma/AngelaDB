@@ -3,7 +3,7 @@ $host = "localhost";
 $user = "root";
 $pass = "";
 $db = "angeladb";
-$P = "3307";
+$P = "3306";
 
 $conn = new mysqli($host, $user, $pass, $db, $P);
 
