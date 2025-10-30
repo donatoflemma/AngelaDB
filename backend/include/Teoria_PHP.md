@@ -5,7 +5,7 @@ una best practice sarebbe chiamare i fil econtenuti in include con
 solo
 
 Ho visto molto spesso fare ``<h1><?php   echo 'Ciao'; ?>```</h1>``quando io ho
-sempre fatto```````````````<?php echo' <h1> Cioa <h1>'; ?>```````````````` Non ho ancora capito la
+sempre fatto````````````````<?php echo' <h1> Cioa <h1>'; ?>````````````````` Non ho ancora capito la
 differenza ma funzionano uguale
 
 Quando fa include non mette i tag Html nell´eco , capire anche questo !!!!
@@ -1175,7 +1175,7 @@ Interessante vedere come usa questo blocco per decodificare solo una parte del f
 
 ####################################################### **OPENDIR   REDDIR     CLOSEDIR** #############################################
 
-OPENDIR 
+OPENDIR
 
 Come prima cosa di dichiara una value in modo da chiamare la funzione e salvare gli elementi racchiusi nella value (la aggior parte delle volte lo chiamano Handle) :
 
@@ -1183,7 +1183,7 @@ Come prima cosa di dichiara una value in modo da chiamare la funzione e salvare 
 
 per leggere i contenuti si fa **readdir(value); ATTENZINE !!! si deve arrivare ai file , perch ei primi sono '. '   e '..'  che sono le dir esterne , ogni volta che facciamo readdir(); cambiamo lo stato e il valore della value in questione , passa da una all´altro file e quindi si deve chiamarla tante volte quante lo desideriamo e poi fare . Ci sta da dire che se la dir é finita e la funzione non ha altri file da passare ci restituisce false !!!!**
 
-Per questo motivo entrano in gioco i for e while in modo da scorrere tutti i file in maniera veloce 
+Per questo motivo entrano in gioco i for e while in modo da scorrere tutti i file in maniera veloce
 
 **opendir( __ DIR __ . path relatiovo del file);**
 
@@ -1191,7 +1191,7 @@ ES:
 
 ![1761656589852](image/Teoria_PHP/1761656589852.png)
 
-IN questa maniera la parte commentata viene ridotta e migliorata nella seconda in quanto passa derettamente in While la value di una value 
+IN questa maniera la parte commentata viene ridotta e migliorata nella seconda in quanto passa derettamente in While la value di una value
 
 ![1761656755375](image/Teoria_PHP/1761656755375.png)
 
@@ -1226,7 +1226,7 @@ IN questa maniera la parte commentata viene ridotta e migliorata nella seconda i
 
 ![1761660726974](image/Teoria_PHP/1761660726974.png)
 
-**Creazione di un file zip che i questo caso viene usato come  Archivio , é un ogetto perche fa parte di una classe quindi ha le sue Proprietá e funzioni** 
+**Creazione di un file zip che i questo caso viene usato come  Archivio , é un ogetto perche fa parte di una classe quindi ha le sue Proprietá e funzioni**
 
 ![1761661013064](image/Teoria_PHP/1761661013064.png)
 
@@ -1234,7 +1234,7 @@ Come si puo vedere sta cercando di aprire l´archivio  e leggere i fil el suo in
 
 ##################################### Database connection PDO();  ################################################################
 
-Anche questo é un´´ogetto che si chiama per fare il collegamento , Il best Practise la value che chiama PDO() di regola si chiama anche cosi 
+Anche questo é un´´ogetto che si chiama per fare il collegamento , Il best Practise la value che chiama PDO() di regola si chiama anche cosi
 
 ![1761661528064](image/Teoria_PHP/1761661528064.png)
 
@@ -1242,3 +1242,65 @@ Anche questo é un´´ogetto che si chiama per fare il collegamento , Il best Pr
 * `mysql:host=localhost;dbname=note_app`: indica il server e il nome del database
 * `'root', ''`: sono username e password (vuota in questo caso)
 * `PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION`: imposta la modalità di errore per lanciare eccezioni (utile per il debug)
+
+##### 
+    BESTE PRACTICE FOR CONNECTION !!!!!
+
+Sempre meglio farlo con il **try{} catch{}**  per avere in modo istantaneo il problema di connessione con il **Database !!!!** e sopratutto , qual´ora la connesinoe fallisca non verrá riprodotta nel Browser dell´User tutti i parametri inseriti nel PDO per fare la connessione , **ma solo il testo dell´exeption !!!! MOLTO IMPORTANTE !!!**
+
+![1761817378547](image/Teoria_PHP/1761817378547.png)
+
+**e magari inserire un echo nel catch in modo da far visulizzare un testo con su scritto che la connessione é fallita** 
+
+##### 
+    $pdo--> prepare( SQLquery);
+
+Dopo aver creato la connessione , creando l´oggetto **pdo = new PDO(' mysql: host=localhost; dbname= nome_db' , 'root', 'password se esiste',[**
+
+**PDO::ATTR_ERRMODE => PDO::ERRMODE_EXEPTION]);**  ora utilizziamo un  metodo prepare(); che fa parte dell´OOP che mi serve per preparare le Query 
+
+**stmt = pdo -->prepare(Querystring);    ATTENZIONE !!!! la si deve sempre inserire in una value per poterla lavorare o non verra presa in considerazione** 
+
+##### 
+    $stmt --> execute();
+
+Altro metodo dell´object PDO che determina l´esecuzione della Query direttamente al Datenbank. Questa non necessita di una value perche é stata gia racchiusa in **stmt**
+
+##### 
+    $result = stmt --> fetchAll();
+
+Dopo aver creato l´Object **$pdo** e aver racchiuso la **query SQL** nel stmt che racchiude **prepare()** , dopo averla lanciata con **execute();** ora procediamo a prendere la risposta del Datenbank  **SOTTO FORMA DI ARRAY** racchiusa in una value che chiameremo **result.**
+
+**ATTENZIONE!!!** die default la risposta che abbiamo dal Database é una array in cui per ogni dato della tabella , viene inserito due volte .Questo perche il Database non sa come comportarsi , se l´User vuole un Array Associativo con la chiave (che in questo caso sará il nome della colonna) o direttamente un Array numerico in cui compaiono i risultati con index , tutto Questo occupa piu memoria ovviamente. Per risolvere il tutto si puo dichiarare nel **fetchAll(PDO::FETCH_ASSOC);** questo parametro che dichiara al Database d´inviare i dati solo tramite **Array Associativo.** 
+
+**DOPO TUTTO QUESTO SI PUO UTILIZZARE IL NOSTRO ARRAY TRAMITE UN foreach(); o  con un while();  per avere i dati e utilizzarli al nostro piacimento**
+
+##### 
+    SQLinjection
+
+Per opperire al possibile **SQLinjection** si puo fare un **Casting** del genere int , nel caso la Query necessiti un numero (Ad esempio per in id o roba simile ), in modo da non avere problemi qual´ora qualcuno prova a fare un injection , in quanto tutto quello che scrive viene ignorato e **PHP** invia come parametro **GET** solo il numero 
+
+ES :
+
+![1761815673455](image/Teoria_PHP/1761815673455.png)
+
+Questo metodo pero non é tanto sicuro in quanto é molto facile dimenticarsi il casting per questo esiste il methodo:
+
+**$stmt -->blindValue(' simbolo del placeholder generalmente ?', Get['nome key']);**
+
+In questo caso anche se ci sta un Injection , **SQL** prende la stringa ignettata solo come una value del parametro da cercare , quindi in **default non ascolta il resto che non é identificato come un numero e lo cancella** 
+
+ES:
+
+![1761816197333](image/Teoria_PHP/1761816197333.png)
+
+Ora possiamo tranquillamente eseguire con il metodo **execute();**  e usare usate il metodo **fetchAll(PDO::FETCH_ASSOC);** per avere i risulati
+
+##### **
+    Charset= 'utf8mb4'**
+
+Inserirlo nei parametri della connessione di PDO per poter utilizzare caratteri speciali e poterli processare 
+
+ES:
+
+![1761817864031](image/Teoria_PHP/1761817864031.png)
