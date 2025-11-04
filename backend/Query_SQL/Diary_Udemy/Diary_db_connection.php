@@ -2,8 +2,8 @@
 
 $host = 'localhost';
 $user = 'root';
-$pass = '';
-$db = 'Diary_db';
+$pass = 'donny1994';
+$db = 'diary_udemy';
 $port = '3306';
 
 try {
