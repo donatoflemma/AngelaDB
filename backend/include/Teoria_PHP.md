@@ -6,7 +6,8 @@ una best practice sarebbe chiamare i file contenuti in include con
 solo
 
 Ho visto molto spesso fare ``<h1><?php   echo 'Ciao'; ?>```</h1>``quando io ho
-sempre fatto````````````````````<?php echo' <h1> Cioa <h1>'; ?>`````````````````````
+sempre
+fatto`````````````````````<?php echo' <h1> Cioa <h1>'; ?>``````````````````````
 Non ho ancora capito la differenza ma funzionano uguale
 
 Quando fa include non mette i tag Html nell´eco , capire anche questo !!!!
@@ -96,13 +97,13 @@ Questo crea una selezione randomica di numeri !!!!!
 - Mostra **tipo** ( _Typ_ ) e **valore** ( _Wert_ ) di una variabile.
 
 | **echo** | Mostra solo il contenuto come stringa | `Array`(non mostra i valori) |
-| -------------- | ------------------------------------- | ------------------------------ |
+| -------- | ------------------------------------- | ---------------------------- |
 
 | **print_r()** | Mostra valore in modo leggibile (anche array/oggetti) | `Array ( [0] => 1 [1] => 2 [2] => 3 )` |
-| ------------------- | ----------------------------------------------------- | ---------------------------------------- |
+| ------------- | ----------------------------------------------------- | -------------------------------------- |
 
 | **var_dump()** | Mostra tipo + lunghezza + valore (dettagliato) | `array(3) { [0]=> int(1) [1]=> int(2) [2]=> int(3) }` |
-| -------------------- | ---------------------------------------------- | ------------------------------------------------------- |
+| -------------- | ---------------------------------------------- | ----------------------------------------------------- |
 
 ###################### **Isset Empty and Unset Function Validate and delete
 Variable** #############################
@@ -290,11 +291,11 @@ La parte `: array` alla fine della funzione serve a **specificare il tipo di
 valore che la funzione restituisce** → si chiama **“type hinting di ritorno”**
 (in tedesco: _Rückgabetyp_ ).
 
-| Parametro          | Descrizione 🇮🇹                          | Beschreibung 🇩🇪                           |
-| ------------------ | ----------------------------------------- | ------------------------------------------- |
-| `$array`         | L’array di partenza                      | Ausgangsarray                               |
-| `$offset`        | Da dove iniziare (indice)                 | Startposition                               |
-| `$length`        | Quanti elementi prendere                  | Anzahl der Elemente                         |
+| Parametro        | Descrizione 🇮🇹                          | Beschreibung 🇩🇪                           |
+| ---------------- | --------------------------------------- | ----------------------------------------- |
+| `$array`         | L’array di partenza                     | Ausgangsarray                             |
+| `$offset`        | Da dove iniziare (indice)               | Startposition                             |
+| `$length`        | Quanti elementi prendere                | Anzahl der Elemente                       |
 | `$preserve_keys` | Se `true`, mantiene le chiavi originali | Beibehaltung der ursprünglichen Schlüssel |
 
 $numeri = [10, 20, 30, 40, 50];
@@ -396,13 +397,13 @@ array in **Associativi** e con **idex**
 - Serve ai browser per sapere **dove andare** e **come richiedere la risorsa** .
   https://www.example.com:443/path/to/page.php?name=Luca&age=25#section1
 
-| Parte                       | Esempio               | Funzione                                                           |
-| --------------------------- | --------------------- | ------------------------------------------------------------------ |
+| Parte                 | Esempio             | Funzione                                                           |
+| --------------------- | ------------------- | ------------------------------------------------------------------ |
 | **Schema/Protocollo** | `https://`          | Indica il protocollo da usare (HTTP, HTTPS, FTP...)                |
 | **Host/Dominio**      | `www.example.com`   | Indirizzo del server web                                           |
 | **Porta**             | `:443`              | Numero di porta sul server (opzionale, default 80 HTTP, 443 HTTPS) |
 | **Path/Percorso**     | `/path/to/page.php` | Percorso della risorsa sul server                                  |
-| **Query string**      | `?name=Luca&age=25` | Parametri passati al server (`$_GET`in PHP)                      |
+| **Query string**      | `?name=Luca&age=25` | Parametri passati al server (`$_GET`in PHP)                        |
 | **Fragment/Ancora**   | `#section1`         | Posizione interna alla pagina (non inviata al server)              |
 
 ### Come funziona quando digiti un URL
@@ -519,10 +520,10 @@ andiamo ad inserire !!!!
 
 **Differenza base tra GET e POST**
 
-| Metodo         | Dati visibili           | Dove si inviano i dati                      | Effetto tipico                   | Quando usarlo                                    |
-| -------------- | ----------------------- | ------------------------------------------- | -------------------------------- | ------------------------------------------------ |
-| **GET**  | ✅ Visibili nell’URL   | Nella “query string” (`?chiave=valore`) | Legge o richiede informazioni    | Quando vuoi leggere o cercare  dati           |
-| **POST** | ❌ Invisibili nell’URL | Nel corpo (body) della richiesta            | Invia o modifica dati sul server | Quando vuoi salvare, inviare o modificare dati |
+| Metodo   | Dati visibili          | Dove si inviano i dati                  | Effetto tipico                   | Quando usarlo                                  |
+| -------- | ---------------------- | --------------------------------------- | -------------------------------- | ---------------------------------------------- |
+| **GET**  | ✅ Visibili nell’URL   | Nella “query string” (`?chiave=valore`) | Legge o richiede informazioni    | Quando vuoi leggere o cercare  dati            |
+| **POST** | ❌ Invisibili nell’URL | Nel corpo (body) della richiesta        | Invia o modifica dati sul server | Quando vuoi salvare, inviare o modificare dati |
 
 **Usi GET per:**
 
@@ -554,10 +555,10 @@ del sito.
 - **Modificare il contenuto della pagina** per ingannare o truffare
 - **Registrare input dell’utente** come password o dati sensibili
 
-| Tipo                | Descrizione                                                                   |
-| ------------------- | ----------------------------------------------------------------------------- |
+| Tipo          | Descrizione                                                                  |
+| ------------- | ---------------------------------------------------------------------------- |
 | **Reflected** | Il codice malevolo è incluso in un link e riflesso nella risposta del server |
-| **Stored**    | Il codice viene salvato nel database e mostrato a tutti gli utenti            |
+| **Stored**    | Il codice viene salvato nel database e mostrato a tutti gli utenti           |
 | **DOM-based** | L’attacco sfrutta il codice JavaScript lato client per manipolare il DOM     |
 
 ### Come difendersi
@@ -694,11 +695,11 @@ Usare una query (`?image=foto1.jpg`) è utile quando:
 - vuoi **filtrare o modificare** le immagini (es. `?image=foto1.jpg&size=small`)
 - vuoi **proteggere o validare** i file prima di mostrarli
 
-| Caso                                 | Esempio                                                        | Spiegazione IT                      | Erklärung DE                               |
-| ------------------------------------ | -------------------------------------------------------------- | ----------------------------------- | ------------------------------------------- |
-| **Path diretto**               | `href="./images/foto.jpg"`                                   | apre direttamente il file           | öffnet direkt die Datei                    |
-| **Con query (GET)**            | `href="image.php?image=foto.jpg"`                            | passa un parametro a uno script PHP | übergibt einen Parameter an ein PHP-Skript |
-| **Con `http_build_query()`** | `href="image.php?image=foto.jpg"`ma generato automaticamente | costruisce l’URL in modo sicuro    | erstellt die URL sicher automatisch         |
+| Caso                         | Esempio                                                      | Spiegazione IT                      | Erklärung DE                               |
+| ---------------------------- | ------------------------------------------------------------ | ----------------------------------- | ------------------------------------------ |
+| **Path diretto**             | `href="./images/foto.jpg"`                                   | apre direttamente il file           | öffnet direkt die Datei                    |
+| **Con query (GET)**          | `href="image.php?image=foto.jpg"`                            | passa un parametro a uno script PHP | übergibt einen Parameter an ein PHP-Skript |
+| **Con `http_build_query()`** | `href="image.php?image=foto.jpg"`ma generato automaticamente | costruisce l’URL in modo sicuro     | erstellt die URL sicher automatisch        |
 
 ############################################ **TYPE AND CASTING**
 #######################################################
@@ -729,19 +730,19 @@ solo se il contesto lo richiede.
 
     Conversioni più comuni in PHP
 
-| Da → A           | Risultato                            | Spiegazione (IT)                       |
-| :---------------- | :----------------------------------- | :------------------------------------- |
+| Da → A          | Risultato                          | Spiegazione (IT)                       |
+| :-------------- | :--------------------------------- | :------------------------------------- |
 | `(int)"42"`     | `42`                               | Converte stringa numerica in intero    |
 | `(int)"42abc"`  | `42`                               | Prende solo la parte numerica iniziale |
-| `(int)"abc"`    | `0`                                | Nessun numero → diventa 0             |
-| `(float)"3.14"` | `3.14`                             | Stringa numerica decimale → float     |
-| `(float)"3,14"` | `3`                                | Virgola non valida → tronca a 3       |
-| `(string)123`   | `"123"`                            | Numero → stringa                      |
-| `(string)true`  | `"1"`                              | true → "1"                            |
-| `(string)false` | `""`                               | false → stringa vuota                 |
-| `(bool)0`       | `false`                            | 0 è falso                             |
-| `(bool)1`       | `true`                             | 1 è vero                              |
-| `(bool)"0"`     | `false`                            | Stringa “0” = false                  |
+| `(int)"abc"`    | `0`                                | Nessun numero → diventa 0              |
+| `(float)"3.14"` | `3.14`                             | Stringa numerica decimale → float      |
+| `(float)"3,14"` | `3`                                | Virgola non valida → tronca a 3        |
+| `(string)123`   | `"123"`                            | Numero → stringa                       |
+| `(string)true`  | `"1"`                              | true → "1"                             |
+| `(string)false` | `""`                               | false → stringa vuota                  |
+| `(bool)0`       | `false`                            | 0 è falso                              |
+| `(bool)1`       | `true`                             | 1 è vero                               |
+| `(bool)"0"`     | `false`                            | Stringa “0” = false                    |
 | `(bool)""`      | `false`                            | Stringa vuota = false                  |
 | `(bool)"ciao"`  | `true`                             | Qualsiasi stringa non vuota = true     |
 | `(array)123`    | `[0 => 123]`                       | Trasforma in array con indice 0        |
@@ -796,11 +797,11 @@ $name = $_GET['name'] ?? 'Ospite';
 
 if (isset($_GET['name'])) { $name = $_GET['name']; } else { $name = 'Ospite'; }
 
-| Scopo                                                            | Miglior scelta             | Esempio                                 |
-| ---------------------------------------------------------------- | -------------------------- | --------------------------------------- |
-| Controllare se una variabile esiste o è null → dare un default | ✅`??`                   | `$x = $_GET['id'] ?? 0;`              |
-| Semplice condizione logica                                       | ✅`?:`                   | `$msg = $ok ? 'Successo' : 'Errore';` |
-| Controlli complessi o validazione dei dati                       | ✅`isset()`o `empty()` | `if (empty($_POST['user'])) { ... }`  |
+| Scopo                                                          | Miglior scelta         | Esempio                               |
+| -------------------------------------------------------------- | ---------------------- | ------------------------------------- |
+| Controllare se una variabile esiste o è null → dare un default | ✅`??`                 | `$x = $_GET['id'] ?? 0;`              |
+| Semplice condizione logica                                     | ✅`?:`                 | `$msg = $ok ? 'Successo' : 'Errore';` |
+| Controlli complessi o validazione dei dati                     | ✅`isset()`o `empty()` | `if (empty($_POST['user'])) { ... }`  |
 
 ####################################### ' ICLUDE ' PICCALA TEORIA SU __DIR __
 ##############################################
@@ -1209,11 +1210,11 @@ Questo **compress.bzip2 : //** lo ha preso nella pagina caricata in **phpinfo
 
 ### 📘 **Principali tipi di stream wrapper**
 
-| Wrapper                            | Descrizione                                   |
-| ---------------------------------- | --------------------------------------------- |
-| `file://`                        | file locali                                   |
-| `http://`,`https://`           | risorse web                                   |
-| `php://`                         | stream interni di PHP (stdin, output, memory) |
+| Wrapper                      | Descrizione                                   |
+| ---------------------------- | --------------------------------------------- |
+| `file://`                    | file locali                                   |
+| `http://`,`https://`         | risorse web                                   |
+| `php://`                     | stream interni di PHP (stdin, output, memory) |
 | `ftp://`,`zlib://`,`data://` | protocolli vari e compressione                |
 
 ### ⚠️ **Nota**
@@ -1447,11 +1448,11 @@ Il browser **mostra il testo “così com’è”** , non interpreta tag HTML.
 
 ### **Altri tipi comuni**
 
-| Tipo                         | Descrizione     | Effetto                     |
-| ---------------------------- | --------------- | --------------------------- |
+| Tipo                       | Descrizione     | Effetto                     |
+| -------------------------- | --------------- | --------------------------- |
 | `text/html`                | Pagina web HTML | Il browser interpreta i tag |
 | `application/json`         | Dati JSON       | Usato per API               |
-| `application/pdf`          | File PDF        | Può aprire il lettore PDF  |
+| `application/pdf`          | File PDF        | Può aprire il lettore PDF   |
 | `application/octet-stream` | Dati binari     | Forza il download           |
 
 ############################################### COME INVIARE I FILE ALL`USER???
@@ -1589,28 +1590,37 @@ configurazione globale del server.**
 
 - Un errore nella sintassi può **bloccare il sito** .
 - Alcuni hosting potrebbero **limitare l’uso** di certe direttive.
-- ###############################################################     FUNZIONI         ############################################### Importante per vedere
-  se tra i nostri file esiste una funzione : **function_exists('nome funzione')
-  ;** cosi siamo sicuri che il nostro programma non crasha!!!!
+- ############################################################### FUNZIONI
+  ############################################### Importante per vedere se tra i
+  nostri file esiste una funzione : **function_exists('nome funzione') ;** cosi
+  siamo sicuri che il nostro programma non crasha!!!!
 
-
-############################################################## Type Declaration - Union Type #############################################
+############################################################## Type
+Declaration - Union Type #############################################
 
 ![1762330682920](image/Teoria_PHP/1762330682920.png)
 
-Possibilitá molto  carina che ci da **PHP** é dichiarare il tipo di Parametro che viene passato nella funzione , qundi é come avere un **casting** del parametro che viene passato . È quasi una **Best PRACTICE** perche **PHP** la esegue di sicuro e non ci sono errori e in piu la cosa importante e ricordarsi **dopo pagine e pagine di codice** che tipo di **parametro** la function ha bisogno .
+Possibilitá molto carina che ci da **PHP** é dichiarare il tipo di Parametro che
+viene passato nella funzione , qundi é come avere un **casting** del parametro
+che viene passato . È quasi una **Best PRACTICE** perche **PHP** la esegue di
+sicuro e non ci sono errori e in piu la cosa importante e ricordarsi **dopo
+pagine e pagine di codice** che tipo di **parametro** la function ha bisogno .
 
-UNION TYPE 
+UNION TYPE
 
-Semplicemente la possibilitá di avere piu tipi di dati che possono essere acettati come parametro della funzione assegnata 
+Semplicemente la possibilitá di avere piu tipi di dati che possono essere
+acettati come parametro della funzione assegnata
 
 ![1762331589370](image/Teoria_PHP/1762331589370.png)
 
-Esiste anche il **Return Type** per quanto riguarda il **Type del valore che ne esce** , per avere una documentazione al riguardo e per visualizzarlo nel **Warning** o **fatal Error .**
+Esiste anche il **Return Type** per quanto riguarda il **Type del valore che ne
+esce** , per avere una documentazione al riguardo e per visualizzarlo nel
+**Warning** o **fatal Error .**
 
 ![1762331873833](image/Teoria_PHP/1762331873833.png)
 
-Per far passare il parametro null nella funzione , quindi dichiarare che anche il Type null puo essere acettato si usa il ? del tipo :
+Per far passare il parametro null nella funzione , quindi dichiarare che anche
+il Type null puo essere acettato si usa il ? del tipo :
 
 ![1762332136333](image/Teoria_PHP/1762332136333.png)
 
@@ -1618,30 +1628,152 @@ che alla fine significa :
 
 ![1762332186469](image/Teoria_PHP/1762332186469.png)
 
-**ATTENZIONE** !!! Questo funziona **solo se sono due Type** che passano , nel caso ce ne fosse piu di uno si usa :    
+**ATTENZIONE** !!! Questo funziona **solo se sono due Type** che passano , nel
+caso ce ne fosse piu di uno si usa :
 
-#### function print_5x( int|float|null ) { }
+#### function print_5x( int|float|null )
 
 ![1762332365673](image/Teoria_PHP/1762332365673.png)
 
-**OCCHIO  che si deve specificare il ritorno di NULL , se non  ci da errore !!!!**
+**OCCHIO che si deve specificare il ritorno di NULL , se non ci da errore !!!!**
 
-posso mettere anche **: void** come ritorno , in quanto **dichiaro che la funzione non ritorna niente** , quindi :
+posso mettere anche **: void** come ritorno , in quanto **dichiaro che la
+funzione non ritorna niente** , quindi :
 
 ![1762333000956](image/Teoria_PHP/1762333000956.png)
 
-##### 
     declare(strict_types = 1);
 
+Questa riga dice a **PHP** di **usare controlli di tipo rigidi** .
 
-Questa riga dice a **PHP** di  **usare controlli di tipo rigidi** .
-
-➡️ Significa che se una funzione richiede un tipo specifico (es. `int`), non accetta automaticamente altri tipi (es. `string` che contiene un numero).
+➡️ Significa che se una funzione richiede un tipo specifico (es. `int`), non
+accetta automaticamente altri tipi (es. `string` che contiene un numero).
 
 **declare(strict_types = 1);**
 
-**function somma(int $a, int $b): int {
-    return $a + $b;
-}**
+**function somma(int $a, int $b): int { return $a + $b; }**
 
 **echo somma(2, "3"); // ❌ Errore! "3" è una stringa**
+
+ATTENZIONE !!!
+
+![1762418444038](image/Teoria_PHP/1762418444038.png)
+
+### Cosa significa "passare per riferimento"?
+
+Normalmente, quando passi una variabile a una funzione, PHP crea una **copia**
+del valore. Quindi, se modifichi quella variabile all’interno della funzione,
+**la variabile originale non cambia** .
+
+Quando invece usi `&` ** davanti al parametro** , stai dicendo a PHP:
+
+> **"Non creare una copia, lavora direttamente sulla variabile originale."**
+
+############################################### REGULAR EXPRESSION
+###############################
+
+![1762417415765](image/Teoria_PHP/1762417415765.png)
+
+![1762417690292](image/Teoria_PHP/1762417690292.png)
+
+| **Comando / Simbolo**         | **Esempio PHP**                          | **Spiegazione IT / DE**                                            |
+| ----------------------------- | ---------------------------------------- | ------------------------------------------------------------------ |
+| `preg_match()`                | `preg_match("/cat/", "my cat")`          | ✅ Trova**una sola occorrenza**/ findet**nur das erste Vorkommen** |
+| `preg_match_all()`            | `preg_match_all("/\d+/", "a1 b22 c333")` | ✅ Trova**tutte le corrispondenze**/ findet**alle Treffer**        |
+| **Quantifiers**               | `/a*/`,`/a+/`,`/a?/`                     | `*`= 0+ volte,`+`= 1+ volte,`?`= 0 o 1 / Wiederholungen            |
+| `^`e `$`                      | `/^Hi/`,`/end$/`                         | `^`= inizio stringa,`$`= fine stringa / Anfang & Ende              |
+| `[abc]`,`[a-c]`,`[A-Za-z0-9]` | `/[A-Za-z0-9]/`                          | ✅ Set di caratteri permessi / erlaubte Zeichenmenge               |
+| **Capture Group**             | `preg_match("/(\d+)/", "num 123", $m)`   | `( )`cattura parti di testo / fängt Teilstrings ein                |
+| `preg_replace()`              | `preg_replace("/cat/", "dog", "my cat")` | 🔁 Sostituisce corrispondenze / ersetzt Treffer                    |
+
+**Dritte / Consigli:**
+
+- Usa **`https://regex101.com`** per testare i pattern.
+- Impara i **metacaratteri principali** : `. ^ $ * + ? [] () {}`
+
+  - Prova regex su testi reali (es. email, numeri, codici postali).
+
+    ################################################### OOP
+    ##########################################
+
+    ##### 
+        CLASSES
+
+![1762418696484](image/Teoria_PHP/1762418696484.png) i parametri dell´ogetto
+vengono dichiarati specificando il metodo , ma si puo anche omettere in modo da
+avere un parametro libero e che possiamo usare a nostro piacimento , comunque é
+**BEST PRACTICE** dichiarare il tipo
+
+**DEFAULT PARAMETER**
+
+![1762419098663](image/Teoria_PHP/1762419098663.png)
+
+**CLASS WITH A METHOD UND $THIS SIGN FOR OBJECT**
+
+![1762419348114](image/Teoria_PHP/1762419348114.png)
+
+ATTENZIONE !!!! notare come il nome della classe lo si scrive in Capitalize e il
+metodo con Camelcase
+
+##### 
+
+    CONSTRUCTOR
+
+![1762419791286](image/Teoria_PHP/1762419791286.png)
+
+##### 
+
+    FORMA RIASSUNTIVA E MODERNA DEL COSTRUTTORE
+
+![1762419979694](image/Teoria_PHP/1762419979694.png)
+
+**ATTENZIONE !!! probabilmente ha scritto il parametro del costruttore 'balance'
+senza il this in quanto vuole dare un numero in DEFAULT in caso il numero é
+negativo**
+
+##### 
+
+    PRIVATE AND PUBLIC
+
+Una cosa molto importante é capire il concetto di **Public** e **Private** degli
+attributi dell´ogetto . Se imposto come **Public** , allora **possono essere
+acessibili anche al di furoi della classe** di riferimento (fuori inteso fuori
+dalle loro parentesi graffe). Se non voglio cio , dovro impostare Private in
+modo da **limitare l´acesso ad esse e creare magari i mie GETTER e SETTER** per
+svolgere questa funzione
+
+ATTENZIONE !!! ovviamente anche i metodi a loro volta possono avere questa
+possibilitá , ossia essere Privati o Pubblici . Dipende tutto da come vogliamo
+impostare il tutto
+
+> `private` e `public` non servono a “bloccare l’accesso ai file”,
+>
+> ma a **creare regole di accesso** dentro il codice,
+>
+> così il programma resta **coerente, sicuro e più facile da mantenere** .
+
+---
+
+########################################################### NAMESPACES FOR CLASS
+###############################################
+
+![1762421945125](image/Teoria_PHP/1762421945125.png)
+
+![1762422294324](image/Teoria_PHP/1762422294324.png)
+
+**Cosa abbiamo fatto qua** , sto nel **File index.php** dove ho importato con
+**require** i due file che contengono due classi diverse che si chiamano
+**User** e potrebbero collidere . Per questo ho utilizzato il **Namespaces**
+dandolo ad ogni calsse con il nome della cartella di riferimento in modo da
+creare una distinzione . Qua vediamo in **index.php** che prima ho utilizzato il
+comando **USE** per imporatre il **namespace Admin/User** in modo da poter
+dichiarare liberamente l´ogetto appartenente a quella classe e poi ho dichiarato
+un´altro ogetto appartenente al **Client/User** che peró deve essere dichiarato
+col **Namespace** in modo da non avere **collisioni**
+
+![1762422737450](image/Teoria_PHP/1762422737450.png)
+
+Ora ha utilizzato il comando **Use** anche per l´altro **namespace** in mono da
+non dover scrivere ogni volta tutto quel nome per non avere collisioni e ha
+usato 'as' per associare un´altro nome al secondo file che genera l´ogetto . Ora
+tutto funziona e c´é una distinzione precisa che non permette la collisione
