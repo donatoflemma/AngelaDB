@@ -7,7 +7,7 @@ solo
 
 Ho visto molto spesso fare ``<h1><?php   echo 'Ciao'; ?>```</h1>``quando io ho
 sempre
-fatto`````````````````````<?php echo' <h1> Cioa <h1>'; ?>``````````````````````
+fatto``````````````````````<?php echo' <h1> Cioa <h1>'; ?>```````````````````````
 Non ho ancora capito la differenza ma funzionano uguale
 
 Quando fa include non mette i tag Html nell´eco , capire anche questo !!!!
@@ -1696,8 +1696,7 @@ Quando invece usi `&` ** davanti al parametro** , stai dicendo a PHP:
     ################################################### OOP
     ##########################################
 
-    ##### 
-        CLASSES
+    CLASSES
 
 ![1762418696484](image/Teoria_PHP/1762418696484.png) i parametri dell´ogetto
 vengono dichiarati specificando il metodo , ma si puo anche omettere in modo da
@@ -1715,13 +1714,9 @@ avere un parametro libero e che possiamo usare a nostro piacimento , comunque é
 ATTENZIONE !!!! notare come il nome della classe lo si scrive in Capitalize e il
 metodo con Camelcase
 
-##### 
-
     CONSTRUCTOR
 
 ![1762419791286](image/Teoria_PHP/1762419791286.png)
-
-##### 
 
     FORMA RIASSUNTIVA E MODERNA DEL COSTRUTTORE
 
@@ -1730,8 +1725,6 @@ metodo con Camelcase
 **ATTENZIONE !!! probabilmente ha scritto il parametro del costruttore 'balance'
 senza il this in quanto vuole dare un numero in DEFAULT in caso il numero é
 negativo**
-
-##### 
 
     PRIVATE AND PUBLIC
 
@@ -1777,3 +1770,295 @@ Ora ha utilizzato il comando **Use** anche per l´altro **namespace** in mono da
 non dover scrivere ogni volta tutto quel nome per non avere collisioni e ha
 usato 'as' per associare un´altro nome al secondo file che genera l´ogetto . Ora
 tutto funziona e c´é una distinzione precisa che non permette la collisione
+
+![1762503761090](image/Teoria_PHP/1762503761090.png)
+
+**FUN FACT !!!**
+
+Come poi vedere qua é stato creato un **costruttore** per creare **istanze** che
+ci permette di avere come proprietá dell´istanza un ogetto **PDO** per la
+connessione Database il problema che il **namespace** mi dará un problema
+qual´ora io non metto un ' *_\*_ ' prima dell´ogetto per dichiarare che il
+namespace dell´attributo non deve essere associato a quello dell´istanza di
+questa classe **User**. Ora invece , tutto funziona , l´imporante é mettere
+' *_\*_ ' **prima di dichiarare un attributo che sia un´ogetto per non fare fare
+confusione a PHP durante l´esecuzione**
+
+** Stampare la classe dell´istanza**
+
+Si puo fare con (Rappresentazione di una pagia index.php ):
+
+use Admin\User;
+
+require __ DIR __ . '/src/Admin/Role.php';
+
+var_dump('Admin\ \ User \'\); in questa maniera stampi la classe , ma dobbiamo
+prima importarla e usarla
+
+- `require` serve a **includere fisicamente** un file PHP nel tuo script. Senza
+  questo, il codice contenuto nel file (come la definizione della classe
+  `Admin\User`) non è disponibile.
+- `use` serve a **importare un nome di classe da uno spazio dei nomi
+  (namespace)** , così puoi usarlo più comodamente nel tuo codice.
+
+✅ In pratica
+
+Il `use` è una **dichiarazione di alias** per il namespace, mentre il `require`
+è **esecuzione vera e propria** . Puoi pensare al `use` come a una scorciatoia
+sintattica, e al `require` come al caricamento effettivo del codice.
+
+ATTENZIONE !!!! maniera veloce per avere la classe stampata ---->
+**var_dump(nome classe : : class);**
+
+** FUNZIONE PER VEDERE SE È DELL`ISTANZA DI UNA CLASSE O NO, VISTA IN VARIE
+PROSPETTIVE**
+
+![1762504859586](image/Teoria_PHP/1762504859586.png)
+
+##### 
+
+    spl_autoload_register('funzione creata per chiamare con require i file che ci servono ');
+
+![1762505585668](image/Teoria_PHP/1762505585668.png)
+
+![1762505737922](image/Teoria_PHP/1762505737922.png)
+
+### ⚙️ Cos'è
+
+La funzione `autoload($class)` è un **autoloader personalizzato** che carica
+automaticamente i file PHP delle classi quando vengono usate, **senza bisogno di
+**`require` ** manuali ovunque** .
+
+### 🔄 Come funziona
+
+1. `spl_autoload_register('autoload')` dice a PHP: "Quando serve una classe non
+   ancora caricata, chiama la funzione `autoload`".
+2. **Dentro **`autoload($class)`, PHP passa il nome completo della classe (es.
+   `Admin\User`).
+3. La funzione controlla quale classe è richiesta e fa il `require` del file
+   giusto.
+
+##### 
+
+    Amonymous Function
+
+![1762506122942](image/Teoria_PHP/1762506122942.png) **Funzione senza nome che
+viene racchiusa in una variabile e qundi chiamata piu velocemente !!!!**
+
+![1762506165208](image/Teoria_PHP/1762506165208.png) Qua vediamo la stessa cosa
+ma con il **spl_autoload_register();**
+
+** PSR-4 Autoloading dare un´occhiata ma non ho capito di cosa si parla**
+
+#### 
+
+    INTERFACE
+
+![1762507073867](image/Teoria_PHP/1762507073867.png)
+
+**Classe con metodi vuoti** che andranno implementati in altre classi figlie ,
+lo scopo é avere una classe **Padre che ragruppa uno o piu classi che avrenno
+scopi o significati simili** , ma ai quali andra implementato il metodo in
+maniera diversa . **Serve per avere una suddivisione e un senso gerarchico
+logico omogeneo .**
+
+ATTENZIONE !!!! **quando implementiamo una classe , questa non deve essere
+importata !!!!**
+
+##### 
+
+    Ereditarietá delle calssi
+
+![1762507608505](image/Teoria_PHP/1762507608505.png)
+
+##### 
+
+    parent : : _ _ construct( );
+
+![1762507944528](image/Teoria_PHP/1762507944528.png)
+
+`parent::__construct();`** serve per chiamare il costruttore della classe
+genitore (superclasse) all'interno del costruttore della classe figlia. È
+fondamentale per inizializzare correttamente le proprietà ereditate.**
+
+### 🧠 Spiegazione semplice
+
+Quando una classe **estende** un'altra, eredita i suoi metodi e proprietà. Se la
+classe genitore ha un **costruttore** (`__construct()`), questo **non viene
+chiamato automaticamente** se la classe figlia ha il suo costruttore. Per
+eseguire anche quello del genitore, devi usare `parent::__construct()`.
+
+##### **
+
+    PRIVATE AND PROTECTED**
+
+**In PHP, le parole chiave **`protected`** e **`private`** nel costruttore (o in
+qualsiasi proprietà/metodo) definiscono la ** _**visibilità**_ **, cioè chi può
+accedere a quell’elemento. Servono a controllare l’incapsulamento e la sicurezza
+del codice.**
+
+| Visibilità  | Accessibile da                   | Ereditabile | Uso tipico                              |
+| ----------- | -------------------------------- | ----------- | --------------------------------------- |
+| `private`   | Solo dalla classe stessa         | ❌ No       | Dati o logiche strettamente interne     |
+| `protected` | Dalla classe e dalle sottoclassi | ✅ Sì       | Dati condivisi tra classe base e figlie |
+
+ES:
+
+class Animal { protected int $weight; private string $secret;
+
+    public function __construct(int $weight) {$this->weight = $weight;
+        $this->secret = "hidden";
+    }
+
+}
+
+class Dog extends Animal { public function showWeight() { echo $this->weight; //
+✅ OK: protected è accessibile // echo $this->secret; ❌ ERRORE: private non è
+accessibile }}
+
+- `$weight`** è **`protected`: la classe `Dog` può accedervi.
+- `$secret`** è **`private`: solo `Animal` può usarlo, nemmeno `Dog`.
+
+### Perché usarli?
+
+- `private` protegge dati sensibili da modifiche esterne o accidentali.
+- `protected` permette alle classi figlie di accedere e modificare proprietà
+  comuni, mantenendo comunque un certo livello di protezione.
+
+### 📌 Nota sul costruttore stesso
+
+Puoi anche rendere **il costruttore **`private`** o **`protected`, per
+controllare **come e dove** si possono creare oggetti
+
+class Singleton { private function __construct() {} // ❌ Nessuno può fare new
+Singleton() }
+
+###### 
+
+    DIEFFERENZA TRA`$this->method()`, **`self::method()`**, e `parent::method()`
+
+`$this->method()` **, **`self::method()`**, e **`parent::method()`** servono per
+chiamare metodi in contesti diversi: oggetto, classe statica, e classe genitore.
+La scelta dipende da come è strutturato il tuo codice e da cosa vuoi ottenere.**
+
+### 🔍 Differenze principali
+
+| Sintassi           | Contesto           | Accesso a...                                | Quando usarla                                                         |
+| ------------------ | ------------------ | ------------------------------------------- | --------------------------------------------------------------------- |
+| `$this->method()`  | Oggetto istanziato | Metodi non statici della classe corrente    | Quando lavori con oggetti e vuoi accedere a metodi o proprietà        |
+| `self::method()`   | Classe stessa      | Metodi statici definiti nella stessa classe | Quando chiami metodi statici all'interno della stessa classe          |
+| `parent::method()` | Classe figlia      | Metodi definiti nella classe genitore       | Quando vuoi estendere o sovrascrivere comportamenti della classe base |
+
+##### Esempio pratico
+
+class Animal { public function move() { echo "Animal is moving\n"; }
+
+    public static function info() {
+        echo "This is an animal\n";
+    }
+
+}
+
+class Dog extends Animal { public function move() { parent::move(); // chiama il
+metodo della classe genitore echo "Dog is moving\n"; }
+
+    public function speak() {
+        $this->move(); // chiama il metodo della classe corrente
+    }
+
+    public static function describe() {
+        self::info(); // chiama il metodo statico della stessa classe
+    }
+
+}
+
+### Spiegazione sintetica
+
+- `$this->method()`: usa quando hai un oggetto e vuoi accedere a metodi **non
+  statici** .
+- `self::method()`: usa quando chiami un metodo **statico** definito nella
+  **stessa classe** .
+- `parent::method()`: usa quando vuoi **riutilizzare o estendere** un metodo
+  della **classe genitore** .
+
+### Best Practices
+
+- Usa `$this->` per accedere a proprietà e metodi dell’istanza.
+- Usa `self::` solo per metodi **statici** e costanti.
+- Usa `parent::` quando **sovrascrivi un metodo** e vuoi mantenere parte del
+  comportamento originale.
+- Evita di mischiare `self::` e `$this->` nello stesso metodo, a meno che non
+  sia necessario.
+- Se puoi, **preferisci l’uso di oggetti (** `$this` **)** per mantenere
+  flessibilità e testabilità.
+
+##### ATTENZIONE ESISTE ANCHE static:: che ancora non ho visto, ma che vedro piu avanti
+
+##### 
+
+    CLASSE ASTRATTA
+
+**Una classe astratta in PHP è una classe che non può essere istanziata
+direttamente e serve come modello per altre classi. Nel tuo esempio,
+**`Animal`** è una classe astratta che impone alle sottoclassi di implementare
+il metodo **`getWeight()`**.**
+
+![1762509763321](image/Teoria_PHP/1762509763321.png)
+
+Può contenere:
+
+- **Metodi astratti** (senza corpo, da implementare nelle sottoclassi).
+- **Metodi concreti** (con corpo, già funzionanti).
+
+FOTO:
+
+- `Animal` è **astratta** : non puoi fare `new Animal()`.
+- `getWeight()` è **astratto** : ogni sottoclasse **deve** implementarlo.
+- `move()` e `eat()` sono metodi **concreti** : già funzionano.
+
+### Best Practice
+
+- Usa classi astratte quando vuoi **forzare una struttura comune** tra più
+  classi.
+- Implementa tutti i metodi astratti nelle sottoclassi.
+- Non istanziare mai direttamente una classe astratta.
+- Se hai solo metodi astratti, considera l’uso di **interfacce** .
+
+##### 
+
+    DIFFERENZE BASE TRA STRATTA E INTERAFACE
+
+| Caratteristica              | Classe astratta             | Interfaccia                               |
+| --------------------------- | --------------------------- | ----------------------------------------- |
+| Istanza diretta             | ❌ No                       | ❌ No                                     |
+| Metodi concreti (con corpo) | ✅ Sì                       | ❌ No                                     |
+| Metodi astratti             | ✅ Sì                       | ✅ Sì (tutti lo sono)                     |
+| Proprietà                   | ✅ Sì                       | ❌ No (solo costanti)                     |
+| Ereditarietà                | ✅ Una sola classe astratta | ✅ Più interfacce (multi-implementazione) |
+| Parola chiave               | `abstract class`            | `interface`                               |
+| Obbligo di implementazione  | ✅ Sì                       | ✅ Sì                                     |
+
+### Quando usare cosa
+
+- Usa una **classe astratta** quando vuoi:
+  - Definire **comportamenti comuni** già funzionanti.
+  - Forzare l’implementazione di alcuni metodi.
+  - Mantenere una **gerarchia chiara** con una sola classe base.
+- Usa un’**interfaccia** quando vuoi:
+  - Definire **solo il contratto** (firma dei metodi).
+  - Permettere a una classe di **implementare più interfacce** .
+  - Favorire la **flessibilità e la composizione** .
+
+ES:
+
+abstract class Animal { public function move() { echo "Moving...\n"; } abstract
+public function speak(); }
+
+interface Pet { public function cuddle(); }
+
+class Dog extends Animal implements Pet { public function speak() { echo
+"Bark!\n"; } public function cuddle() { echo "Dog cuddles\n"; } }
+
+- `Dog` eredita da `Animal` e implementa `Pet`.
+- Ha accesso al metodo `move()` già funzionante.
+- Deve **obbligatoriamente** definire `speak()` e `cuddle()`.
