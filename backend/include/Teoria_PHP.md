@@ -7,7 +7,7 @@ solo
 
 Ho visto molto spesso fare ``<h1><?php   echo 'Ciao'; ?>```</h1>``quando io ho
 sempre
-fatto```````````````````````<?php echo' <h1> Cioa <h1>'; ?>````````````````````````
+fatto````````````````````````<?php echo' <h1> Cioa <h1>'; ?>`````````````````````````
 Non ho ancora capito la differenza ma funzionano uguale
 
 Quando fa include non mette i tag Html nell´eco , capire anche questo !!!!
@@ -97,13 +97,13 @@ Questo crea una selezione randomica di numeri !!!!!
 - Mostra **tipo** ( _Typ_ ) e **valore** ( _Wert_ ) di una variabile.
 
 | **echo** | Mostra solo il contenuto come stringa | `Array`(non mostra i valori) |
-| -------------- | ------------------------------------- | ------------------------------ |
+| -------- | ------------------------------------- | ---------------------------- |
 
 | **print_r()** | Mostra valore in modo leggibile (anche array/oggetti) | `Array ( [0] => 1 [1] => 2 [2] => 3 )` |
-| ------------------- | ----------------------------------------------------- | ---------------------------------------- |
+| ------------- | ----------------------------------------------------- | -------------------------------------- |
 
 | **var_dump()** | Mostra tipo + lunghezza + valore (dettagliato) | `array(3) { [0]=> int(1) [1]=> int(2) [2]=> int(3) }` |
-| -------------------- | ---------------------------------------------- | ------------------------------------------------------- |
+| -------------- | ---------------------------------------------- | ----------------------------------------------------- |
 
 ###################### **Isset Empty and Unset Function Validate and delete
 Variable** #############################
@@ -291,11 +291,11 @@ La parte `: array` alla fine della funzione serve a **specificare il tipo di
 valore che la funzione restituisce** → si chiama **“type hinting di ritorno”**
 (in tedesco: _Rückgabetyp_ ).
 
-| Parametro          | Descrizione 🇮🇹                          | Beschreibung 🇩🇪                           |
-| ------------------ | ----------------------------------------- | ------------------------------------------- |
-| `$array`         | L’array di partenza                      | Ausgangsarray                               |
-| `$offset`        | Da dove iniziare (indice)                 | Startposition                               |
-| `$length`        | Quanti elementi prendere                  | Anzahl der Elemente                         |
+| Parametro        | Descrizione 🇮🇹                          | Beschreibung 🇩🇪                           |
+| ---------------- | --------------------------------------- | ----------------------------------------- |
+| `$array`         | L’array di partenza                     | Ausgangsarray                             |
+| `$offset`        | Da dove iniziare (indice)               | Startposition                             |
+| `$length`        | Quanti elementi prendere                | Anzahl der Elemente                       |
 | `$preserve_keys` | Se `true`, mantiene le chiavi originali | Beibehaltung der ursprünglichen Schlüssel |
 
 $numeri = [10, 20, 30, 40, 50];
@@ -397,13 +397,13 @@ array in **Associativi** e con **idex**
 - Serve ai browser per sapere **dove andare** e **come richiedere la risorsa** .
   https://www.example.com:443/path/to/page.php?name=Luca&age=25#section1
 
-| Parte                       | Esempio               | Funzione                                                           |
-| --------------------------- | --------------------- | ------------------------------------------------------------------ |
+| Parte                 | Esempio             | Funzione                                                           |
+| --------------------- | ------------------- | ------------------------------------------------------------------ |
 | **Schema/Protocollo** | `https://`          | Indica il protocollo da usare (HTTP, HTTPS, FTP...)                |
 | **Host/Dominio**      | `www.example.com`   | Indirizzo del server web                                           |
 | **Porta**             | `:443`              | Numero di porta sul server (opzionale, default 80 HTTP, 443 HTTPS) |
 | **Path/Percorso**     | `/path/to/page.php` | Percorso della risorsa sul server                                  |
-| **Query string**      | `?name=Luca&age=25` | Parametri passati al server (`$_GET`in PHP)                      |
+| **Query string**      | `?name=Luca&age=25` | Parametri passati al server (`$_GET`in PHP)                        |
 | **Fragment/Ancora**   | `#section1`         | Posizione interna alla pagina (non inviata al server)              |
 
 ### Come funziona quando digiti un URL
@@ -520,10 +520,10 @@ andiamo ad inserire !!!!
 
 **Differenza base tra GET e POST**
 
-| Metodo         | Dati visibili           | Dove si inviano i dati                      | Effetto tipico                   | Quando usarlo                                    |
-| -------------- | ----------------------- | ------------------------------------------- | -------------------------------- | ------------------------------------------------ |
-| **GET**  | ✅ Visibili nell’URL   | Nella “query string” (`?chiave=valore`) | Legge o richiede informazioni    | Quando vuoi leggere o cercare  dati           |
-| **POST** | ❌ Invisibili nell’URL | Nel corpo (body) della richiesta            | Invia o modifica dati sul server | Quando vuoi salvare, inviare o modificare dati |
+| Metodo   | Dati visibili          | Dove si inviano i dati                  | Effetto tipico                   | Quando usarlo                                  |
+| -------- | ---------------------- | --------------------------------------- | -------------------------------- | ---------------------------------------------- |
+| **GET**  | ✅ Visibili nell’URL   | Nella “query string” (`?chiave=valore`) | Legge o richiede informazioni    | Quando vuoi leggere o cercare  dati            |
+| **POST** | ❌ Invisibili nell’URL | Nel corpo (body) della richiesta        | Invia o modifica dati sul server | Quando vuoi salvare, inviare o modificare dati |
 
 **Usi GET per:**
 
@@ -555,10 +555,10 @@ del sito.
 - **Modificare il contenuto della pagina** per ingannare o truffare
 - **Registrare input dell’utente** come password o dati sensibili
 
-| Tipo                | Descrizione                                                                   |
-| ------------------- | ----------------------------------------------------------------------------- |
+| Tipo          | Descrizione                                                                  |
+| ------------- | ---------------------------------------------------------------------------- |
 | **Reflected** | Il codice malevolo è incluso in un link e riflesso nella risposta del server |
-| **Stored**    | Il codice viene salvato nel database e mostrato a tutti gli utenti            |
+| **Stored**    | Il codice viene salvato nel database e mostrato a tutti gli utenti           |
 | **DOM-based** | L’attacco sfrutta il codice JavaScript lato client per manipolare il DOM     |
 
 ### Come difendersi
@@ -695,11 +695,11 @@ Usare una query (`?image=foto1.jpg`) è utile quando:
 - vuoi **filtrare o modificare** le immagini (es. `?image=foto1.jpg&size=small`)
 - vuoi **proteggere o validare** i file prima di mostrarli
 
-| Caso                                 | Esempio                                                        | Spiegazione IT                      | Erklärung DE                               |
-| ------------------------------------ | -------------------------------------------------------------- | ----------------------------------- | ------------------------------------------- |
-| **Path diretto**               | `href="./images/foto.jpg"`                                   | apre direttamente il file           | öffnet direkt die Datei                    |
-| **Con query (GET)**            | `href="image.php?image=foto.jpg"`                            | passa un parametro a uno script PHP | übergibt einen Parameter an ein PHP-Skript |
-| **Con `http_build_query()`** | `href="image.php?image=foto.jpg"`ma generato automaticamente | costruisce l’URL in modo sicuro    | erstellt die URL sicher automatisch         |
+| Caso                         | Esempio                                                      | Spiegazione IT                      | Erklärung DE                               |
+| ---------------------------- | ------------------------------------------------------------ | ----------------------------------- | ------------------------------------------ |
+| **Path diretto**             | `href="./images/foto.jpg"`                                   | apre direttamente il file           | öffnet direkt die Datei                    |
+| **Con query (GET)**          | `href="image.php?image=foto.jpg"`                            | passa un parametro a uno script PHP | übergibt einen Parameter an ein PHP-Skript |
+| **Con `http_build_query()`** | `href="image.php?image=foto.jpg"`ma generato automaticamente | costruisce l’URL in modo sicuro     | erstellt die URL sicher automatisch        |
 
 ############################################ **TYPE AND CASTING**
 #######################################################
@@ -730,19 +730,19 @@ solo se il contesto lo richiede.
 
     Conversioni più comuni in PHP
 
-| Da → A           | Risultato                            | Spiegazione (IT)                       |
-| :---------------- | :----------------------------------- | :------------------------------------- |
+| Da → A          | Risultato                          | Spiegazione (IT)                       |
+| :-------------- | :--------------------------------- | :------------------------------------- |
 | `(int)"42"`     | `42`                               | Converte stringa numerica in intero    |
 | `(int)"42abc"`  | `42`                               | Prende solo la parte numerica iniziale |
-| `(int)"abc"`    | `0`                                | Nessun numero → diventa 0             |
-| `(float)"3.14"` | `3.14`                             | Stringa numerica decimale → float     |
-| `(float)"3,14"` | `3`                                | Virgola non valida → tronca a 3       |
-| `(string)123`   | `"123"`                            | Numero → stringa                      |
-| `(string)true`  | `"1"`                              | true → "1"                            |
-| `(string)false` | `""`                               | false → stringa vuota                 |
-| `(bool)0`       | `false`                            | 0 è falso                             |
-| `(bool)1`       | `true`                             | 1 è vero                              |
-| `(bool)"0"`     | `false`                            | Stringa “0” = false                  |
+| `(int)"abc"`    | `0`                                | Nessun numero → diventa 0              |
+| `(float)"3.14"` | `3.14`                             | Stringa numerica decimale → float      |
+| `(float)"3,14"` | `3`                                | Virgola non valida → tronca a 3        |
+| `(string)123`   | `"123"`                            | Numero → stringa                       |
+| `(string)true`  | `"1"`                              | true → "1"                             |
+| `(string)false` | `""`                               | false → stringa vuota                  |
+| `(bool)0`       | `false`                            | 0 è falso                              |
+| `(bool)1`       | `true`                             | 1 è vero                               |
+| `(bool)"0"`     | `false`                            | Stringa “0” = false                    |
 | `(bool)""`      | `false`                            | Stringa vuota = false                  |
 | `(bool)"ciao"`  | `true`                             | Qualsiasi stringa non vuota = true     |
 | `(array)123`    | `[0 => 123]`                       | Trasforma in array con indice 0        |
@@ -797,11 +797,11 @@ $name = $_GET['name'] ?? 'Ospite';
 
 if (isset($_GET['name'])) { $name = $_GET['name']; } else { $name = 'Ospite'; }
 
-| Scopo                                                            | Miglior scelta             | Esempio                                 |
-| ---------------------------------------------------------------- | -------------------------- | --------------------------------------- |
-| Controllare se una variabile esiste o è null → dare un default | ✅`??`                   | `$x = $_GET['id'] ?? 0;`              |
-| Semplice condizione logica                                       | ✅`?:`                   | `$msg = $ok ? 'Successo' : 'Errore';` |
-| Controlli complessi o validazione dei dati                       | ✅`isset()`o `empty()` | `if (empty($_POST['user'])) { ... }`  |
+| Scopo                                                          | Miglior scelta         | Esempio                               |
+| -------------------------------------------------------------- | ---------------------- | ------------------------------------- |
+| Controllare se una variabile esiste o è null → dare un default | ✅`??`                 | `$x = $_GET['id'] ?? 0;`              |
+| Semplice condizione logica                                     | ✅`?:`                 | `$msg = $ok ? 'Successo' : 'Errore';` |
+| Controlli complessi o validazione dei dati                     | ✅`isset()`o `empty()` | `if (empty($_POST['user'])) { ... }`  |
 
 ####################################### ' ICLUDE ' PICCALA TEORIA SU __DIR __
 ##############################################
@@ -1210,11 +1210,11 @@ Questo **compress.bzip2 : //** lo ha preso nella pagina caricata in **phpinfo
 
 ### 📘 **Principali tipi di stream wrapper**
 
-| Wrapper                            | Descrizione                                   |
-| ---------------------------------- | --------------------------------------------- |
-| `file://`                        | file locali                                   |
-| `http://`,`https://`           | risorse web                                   |
-| `php://`                         | stream interni di PHP (stdin, output, memory) |
+| Wrapper                      | Descrizione                                   |
+| ---------------------------- | --------------------------------------------- |
+| `file://`                    | file locali                                   |
+| `http://`,`https://`         | risorse web                                   |
+| `php://`                     | stream interni di PHP (stdin, output, memory) |
 | `ftp://`,`zlib://`,`data://` | protocolli vari e compressione                |
 
 ### ⚠️ **Nota**
@@ -1448,11 +1448,11 @@ Il browser **mostra il testo “così com’è”** , non interpreta tag HTML.
 
 ### **Altri tipi comuni**
 
-| Tipo                         | Descrizione     | Effetto                     |
-| ---------------------------- | --------------- | --------------------------- |
+| Tipo                       | Descrizione     | Effetto                     |
+| -------------------------- | --------------- | --------------------------- |
 | `text/html`                | Pagina web HTML | Il browser interpreta i tag |
 | `application/json`         | Dati JSON       | Usato per API               |
-| `application/pdf`          | File PDF        | Può aprire il lettore PDF  |
+| `application/pdf`          | File PDF        | Può aprire il lettore PDF   |
 | `application/octet-stream` | Dati binari     | Forza il download           |
 
 ############################################### COME INVIARE I FILE ALL`USER???
@@ -1676,15 +1676,15 @@ Quando invece usi `&` ** davanti al parametro** , stai dicendo a PHP:
 
 ![1762417690292](image/Teoria_PHP/1762417690292.png)
 
-| **Comando / Simbolo**                              | **Esempio PHP**                                     | **Spiegazione IT / DE**                                                  |
-| -------------------------------------------------------- | --------------------------------------------------------- | ------------------------------------------------------------------------------ |
-| `preg_match()`                                         | `preg_match("/cat/", "my cat")`                         | ✅ Trova**una sola occorrenza**/ findet**nur das erste Vorkommen** |
-| `preg_match_all()`                                     | `preg_match_all("/\d+/", "a1 b22 c333")`                | ✅ Trova**tutte le corrispondenze**/ findet**alle Treffer**        |
-| **Quantifiers**                                    | `/a*/`,`/a+/`,`/a?/`                                | `*`= 0+ volte,`+`= 1+ volte,`?`= 0 o 1 / Wiederholungen                  |
-| `^`e `$`                      | `/^Hi/`,`/end$/` | `^`= inizio stringa,`$`= fine stringa / Anfang & Ende |                                                                                |
-| `[abc]`,`[a-c]`,`[A-Za-z0-9]`                      | `/[A-Za-z0-9]/`                                         | ✅ Set di caratteri permessi / erlaubte Zeichenmenge                           |
-| **Capture Group**                                  | `preg_match("/(\d+)/", "num 123", $m)`                  | `( )`cattura parti di testo / fängt Teilstrings ein                         |
-| `preg_replace()`                                       | `preg_replace("/cat/", "dog", "my cat")`                | 🔁 Sostituisce corrispondenze / ersetzt Treffer                                |
+| **Comando / Simbolo**         | **Esempio PHP**                          | **Spiegazione IT / DE**                                            |
+| ----------------------------- | ---------------------------------------- | ------------------------------------------------------------------ |
+| `preg_match()`                | `preg_match("/cat/", "my cat")`          | ✅ Trova**una sola occorrenza**/ findet**nur das erste Vorkommen** |
+| `preg_match_all()`            | `preg_match_all("/\d+/", "a1 b22 c333")` | ✅ Trova**tutte le corrispondenze**/ findet**alle Treffer**        |
+| **Quantifiers**               | `/a*/`,`/a+/`,`/a?/`                     | `*`= 0+ volte,`+`= 1+ volte,`?`= 0 o 1 / Wiederholungen            |
+| `^`e `$`                      | `/^Hi/`,`/end$/`                         | `^`= inizio stringa,`$`= fine stringa / Anfang & Ende              |
+| `[abc]`,`[a-c]`,`[A-Za-z0-9]` | `/[A-Za-z0-9]/`                          | ✅ Set di caratteri permessi / erlaubte Zeichenmenge               |
+| **Capture Group**             | `preg_match("/(\d+)/", "num 123", $m)`   | `( )`cattura parti di testo / fängt Teilstrings ein                |
+| `preg_replace()`              | `preg_replace("/cat/", "dog", "my cat")` | 🔁 Sostituisce corrispondenze / ersetzt Treffer                    |
 
 **Dritte / Consigli:**
 
@@ -1836,7 +1836,7 @@ automaticamente i file PHP delle classi quando vengono usate, **senza bisogno di
 3. La funzione controlla quale classe è richiesta e fa il `require` del file
    giusto.
 
-    Amonymous Function
+   Amonymous Function
 
 ![1762506122942](image/Teoria_PHP/1762506122942.png) **Funzione senza nome che
 viene racchiusa in una variabile e qundi chiamata piu velocemente !!!!**
@@ -1887,10 +1887,10 @@ qualsiasi proprietà/metodo) definiscono la ** _**visibilità**_ **, cioè chi p
 accedere a quell’elemento. Servono a controllare l’incapsulamento e la sicurezza
 del codice.**
 
-| Visibilità   | Accessibile da                   | Ereditabile | Uso tipico                              |
-| ------------- | -------------------------------- | ----------- | --------------------------------------- |
+| Visibilità  | Accessibile da                   | Ereditabile | Uso tipico                              |
+| ----------- | -------------------------------- | ----------- | --------------------------------------- |
 | `private`   | Solo dalla classe stessa         | ❌ No       | Dati o logiche strettamente interne     |
-| `protected` | Dalla classe e dalle sottoclassi | ✅ Sì      | Dati condivisi tra classe base e figlie |
+| `protected` | Dalla classe e dalle sottoclassi | ✅ Sì       | Dati condivisi tra classe base e figlie |
 
 ES:
 
@@ -1931,9 +1931,9 @@ La scelta dipende da come è strutturato il tuo codice e da cosa vuoi ottenere.*
 
 ### 🔍 Differenze principali
 
-| Sintassi             | Contesto           | Accesso a...                                | Quando usarla                                                         |
-| -------------------- | ------------------ | ------------------------------------------- | --------------------------------------------------------------------- |
-| `$this->method()`  | Oggetto istanziato | Metodi non statici della classe corrente    | Quando lavori con oggetti e vuoi accedere a metodi o proprietà       |
+| Sintassi           | Contesto           | Accesso a...                                | Quando usarla                                                         |
+| ------------------ | ------------------ | ------------------------------------------- | --------------------------------------------------------------------- |
+| `$this->method()`  | Oggetto istanziato | Metodi non statici della classe corrente    | Quando lavori con oggetti e vuoi accedere a metodi o proprietà        |
 | `self::method()`   | Classe stessa      | Metodi statici definiti nella stessa classe | Quando chiami metodi statici all'interno della stessa classe          |
 | `parent::method()` | Classe figlia      | Metodi definiti nella classe genitore       | Quando vuoi estendere o sovrascrivere comportamenti della classe base |
 
@@ -2010,17 +2010,17 @@ FOTO:
 - Non istanziare mai direttamente una classe astratta.
 - Se hai solo metodi astratti, considera l’uso di **interfacce** .
 
-    DIFFERENZE BASE TRA STRATTA E INTERAFACE
+  DIFFERENZE BASE TRA STRATTA E INTERAFACE
 
-| Caratteristica              | Classe astratta             | Interfaccia                                |
-| --------------------------- | --------------------------- | ------------------------------------------ |
-| Istanza diretta             | ❌ No                       | ❌ No                                      |
-| Metodi concreti (con corpo) | ✅ Sì                      | ❌ No                                      |
-| Metodi astratti             | ✅ Sì                      | ✅ Sì (tutti lo sono)                     |
-| Proprietà                  | ✅ Sì                      | ❌ No (solo costanti)                      |
-| Ereditarietà               | ✅ Una sola classe astratta | ✅ Più interfacce (multi-implementazione) |
-| Parola chiave               | `abstract class`          | `interface`                              |
-| Obbligo di implementazione  | ✅ Sì                      | ✅ Sì                                     |
+| Caratteristica              | Classe astratta             | Interfaccia                               |
+| --------------------------- | --------------------------- | ----------------------------------------- |
+| Istanza diretta             | ❌ No                       | ❌ No                                     |
+| Metodi concreti (con corpo) | ✅ Sì                       | ❌ No                                     |
+| Metodi astratti             | ✅ Sì                       | ✅ Sì (tutti lo sono)                     |
+| Proprietà                   | ✅ Sì                       | ❌ No (solo costanti)                     |
+| Ereditarietà                | ✅ Una sola classe astratta | ✅ Più interfacce (multi-implementazione) |
+| Parola chiave               | `abstract class`            | `interface`                               |
+| Obbligo di implementazione  | ✅ Sì                       | ✅ Sì                                     |
 
 ### Quando usare cosa
 
@@ -2047,82 +2047,99 @@ class Dog extends Animal implements Pet { public function speak() { echo
 - Ha accesso al metodo `move()` già funzionante.
 - Deve **obbligatoriamente** definire `speak()` e `cuddle()`.
 
-##################################################  CONTAINER APPLICATION OOP ###################################
+################################################## CONTAINER APPLICATION OOP
+###################################
 
 ![1762762993037](image/Teoria_PHP/1762762993037.png)
 
-Da come si puo vedere dalla foto il Container é una Classe che creianmo per facilitare l´utilizzo di piu Istanze insieme , in quanto non dobbaimo chaimarle ogni volta ma sono genereate direttamene nel Container e quindi velocizza tutto il processo di utilizzo di esse
+Da come si puo vedere dalla foto il Container é una Classe che creianmo per
+facilitare l´utilizzo di piu Istanze insieme , in quanto non dobbaimo chaimarle
+ogni volta ma sono genereate direttamene nel Container e quindi velocizza tutto
+il processo di utilizzo di esse
 
 ![1762763448505](image/Teoria_PHP/1762763448505.png)
 
-Nella FOTO NON SI VEDE L`ALTRA CLASSE ACNHE SE È UGUALE ALLA PRIMA FOTO 
+Nella FOTO NON SI VEDE L`ALTRA CLASSE ACNHE SE È UGUALE ALLA PRIMA FOTO
 
-Come puoi vedere Questa é l´evoluzione della prima foto , in quanto abbiamo messo un´a IF nella funzione che costruisce l´istanza in modo , da non avere produzioni multiple di piu istanze che alla fine non ci servono . Per fare tutto cio , la cosa importante é aver dichiarato un attributo PRIVATE nella Classe del Container e un controllo nella funzione che crea quell´istanza . Se l´attributo PRiVATE é gia pieno con una Istanza , allora non verrá Creato niente
+Come puoi vedere Questa é l´evoluzione della prima foto , in quanto abbiamo
+messo un´a IF nella funzione che costruisce l´istanza in modo , da non avere
+produzioni multiple di piu istanze che alla fine non ci servono . Per fare tutto
+cio , la cosa importante é aver dichiarato un attributo PRIVATE nella Classe del
+Container e un controllo nella funzione che crea quell´istanza . Se l´attributo
+PRiVATE é gia pieno con una Istanza , allora non verrá Creato niente
 
-ATTENZIONE !!!! 
+ATTENZIONE !!!!
 
-Come puoi vedere qua in questa foto , invece di scrivere tante Value Private per quante solo le istanze che devono essere genereate nel Container , abbiamo creato un´arry Private che racchiude tutte le Value che mi servono. 
+Come puoi vedere qua in questa foto , invece di scrivere tante Value Private per
+quante solo le istanze che devono essere genereate nel Container , abbiamo
+creato un´arry Private che racchiude tutte le Value che mi servono.
 
 ![1762764506713](image/Teoria_PHP/1762764506713.png)
 
-MODIFICA IN CUI TUTTO VIENE RACCHIUSO IN GET(); COMUNE E CHE QUINDI CHIAMANDO IL GET (); DICHIARI ACNHE COSA VUOI OTTENERE
+MODIFICA IN CUI TUTTO VIENE RACCHIUSO IN GET(); COMUNE E CHE QUINDI CHIAMANDO IL
+GET (); DICHIARI ACNHE COSA VUOI OTTENERE
 
 ![1762764744063](image/Teoria_PHP/1762764744063.png)
 
-Versione ottimaizzata del tutto 
+Versione ottimaizzata del tutto
 
 ![1762765210364](image/Teoria_PHP/1762765210364.png)
 
-La cosa importante che sta facendo dopo ma che non ho fatto la foto , é che alla fine il Container ha lo scopo di racchiudere e utilizzare delle istanze che lavorando insieme , queindi i loro attributi non devono far parte del Container che in realtá é universale e che quindi in base alla situaziokne deve essere usato in maniera diversa. 
+La cosa importante che sta facendo dopo ma che non ho fatto la foto , é che alla
+fine il Container ha lo scopo di racchiudere e utilizzare delle istanze che
+lavorando insieme , queindi i loro attributi non devono far parte del Container
+che in realtá é universale e che quindi in base alla situaziokne deve essere
+usato in maniera diversa.
 
-In Questo caso lui rende le due array Pubbliche e le funzioni ch ecreano le isatnze le mette fuori
+In Questo caso lui rende le due array Pubbliche e le funzioni ch ecreano le
+isatnze le mette fuori
 
 ![1762766152975](image/Teoria_PHP/1762766152975.png)
 
-in Questo caso é stata creata una funzione che si chiama Bind() per avere la possibilitá di creare ricette da inserire nell´Ararry che andranno a creare i nostri ogetti .
+in Questo caso é stata creata una funzione che si chiama Bind() per avere la
+possibilitá di creare ricette da inserire nell´Ararry che andranno a creare i
+nostri ogetti .
 
 ATTENZIONIE !!!
 
-public function bind(string $what, \Closure $recipe) {
-    $this->recipes[$what] = $recipe;
-}
+public function bind(string $what, \Closure $recipe) { $this->recipes[$what] =
+$recipe; }
 
 ### Cosa fa il backslash `\`
 
-Il **backslash `\`** indica che stai usando la classe **globale** `Closure` di PHP, che si trova nello **spazio dei nomi globale** (global namespace).
+Il **backslash `\`** indica che stai usando la classe **globale** `Closure` di
+PHP, che si trova nello **spazio dei nomi globale** (global namespace).
 
+######################################################################### USE
+Keyword #######################################################
 
-
-
-#########################################################################  USE  Keyword #######################################################
-
-Serve per inglobale value esterne alla Funzione     
+Serve per inglobale value esterne alla Funzione
 
 ![1762764268840](image/Teoria_PHP/1762764268840.png)
 
-##############################################################  RETURN       #########################################################
+############################################################## RETURN
+#########################################################
 
 ### Esempio:
 
 📁 `config.php`
 
-return [
-    'db_user' => 'root',
-    'db_pass' => '1234'
-];
+return [ 'db_user' => 'root', 'db_pass' => '1234' ];
 
 📁 `index.php`
 
-$config = include 'config.php';
-echo $config['db_user']; // → root
+$config = include 'config.php'; echo $config['db_user']; // → root
 
-Qui `return` fa uscire dal file `config.php` e restituisce un  **array** .
+Qui `return` fa uscire dal file `config.php` e restituisce un **array** .
 
-`return` in un file → termina il file e **restituisce un valore** a chi lo ha incluso.
+`return` in un file → termina il file e **restituisce un valore** a chi lo ha
+incluso.
 
-`return` in una funzione → termina la funzione e **restituisce un valore** al chiamante.
+`return` in una funzione → termina la funzione e **restituisce un valore** al
+chiamante.
 
-###########################################################  NAMED ARGUMENTS !!!! #####################################################
+########################################################### NAMED ARGUMENTS !!!!
+#####################################################
 
 NAMED ARGUMENTS !!!!
 
@@ -2130,27 +2147,36 @@ Piccola tecnica per usare Parametri o value e chiamarle a nostro piacimento
 
 ![1762767371143](image/Teoria_PHP/1762767371143.png)
 
-Un **Named Argument** ti permette di passare i valori a una funzione  **specificando il nome del parametro** , invece di affidarti solo all'ordine. Questo rende il codice più leggibile e flessibile.
+Un **Named Argument** ti permette di passare i valori a una funzione
+**specificando il nome del parametro** , invece di affidarti solo all'ordine.
+Questo rende il codice più leggibile e flessibile.
 
-* **Chiarezza** : Sai esattamente quale valore va a quale parametro.
-* **Flessibilità** : Puoi omettere parametri opzionali e specificare solo quelli che ti servono.
-* **Manutenzione** : Se l’ordine dei parametri cambia nella funzione, il tuo codice non si rompe.
+- **Chiarezza** : Sai esattamente quale valore va a quale parametro.
+- **Flessibilità** : Puoi omettere parametri opzionali e specificare solo quelli
+  che ti servono.
+- **Manutenzione** : Se l’ordine dei parametri cambia nella funzione, il tuo
+  codice non si rompe.
 
 ### Attenzione
 
-* Non puoi usare Named Arguments con funzioni che accettano parametri variabili (`...$args`) in modo ambiguo.
-* Non puoi mischiare Named e Positional Arguments **dopo** aver iniziato con Named.
+- Non puoi usare Named Arguments con funzioni che accettano parametri variabili
+  (`...$args`) in modo ambiguo.
+- Non puoi mischiare Named e Positional Arguments **dopo** aver iniziato con
+  Named.
 
-########################################################### COOKIE !!! #####################################################
+########################################################### COOKIE !!!
+#####################################################
 
-Un **cookie** è un piccolo file di testo che il server invia al browser del client. Il browser lo memorizza e lo rimanda al server ad ogni richiesta successiva. Serve per **ricordare informazioni** tra una visita e l’altra, come:
+Un **cookie** è un piccolo file di testo che il server invia al browser del
+client. Il browser lo memorizza e lo rimanda al server ad ogni richiesta
+successiva. Serve per **ricordare informazioni** tra una visita e l’altra, come:
 
-* Sessioni utente (login)
-* Preferenze (lingua, tema)
-* Carrelli della spesa
-* Tracciamento (analytics)
+- Sessioni utente (login)
+- Preferenze (lingua, tema)
+- Carrelli della spesa
+- Tracciamento (analytics)
 
-La funzione `setcookie()`  **invia un cookie al browser** . Ecco la sua sintassi:
+La funzione `setcookie()` **invia un cookie al browser** . Ecco la sua sintassi:
 
 ##### setcookie(name, value, expire, path, domain, secure, httponly);
 
@@ -2158,209 +2184,224 @@ La funzione `setcookie()`  **invia un cookie al browser** . Ecco la sua sintassi
 
 Arriva tramite un´array !!!
 
-| Parametro    | Descrizione                                                           |
-| ------------ | --------------------------------------------------------------------- |
-| `name`     | Il nome del cookie                                                    |
-| `value`    | Il valore da memorizzare                                              |
-| `expire`   | Timestamp UNIX di scadenza (es.`time() + 3600`per 1 ora)            |
+| Parametro  | Descrizione                                                        |
+| ---------- | ------------------------------------------------------------------ |
+| `name`     | Il nome del cookie                                                 |
+| `value`    | Il valore da memorizzare                                           |
+| `expire`   | Timestamp UNIX di scadenza (es.`time() + 3600`per 1 ora)           |
 | `path`     | Percorso del sito in cui il cookie è valido (`/`per tutto il sito) |
-| `domain`   | Dominio per cui il cookie è valido                                   |
-| `secure`   | Se `true`, il cookie viene inviato solo su connessioni HTTPS        |
-| `httponly` | Se `true`, il cookie non è accessibile da JavaScript (più sicuro) |
+| `domain`   | Dominio per cui il cookie è valido                                 |
+| `secure`   | Se `true`, il cookie viene inviato solo su connessioni HTTPS       |
+| `httponly` | Se `true`, il cookie non è accessibile da JavaScript (più sicuro)  |
 
 ### Attenzione
 
-* `setcookie()` **deve essere chiamata prima di qualsiasi output HTML** (prima di `echo`, `print`, ecc.)
-* Dopo averlo impostato, il cookie sarà disponibile  **nella prossima richiesta** , tramite `$_COOKIE['username']`
+- `setcookie()` **deve essere chiamata prima di qualsiasi output HTML** (prima
+  di `echo`, `print`, ecc.)
+- Dopo averlo impostato, il cookie sarà disponibile **nella prossima richiesta**
+  , tramite `$_COOKIE['username']`
 
-UN PO INSICURO E PERICOLOSO ;IN QUANTO L´USER POU TRANQUILLAMENTE MANIPOLARLO . Un buon mood e il $_SESSIOVN molto importante !!!!
+UN PO INSICURO E PERICOLOSO ;IN QUANTO L´USER POU TRANQUILLAMENTE MANIPOLARLO .
+Un buon mood e il $_SESSIOVN molto importante !!!!
 
-################################################################   $_SESSION   #####################################################
+################################################################ $_SESSION
+#####################################################
 
-`$_SESSION` è una **superglobale** in PHP che permette di **memorizzare dati lato server** tra diverse richieste HTTP dello stesso utente. A differenza dei cookie, i dati non sono visibili nel browser.
+`$_SESSION` è una **superglobale** in PHP che permette di **memorizzare dati
+lato server** tra diverse richieste HTTP dello stesso utente. A differenza dei
+cookie, i dati non sono visibili nel browser.
 
-session_start(); // Sempre all'inizio!
-$_SESSION['username'] = 'Donato';
-echo $_SESSION['username']; // Stampa "Donato"
+session_start(); // Sempre all'inizio! $_SESSION['username'] = 'Donato'; echo
+$_SESSION['username']; // Stampa "Donato"
 
-* `session_start()` avvia o riprende una sessione.
-* I dati vengono salvati in un file temporaneo sul server.
-* L’utente riceve un **session ID** (di solito via cookie) che lo identifica.
+- `session_start()` avvia o riprende una sessione.
+- I dati vengono salvati in un file temporaneo sul server.
+- L’utente riceve un **session ID** (di solito via cookie) che lo identifica.
 
 ## Cos'è `session_regenerate_id()`?
 
-Questa funzione  **genera un nuovo ID di sessione** , utile per prevenire attacchi come  **Session Fixation** .
+Questa funzione **genera un nuovo ID di sessione** , utile per prevenire
+attacchi come **Session Fixation** .
 
 ### 📌 Sintassi
 
 session_regenerate_id(true);
 
-* Se `true`, elimina il vecchio ID e i suoi dati.
-* Se `false`, mantiene i dati ma cambia solo l’ID.
-
+- Se `true`, elimina il vecchio ID e i suoi dati.
+- Se `false`, mantiene i dati ma cambia solo l’ID.
 
 ## Perché è importante (e potenzialmente pericoloso)?
 
 ### 🚨 Rischi senza `session_regenerate_id()`
 
-* **Session Fixation** : un attaccante forza un utente ad usare un ID di sessione noto, poi lo usa per accedere.
-* **Hijacking** : se l’ID viene rubato (es. via XSS), l’attaccante può impersonare l’utente.
+- **Session Fixation** : un attaccante forza un utente ad usare un ID di
+  sessione noto, poi lo usa per accedere.
+- **Hijacking** : se l’ID viene rubato (es. via XSS), l’attaccante può
+  impersonare l’utente.
 
 ### ✅ Best Practice
 
-| Azione                                | Motivo                                                                |
-| ------------------------------------- | --------------------------------------------------------------------- |
-| `session_start()`all’inizio        | Necessario per usare `$_SESSION`                                    |
+| Azione                              | Motivo                                                               |
+| ----------------------------------- | -------------------------------------------------------------------- |
+| `session_start()`all’inizio         | Necessario per usare `$_SESSION`                                     |
 | `session_regenerate_id()`dopo login | Cambia l’ID per evitare che un attaccante lo conosca prima del login |
-| Usare `httponly`nei cookie          | Protegge da accessi via JavaScript (XSS)                              |
-| Usare HTTPS                           | Protegge l’ID da intercettazioni (Man-in-the-Middle)                 |
-| Distruggere la sessione al logout     | Evita che venga riutilizzata                                          |
+| Usare `httponly`nei cookie          | Protegge da accessi via JavaScript (XSS)                             |
+| Usare HTTPS                         | Protegge l’ID da intercettazioni (Man-in-the-Middle)                 |
+| Distruggere la sessione al logout   | Evita che venga riutilizzata                                         |
 
 Esempio sicuro dopo login
 
-session_start();
-$_SESSION['user_id'] = $user_id;
-session_regenerate_id(true); // Protezione contro fixation
+session_start(); $_SESSION['user_id'] = $user_id; session_regenerate_id(true);
+// Protezione contro fixation
 
 ## Conclusione
 
-`$_SESSION` è potente per gestire dati utente, ma  **deve essere usato con attenzione** . `session_regenerate_id()` è uno strumento chiave per **proteggere la sessione** da attacchi comuni. Se vuoi, posso mostrarti un esempio completo di login sicuro con sessione e rigenerazione dell’ID.
+`$_SESSION` è potente per gestire dati utente, ma **deve essere usato con
+attenzione** . `session_regenerate_id()` è uno strumento chiave per **proteggere
+la sessione** da attacchi comuni. Se vuoi, posso mostrarti un esempio completo
+di login sicuro con sessione e rigenerazione dell’ID.
 
-############################################################  Metodo Statico ######################################################
+############################################################ Metodo Statico
+######################################################
 
 ## Differenza fondamentale
 
-| Sintassi           | Tipo di metodo       | Quando si usa                                   |
-| ------------------ | -------------------- | ----------------------------------------------- |
-| `Car::drive();`  | **Statico**    | Quando il metodo non dipende dall’oggetto      |
+| Sintassi         | Tipo di metodo | Quando si usa                                   |
+| ---------------- | -------------- | ----------------------------------------------- |
+| `Car::drive();`  | **Statico**    | Quando il metodo non dipende dall’oggetto       |
 | `$car->drive();` | **Di istanza** | Quando il metodo agisce su un oggetto specifico |
-
 
 ### 🔧 1. Metodo Statico — `Car::drive();`
 
-* Usa `::` per accedere a  **metodi statici** .
-* Non serve creare un oggetto.
-* Il metodo non può usare `$this` perché non c'è istanza.
+- Usa `::` per accedere a **metodi statici** .
+- Non serve creare un oggetto.
+- Il metodo non può usare `$this` perché non c'è istanza.
 
 #### Esempio:
 
-
-class Car {
-    public static function drive() {
-        echo "Sto guidando (staticamente)";
-    }
-}
+class Car { public static function drive() { echo "Sto guidando (staticamente)";
+} }
 
 Car::drive(); // ✅ Funziona
 
-
 ### Errori comuni
 
-* Se provi a chiamare un metodo **non statico** con `::`, PHP ti darà un  **errore** .
-* Se provi a chiamare un metodo **statico** con `->`, PHP ti avvisa che non è corretto (anche se a volte lo permette, ma è sconsigliato).
+- Se provi a chiamare un metodo **non statico** con `::`, PHP ti darà un
+  **errore** .
+- Se provi a chiamare un metodo **statico** con `->`, PHP ti avvisa che non è
+  corretto (anche se a volte lo permette, ma è sconsigliato).
 
 ### 🧪 Quando usare cosa?
 
-| Caso d’uso          | Metodo statico (`::`) | Metodo di istanza (`->`) |
-| -------------------- | ----------------------- | -------------------------- |
-| Utility generiche    | ✅                      | ❌                         |
-| Azioni su un oggetto | ❌                      | ✅                         |
-| Accesso a proprietà | ❌                      | ✅                         |
-| Singleton o Factory  | ✅                      | ✅ (dopo creazione)        |
+| Caso d’uso           | Metodo statico (`::`) | Metodo di istanza (`->`) |
+| -------------------- | --------------------- | ------------------------ |
+| Utility generiche    | ✅                    | ❌                       |
+| Azioni su un oggetto | ❌                    | ✅                       |
+| Accesso a proprietà  | ❌                    | ✅                       |
+| Singleton o Factory  | ✅                    | ✅ (dopo creazione)      |
 
-Anche le variabili possono essere Static , in foto si vede come vengono chiamate staticamente con ' : : '
+Anche le variabili possono essere Static , in foto si vede come vengono chiamate
+staticamente con ' : : '
 
 ![1762770561544](image/Teoria_PHP/1762770561544.png)
 
-##################################################################  COSTANT  & DEFINE #######################################################
+################################################################## COSTANT &
+DEFINE #######################################################
 
 ## `define()`
 
-* Serve per **definire una costante globale**
-* Sintassi: `define('NOME', valore);`
-* Può essere usata **fuori dalle classi**
-* Il nome è **sempre una stringa**
-* Non supporta visibilità (`public`, `private`, ecc.)
+- Serve per **definire una costante globale**
+- Sintassi: `define('NOME', valore);`
+- Può essere usata **fuori dalle classi**
+- Il nome è **sempre una stringa**
+- Non supporta visibilità (`public`, `private`, ecc.)
 
 ## `const`
 
-* Serve per **definire costanti** sia **globali** che **dentro le classi**
-* Sintassi: `const NOME = valore;`
-* Più moderno e leggibile
-* Supporta visibilità **dentro le classi**
+- Serve per **definire costanti** sia **globali** che **dentro le classi**
+- Sintassi: `const NOME = valore;`
+- Più moderno e leggibile
+- Supporta visibilità **dentro le classi**
 
 ## Differenze principali
 
-| Caratteristica    | `define()`       | `const`             |
-| ----------------- | ------------------ | --------------------- |
-| Usabile in classi | ❌                 | ✅                    |
-| Nome come stringa | ✅                 | ❌                    |
-| Visibilità (OOP) | ❌                 | ✅ (`public`, ecc.) |
-| Valore dinamico   | ✅ (in certi casi) | ❌ (solo statico)     |
+| Caratteristica    | `define()`         | `const`             |
+| ----------------- | ------------------ | ------------------- |
+| Usabile in classi | ❌                 | ✅                  |
+| Nome come stringa | ✅                 | ❌                  |
+| Visibilità (OOP)  | ❌                 | ✅ (`public`, ecc.) |
+| Valore dinamico   | ✅ (in certi casi) | ❌ (solo statico)   |
 
-##################################################################    Container #################################################################
+################################################################## Container
+#################################################################
 
 ![1762771221220](image/Teoria_PHP/1762771221220.png)
 
 ## Cos'è il Singleton?
 
-Il **Singleton** è un pattern di progettazione che garantisce che **una classe abbia una sola istanza** e fornisce un **punto di accesso globale** a quell’istanza.
+Il **Singleton** è un pattern di progettazione che garantisce che **una classe
+abbia una sola istanza** e fornisce un **punto di accesso globale** a
+quell’istanza.
 
 ### 🎯 Obiettivo:
 
-* Evitare la creazione di più oggetti della stessa classe.
-* Usare sempre **la stessa istanza** per tutto il ciclo dell’applicazione.
+- Evitare la creazione di più oggetti della stessa classe.
+- Usare sempre **la stessa istanza** per tutto il ciclo dell’applicazione.
 
 ### Dettagli chiave:
 
-* `private function __construct()`👉 Impedisce la creazione diretta dell’oggetto con `new Container()`
-* `private static ?Container $instance = null;`👉 Memorizza l’unica istanza della classe
-* `getInstance()`
-  👉 Metodo statico che controlla se l’istanza esiste. Se no, la crea. Se sì, la restituisce.
+- `private function __construct()`👉 Impedisce la creazione diretta dell’oggetto
+  con `new Container()`
+- `private static ?Container $instance = null;`👉 Memorizza l’unica istanza
+  della classe
+- `getInstance()` 👉 Metodo statico che controlla se l’istanza esiste. Se no, la
+  crea. Se sì, la restituisce.
 
 ## Vantaggi del Singleton
 
-* **Controllo centralizzato** : utile per gestire risorse condivise (es. connessione DB, configurazioni)
-* **Efficienza** : evita la duplicazione di oggetti pesanti
-* **Consistenza** : tutti usano lo stesso oggetto
+- **Controllo centralizzato** : utile per gestire risorse condivise (es.
+  connessione DB, configurazioni)
+- **Efficienza** : evita la duplicazione di oggetti pesanti
+- **Consistenza** : tutti usano lo stesso oggetto
 
-#####################################################  `__set`, `__isset` e `__unset`    #################################################################
+##################################################### `__set`, `__isset` e
+`__unset` #################################################################
 
 ![1762771934536](image/Teoria_PHP/1762771934536.png)
 
-Certo Donato! Ti spiego meglio come funzionano i **metodi magici** `__set`, `__isset` e `__unset` in PHP, usando l’esempio che hai condiviso. Questi metodi permettono di **intercettare operazioni sui dati** di un oggetto che non sono direttamente accessibili o definiti.
+Certo Donato! Ti spiego meglio come funzionano i **metodi magici** `__set`,
+`__isset` e `__unset` in PHP, usando l’esempio che hai condiviso. Questi metodi
+permettono di **intercettare operazioni sui dati** di un oggetto che non sono
+direttamente accessibili o definiti.
 
 ## 🧙‍♂️ Cosa sono i metodi magici?
 
-I **metodi magici** in PHP iniziano con `__` (doppio underscore) e vengono chiamati **automaticamente** quando fai certe operazioni su un oggetto.
+I **metodi magici** in PHP iniziano con `__` (doppio underscore) e vengono
+chiamati **automaticamente** quando fai certe operazioni su un oggetto.
 
 ## Analisi dei metodi nel tuo esempio
 
 ### 1. `__set($key, $value)`
 
-Viene chiamato  **quando provi a impostare una proprietà che non esiste** .
+Viene chiamato **quando provi a impostare una proprietà che non esiste** .
 
-public function __set($key, $value) {
-    $this->attributes[$key] = $value;
-}
+public function __set($key, $value) { $this->attributes[$key] = $value; }
 
- In questo caso, salva il valore in un array chiamato `$attributes`.
+In questo caso, salva il valore in un array chiamato `$attributes`.
 
 #### Esempio:
 
 $aboutUs->content = 'This is the content';
 
-* `content` non è una proprietà definita nella classe
-* Quindi viene intercettata da `__set`
-* Il valore viene salvato in `$attributes['content']`
+- `content` non è una proprietà definita nella classe
+- Quindi viene intercettata da `__set`
+- Il valore viene salvato in `$attributes['content']`
 
 ### `__isset($key)`
 
-Viene chiamato quando usi `isset()` su una proprietà  **non definita** .
+Viene chiamato quando usi `isset()` su una proprietà **non definita** .
 
-public function __isset($key) {
-    return true;
-}
+public function __isset($key) { return true; }
 
 ES
 
@@ -2368,39 +2409,39 @@ isset($aboutUs->content); // Chiama __isset
 
 ### `__unset($key)`
 
-Viene chiamato quando usi `unset()` su una proprietà  **non definita** .
+Viene chiamato quando usi `unset()` su una proprietà **non definita** .
 
-public function __unset($key) {
-    var_dump("__unset has been called with: {$key}");
-}
-
+public function __unset($key) { var_dump("__unset has been called with:
+{$key}"); }
 
 ## A cosa serve tutto questo?
 
-* Gestione **dinamica** delle proprietà
-* Utile per modelli tipo ORM (es. Eloquent in Laravel)
-* Permette di **astrarre** la logica di accesso ai dati
-
+- Gestione **dinamica** delle proprietà
+- Utile per modelli tipo ORM (es. Eloquent in Laravel)
+- Permette di **astrarre** la logica di accesso ai dati
 
 ## Attenzione
 
-* `__isset` che restituisce sempre `true` può essere **fuorviante**
-* `__unset` qui **non cancella davvero** i dati da `$attributes`
-* Serve una logica interna per gestire davvero la rimozione
+- `__isset` che restituisce sempre `true` può essere **fuorviante**
+- `__unset` qui **non cancella davvero** i dati da `$attributes`
+- Serve una logica interna per gestire davvero la rimozione
 
-##################################     TIPO DI CLASSE DA VEDERE E  SERVE PER USARE ISTANZE COME ARRAY     #####################################
+################################## TIPO DI CLASSE DA VEDERE E SERVE PER USARE
+ISTANZE COME ARRAY #####################################
 
 ![1762772951524](image/Teoria_PHP/1762772951524.png)
 
 ## Cosa fa la classe `PageModel`?
 
-* Implementa `ArrayAccess` → puoi usare l’oggetto come fosse un array (`$obj['chiave']`)
-* Implementa (con errore di scrittura) `Countable` → serve per usare `count($obj)`
+- Implementa `ArrayAccess` → puoi usare l’oggetto come fosse un array
+  (`$obj['chiave']`)
+- Implementa (con errore di scrittura) `Countable` → serve per usare
+  `count($obj)`
 
 ## 🔧 Metodi di `ArrayAccess`
 
-| Metodo             | Funzione                                             |
-| ------------------ | ---------------------------------------------------- |
+| Metodo           | Funzione                                           |
+| ---------------- | -------------------------------------------------- |
 | `offsetExists()` | Controlla se la chiave esiste (`isset($obj['x'])`) |
 | `offsetGet()`    | Ottiene il valore (`$obj['x']`)                    |
 | `offsetSet()`    | Imposta il valore (`$obj['x'] = 'valore'`)         |
@@ -2408,43 +2449,168 @@ public function __unset($key) {
 
 ## 🔢 Metodo `count()`
 
-* Serve per restituire un numero quando fai `count($obj)`
-* Qui ritorna sempre `10` (fisso)
+- Serve per restituire un numero quando fai `count($obj)`
+- Qui ritorna sempre `10` (fisso)
 
-#####################################################  Exeption Object ##########################################################
+##################################################### Exeption Object
+##########################################################
 
 ![1762773360584](image/Teoria_PHP/1762773360584.png)
 
+## Cos'è un'eccezione?
+
+Un'**eccezione** è un meccanismo che permette di **interrompere il flusso
+normale del programma** quando si verifica un errore o una condizione anomala.
+Invece di far "crashare" il programma, puoi **gestire l'errore elegantemente** .
 
 ## Cos'è un'eccezione?
 
-Un'**eccezione** è un meccanismo che permette di **interrompere il flusso normale del programma** quando si verifica un errore o una condizione anomala. Invece di far "crashare" il programma, puoi  **gestire l'errore elegantemente** .
-
-## Cos'è un'eccezione?
-
-Un'**eccezione** è un meccanismo che permette di **interrompere il flusso normale del programma** quando si verifica un errore o una condizione anomala. Invece di far "crashare" il programma, puoi  **gestire l'errore elegantemente** .
+Un'**eccezione** è un meccanismo che permette di **interrompere il flusso
+normale del programma** quando si verifica un errore o una condizione anomala.
+Invece di far "crashare" il programma, puoi **gestire l'errore elegantemente** .
 
 ## 🔧 Struttura base in PHP
 
 ### 1. `throw new Exception('messaggio')`
 
-* Lancia un'eccezione.
-* Ferma l'esecuzione normale e cerca un blocco `catch`.
+- Lancia un'eccezione.
+- Ferma l'esecuzione normale e cerca un blocco `catch`.
 
 ### 2. `try { ... }`
 
-* Contiene il codice che  **potrebbe generare un'eccezione** .
+- Contiene il codice che **potrebbe generare un'eccezione** .
 
 ### 3. `catch (Exception $e) { ... }`
 
-* Intercetta l'eccezione e permette di **gestirla** (es. loggare, mostrare un messaggio).
+- Intercetta l'eccezione e permette di **gestirla** (es. loggare, mostrare un
+  messaggio).
 
 ## 🧠 Perché usare le eccezioni?
 
-* Separano la **logica normale** dalla **gestione degli errori**
-* Rendono il codice più **pulito e robusto**
-* Permettono di **centralizzare** la gestione degli errori
+- Separano la **logica normale** dalla **gestione degli errori**
+- Rendono il codice più **pulito e robusto**
+- Permettono di **centralizzare** la gestione degli errori
 
-ATTENZIONE !!!!!! ALTRO MODO DI CREARE CONTROLLO PER GLI ERRORI , IN QUESTO CASO CREANDO LE CLASSI PER GLI AVVISI PERSONALIZZATI !!!!
+ATTENZIONE !!!!!! ALTRO MODO DI CREARE CONTROLLO PER GLI ERRORI , IN QUESTO CASO
+CREANDO LE CLASSI PER GLI AVVISI PERSONALIZZATI !!!!
 
 ![1762773783287](image/Teoria_PHP/1762773783287.png)
+
+####################################################### UNICOD UTF-8
+###############################################################
+
+## 🔤 Stringhe e caratteri in PHP
+
+### `strlen()`
+
+- 🇮🇹 Conta **i byte** , non i caratteri reali.
+- 🇩🇪 Zählt **Bytes** , nicht die tatsächlichen Zeichen.
+
+  👉 Se la stringa contiene caratteri **multibyte** (es. ü, ñ, 漢), il numero
+  risulterà **sbagliato** .
+
+### `mb_strlen()`
+
+- 🇮🇹 Conta i **caratteri reali** (Unicode-aware).
+- 🇩🇪 Zählt die **echten Zeichen** bei **Multibyte-Encoding** (UTF-8, ecc).
+
+  👉 Si usa sempre quando lavori con testi **internazionali** o **UTF-8** .
+
+---
+
+### `mb_substr()`
+
+- 🇮🇹 Restituisce una **sottostringa** rispettando i caratteri multibyte.
+- 🇩🇪 Gibt einen **Teilstring** korrekt bei Multibyte-Zeichen zurück.
+
+  👉 `substr()` normale può **tagliare a metà un carattere multibyte** , creando
+  errori.
+
+---
+
+### `mb_strtoupper()` / `mb_strtolower()`
+
+- 🇮🇹 Converte in **maiuscolo/minuscolo** i caratteri **UTF-8** , correttamente
+  anche per lingue non latine.
+- 🇩🇪 Wandelt korrekt in **Groß-/Kleinschreibung** um (auch bei Umlauten, z.B. “ü
+  → Ü”).
+
+  👉 `strtoupper()` classico non gestisce bene le lettere accentate o simboli
+  Unicode.
+
+---
+
+### `mb_str_split()`
+
+- 🇮🇹 Divide una stringa in **array di caratteri** multibyte.
+- 🇩🇪 Teilt einen String in ein **Array von Multibyte-Zeichen** .
+
+  👉 Perfetto per iterare su caratteri Unicode uno per uno.
+
+---
+
+### `mb_ord()` / `mb_chr()`
+
+- 🇮🇹 `mb_ord()` → restituisce il **codice Unicode** di un carattere.
+
+  `mb_chr()` → fa l’opposto, restituisce il carattere dal codice.
+- 🇩🇪 `mb_ord()` → gibt den **Unicode-Codepunkt** eines Zeichens zurück.
+
+  `mb_chr()` → wandelt Codepunkt → Zeichen um.
+
+📘 Esempio:
+
+###### mb_ord("A"); // 65
+
+###### mb_chr(65); // "A"
+
+### `ASCII` – Teoria
+
+- 🇮🇹 È un **codice di rappresentazione dei caratteri** a 7 bit (128 simboli:
+  lettere, numeri, segni).
+- 🇩🇪 Ein **Zeichencodierungssystem** mit 7 Bit (128 Zeichen).
+
+  👉 Limite: non supporta accenti o caratteri non latini → nasce UTF-8 per
+  questo motivo.
+
+---
+
+### `mb_convert_encoding()`
+
+- 🇮🇹 Converte una stringa **da una codifica a un’altra** (es. da ISO-8859-1 →
+  UTF-8).
+- 🇩🇪 Wandelt eine Zeichenkette **von einem Encoding ins andere** um.
+
+  👉 Utile quando ricevi dati da fonti esterne o database con charset diversi.
+
+---
+
+## 🗄️ Database & UTF-8 — Best Practice
+
+- Usa **UTF-8 (utf8mb4)** **ovunque** (DB, tabelle, connessione PHP).
+  - 🇮🇹 Supporta tutti i caratteri Unicode, inclusi emoji.
+  - 🇩🇪 Unterstützt alle Unicode-Zeichen (auch Emojis).
+- Evita il vecchio **utf8 (MySQL)** → taglia i caratteri oltre 3 byte ❌.
+- Imposta la connessione con:
+
+##### mysqli_set_charset($conn, "utf8mb4");
+
+- Uniformità è fondamentale → **stesso charset** per:
+  - File PHP
+  - Database
+  - HTML `<meta charset="UTF-8">`
+
+👉 Differenze multiple di codifica esistono per **retrocompatibilità** (vecchi
+sistemi, lingue specifiche, ecc.).
+
+Usa **UTF-8** come standard moderno.
+
+---
+
+### 💡 Dritte / Tipps:
+
+- In PHP moderno, **usa sempre funzioni `mb_*`** .
+- Controlla sempre la **locale** (`mb_internal_encoding("UTF-8")`).
+- Nei database, **normalizza tutto in UTF-8** .
+- Quando ricevi o esporti dati, **conferma la codifica**
+  (`mb_detect_encoding()`).
